@@ -3705,6 +3705,64 @@ p {
   color: var(--text-secondary);
 }
 
+/* --- World Flavors — region cards -------------------------------- */
+.region-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.region-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+}
+
+.region-card-img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-strong);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.region-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.region-card:hover .region-card-img img {
+  transform: scale(1.06);
+}
+
+.region-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.region-card-body .pill-list {
+  gap: 0.45rem;
+}
+
+.region-card-body .pill {
+  padding: 0.34rem 0.8rem;
+  font-size: 0.74rem;
+}
+
+.region-card-body > p {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
 /* --- Stat band typography ---------------------------------------- */
 .stat-card {
   height: 100%;
@@ -4033,6 +4091,21 @@ p {
 }
 
 /* =============================================================
+   Float layer — an invisible wrapper GSAP translates to give the
+   home cards their gentle continuous drift. Nothing else styles
+   it, and the card inside keeps its own transform free for hover
+   lifts and the reveals that already target it, so layout and
+   design stay exactly as they were.
+   ============================================================= */
+.card-float-layer {
+  height: 100%;
+}
+
+.card-float-layer.is-floating {
+  will-change: transform;
+}
+
+/* =============================================================
    Card outline — a slow conic "sheen" that travels around the
    perimeter of every card. The gradient is masked down to a hairline
    ring (content-box XOR border-box) so it reads as an outline rather
@@ -4059,6 +4132,7 @@ p {
 .newsletter-card,
 .info-card,
 .dept-card,
+.region-card,
 .etiquette-card,
 .auth-card,
 .auth-branding-card,
@@ -4083,6 +4157,7 @@ p {
 .newsletter-card::after,
 .info-card::after,
 .dept-card::after,
+.region-card::after,
 .etiquette-card::after,
 .auth-card::after,
 .auth-branding-card::after,

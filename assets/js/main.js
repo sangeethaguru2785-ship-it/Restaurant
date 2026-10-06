@@ -1355,6 +1355,106 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 16b. World Flavors — region cards staggered reveal
+   * ------------------------------------------------------------------ */
+  function initRegionCardsAnimation() {
+    const section = d.getElementById("world-flavors");
+    if (!section || reducedMotion || !hasGSAP) return;
+
+    const slots = Array.from(section.querySelectorAll(".region-slot"));
+    if (!slots.length) return;
+
+    w.gsap.fromTo(
+      slots,
+      { y: isMobile ? 24 : 44, opacity: 0, scale: 0.97 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.09,
+        ease: "power3.out",
+        scrollTrigger: { trigger: section, start: "top 78%", once: true },
+        onComplete: () => w.gsap.set(slots, { clearProps: "transform,opacity,scale" }),
+      }
+    );
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 16c. Home — gentle continuous float, layered over existing motion
+   * ------------------------------------------------------------------ */
+  const HOME_FLOAT_CARDS = [
+    ".feature-card",
+    ".special-card",
+    ".stat-card",
+    ".info-card",
+    ".menu-card",
+    ".chef-card",
+    ".testimonial-card",
+    ".newsletter-card",
+  ].join(", ");
+
+  function initHomeCardsFloat() {
+    if (reducedMotion || !hasGSAP) return;
+    if (!d.getElementById("hero")) return; // home page only
+
+    const cards = Array.from(d.querySelectorAll(HOME_FLOAT_CARDS));
+    if (!cards.length) return;
+
+    const layers = new Map();
+
+    cards.forEach((card, index) => {
+      const parent = card.parentElement;
+      if (!parent) return;
+
+      // The float runs on its own wrapper, so the card keeps its transform
+      // free for hover lifts and every animation that already targets it.
+      let layer = card.previousElementSibling;
+      if (!layer || !layer.classList.contains("card-float-layer")) {
+        layer = d.createElement("div");
+        layer.className = "card-float-layer";
+        parent.insertBefore(layer, card);
+        layer.appendChild(card);
+      }
+
+      const tween = w.gsap.to(layer, {
+        y: -(5 + (index % 3)), // 5px, 6px or 7px — barely there
+        duration: 3.6 + (index % 5) * 0.35, // 3.6s-5s per half cycle
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        delay: (index % 8) * 0.32, // each card starts out of step
+        force3D: true,
+        paused: true,
+      });
+
+      layers.set(layer, tween);
+    });
+
+    const setFloating = (layer, floating) => {
+      const tween = layers.get(layer);
+      if (!tween) return;
+      layer.classList.toggle("is-floating", floating);
+      if (floating) tween.play();
+      else tween.pause();
+    };
+
+    if (typeof w.IntersectionObserver === "undefined") {
+      layers.forEach((_, layer) => setFloating(layer, true));
+      return;
+    }
+
+    // Only the cards near the viewport keep ticking.
+    const io = new w.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setFloating(entry.target, entry.isIntersecting));
+      },
+      { rootMargin: "150px 0px" }
+    );
+    layers.forEach((_, layer) => io.observe(layer));
+  }
+
+  /* ------------------------------------------------------------------ *
    * 17. Buttons — subtle hover animation (GSAP mouseenter/leave/down)
    * ------------------------------------------------------------------ */
   function initButtonHoverAnimations() {
@@ -1492,6 +1592,8 @@
     initFooterAnimation();
     initImageAnimations();
     initCardsStaggerEngine();
+    initRegionCardsAnimation();
+    initHomeCardsFloat();
     initButtonHoverAnimations();
     initCounters();
     initGenericReveals();

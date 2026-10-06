@@ -59,45 +59,32 @@
   }
 
   /* ---------------------------------------------------------------- *
-   * Navbar user indicator (for pages with navbar)
+   * Navbar Sign In control (for pages with navbar)
+   *
+   * Public pages keep this control identical in both states: the label is
+   * always "Sign In" and the target is always login.html, whatever the
+   * session holds. No name, username or profile label is ever painted into
+   * the header — the greeting lives on the dashboard pages only, where
+   * dashboard.js reads the same session and fills [data-user-name].
+   * The markup and the label footprint never change, so desktop and the
+   * collapsed mobile bar stay aligned exactly as they are.
    * ---------------------------------------------------------------- */
   const navLogin = d.getElementById("navLogin");
   const onAuthPage = !!d.getElementById("loginForm") || !!d.getElementById("signupForm");
 
-  // The home page keeps the plain Sign In button whatever the session holds:
-  // the greeting belongs on the dashboards, not on the public landing page.
-  const pageFile = (w.location.pathname.split("/").pop() || "").toLowerCase();
-  const isHomePage = pageFile === "" || pageFile === "index.html" || pageFile === "index.htm";
-
-  function paintNav(user) {
+  function paintNav() {
     if (!navLogin) return;
-    if (isHomePage) user = null;
     const text = navLogin.querySelector(".navbar-login-text");
 
-    if (!user) {
-      if (text) text.textContent = "Sign In";
-      navLogin.classList.remove("is-authed");
-      navLogin.setAttribute("href", "login.html");
-      navLogin.dataset.authLabel = "Sign In";
-      navLogin.setAttribute("aria-label", "Sign in to Stackly");
-      if (onAuthPage) navLogin.setAttribute("aria-current", "page");
-      return;
-    }
-
-    const first = String(user.name || user.email).trim().split(/\s+/)[0];
-    const short = first.length > 10 ? first.slice(0, 9) + "…" : first;
-    if (text) text.textContent = "Hi, " + short;
-    navLogin.classList.add("is-authed");
-    const dashUrl = (user.role === "admin" || (user.email && user.email.toLowerCase().includes("admin")))
-      ? "admin-dashboard.html"
-      : "customer-dashboard.html";
-    navLogin.setAttribute("href", dashUrl);
-    navLogin.dataset.authLabel = "Dashboard";
-    navLogin.setAttribute("aria-label", "Go to your dashboard");
-    navLogin.removeAttribute("aria-current");
+    if (text) text.textContent = "Sign In";
+    navLogin.classList.remove("is-authed");
+    navLogin.setAttribute("href", "login.html");
+    navLogin.dataset.authLabel = "Sign In";
+    navLogin.setAttribute("aria-label", "Sign in to Stackly");
+    if (onAuthPage) navLogin.setAttribute("aria-current", "page");
   }
 
-  paintNav(readUser());
+  paintNav();
 
   /* ---------------------------------------------------------------- *
    * Password reveal toggles
@@ -385,7 +372,7 @@
       };
 
       writeUser(userSession);
-      paintNav(userSession);
+      paintNav();
 
       const targetDashboard = selectedRole === "admin" ? "admin-dashboard.html" : "customer-dashboard.html";
       const roleTitle = selectedRole === "admin" ? "Admin" : "Customer";
@@ -419,7 +406,7 @@
       };
 
       writeUser(newUser);
-      paintNav(newUser);
+      paintNav();
 
       const targetDashboard = selectedRole === "admin" ? "admin-dashboard.html" : "customer-dashboard.html";
       const roleTitle = selectedRole === "admin" ? "Admin" : "Customer";
