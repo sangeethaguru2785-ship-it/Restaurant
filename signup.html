@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Create a Stackly Fine Dining account — Choose your role as Customer or Admin to manage reservations, orders, and culinary dining experiences." />
+  <meta property="og:title" content="Create Account - Stackly Fine Dining" />
+  <meta property="og:description" content="Create a Stackly account for fine dining reservations and member privileges." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Create Account — Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="auth-page">
+  <div class="auth-section">
+    <div class="container">
+      <div class="auth-split-wrapper">
+        <div class="row g-4 align-items-stretch justify-content-center">
+
+          <!-- Left Card: Branding & Member Privileges Content -->
+          <div class="col-lg-5 col-xl-5 d-flex flex-column">
+            <div class="auth-branding-card">
+              <div class="auth-branding-bg" style="background-image: url('assets/img/about-interior.webp');"></div>
+              <div class="auth-branding-overlay"></div>
+
+              <div class="auth-branding-content">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <a href="index.html" title="Stackly Fine Dining">
+                      <img src="assets/img/logo.webp" alt="Stackly Fine Dining" width="135" height="55" />
+                    </a>
+                    <span class="auth-brand-badge">
+                      <i class="bi bi-gem text-gold"></i> Member Salon
+                    </span>
+                  </div>
+
+                  <h2 class="auth-brand-title">Join Our Private Gastronomic Circle</h2>
+                  <p class="auth-brand-lead">
+                    Create your membership to unlock priority dining salon reservations, bespoke seasonal tastings, and private cellar allocations on Park Avenue.
+                  </p>
+
+                  <ul class="auth-features-list">
+                    <li>
+                      <i class="bi bi-check2-circle"></i>
+                      <span>Priority Seating in Main Salon &amp; Window Alcoves</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-check2-circle"></i>
+                      <span>Complimentary Sommelier Pour &amp; Welcome Bite</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-check2-circle"></i>
+                      <span>Earn 10 Reward Points Per $1 Spent</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="auth-testimonial-box">
+                  <p class="auth-testimonial-quote">
+                    "Crafted for those who view dinner not as a meal, but as the crowning moment of their day."
+                  </p>
+                  <p class="auth-testimonial-author">
+                    — Julian Rivera, Executive Chef
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Card: Registration Form -->
+          <div class="col-lg-7 col-xl-7 d-flex flex-column">
+            <div class="auth-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <a href="index.html" class="auth-back-link mb-0">
+                    <i class="bi bi-arrow-left"></i> Back to restaurant
+                  </a>
+                  <span class="auth-badge mb-0">
+                    <i class="bi bi-person-plus"></i> Member Registration
+                  </span>
+                </div>
+
+                <h1 class="h3 fw-bold mb-1">Create Your Account</h1>
+                <p class="text-muted small mb-4">Select your role and complete your registration details.</p>
+
+                <form id="signupForm" class="auth-form" novalidate>
+                  <!-- Role Selection: Admin & Customer (Single Select) -->
+                  <div class="role-selector-wrap">
+                    <span class="role-selector-label">Register As</span>
+                    <div class="role-options-grid">
+                      <!-- Customer Role -->
+                      <div>
+                        <input class="role-card-input" type="radio" name="role" id="roleCustomer" value="customer" checked />
+                        <label class="role-card-label" for="roleCustomer">
+                          <div class="role-card-top">
+                            <span class="role-card-icon"><i class="bi bi-person-check-fill"></i></span>
+                            <span class="role-check-indicator"><i class="bi bi-check-lg"></i></span>
+                          </div>
+                          <div class="role-card-title">Customer</div>
+                          <p class="role-card-desc">Reserve tables, view orders &amp; earn rewards</p>
+                        </label>
+                      </div>
+
+                      <!-- Admin Role -->
+                      <div>
+                        <input class="role-card-input" type="radio" name="role" id="roleAdmin" value="admin" />
+                        <label class="role-card-label" for="roleAdmin">
+                          <div class="role-card-top">
+                            <span class="role-card-icon"><i class="bi bi-shield-lock-fill"></i></span>
+                            <span class="role-check-indicator"><i class="bi bi-check-lg"></i></span>
+                          </div>
+                          <div class="role-card-title">Admin</div>
+                          <p class="role-card-desc">Manage dining rooms, orders, revenue &amp; menu</p>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Full Name (Alphabets Only) -->
+                  <div class="auth-field">
+                    <label for="signupName" class="form-label small text-muted">Full Name</label>
+                    <div class="auth-input-wrap">
+                      <i class="bi bi-person auth-field-icon" aria-hidden="true"></i>
+                      <input type="text" class="form-control auth-input" id="signupName" name="name"
+                        placeholder="e.g. Sarah Jenkins" autocomplete="name" required />
+                    </div>
+                    <div class="invalid-feedback">Name must contain alphabets and spaces only.</div>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="auth-field">
+                    <label for="signupEmail" class="form-label small text-muted">Email Address</label>
+                    <div class="auth-input-wrap">
+                      <i class="bi bi-envelope auth-field-icon" aria-hidden="true"></i>
+                      <input type="email" class="form-control auth-input" id="signupEmail" name="email"
+                        placeholder="name@example.com" autocomplete="username" spellcheck="false"
+                        pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                        title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)" required />
+                    </div>
+                    <div class="invalid-feedback">Please enter a valid email address (only letters, numbers, @, and . allowed).</div>
+                  </div>
+
+                  <!-- Phone Number Field (Numbers Only) -->
+                  <div class="auth-field">
+                    <label for="signupPhone" class="form-label small text-muted">Phone Number</label>
+                    <div class="auth-input-wrap">
+                      <i class="bi bi-telephone auth-field-icon" aria-hidden="true"></i>
+                      <input type="tel" class="form-control auth-input" id="signupPhone" name="phone"
+                        placeholder="e.g. 5551234567" autocomplete="tel" required />
+                    </div>
+                    <div class="invalid-feedback">Phone number must contain numbers only (10 to 15 digits).</div>
+                  </div>
+
+                  <!-- Password Field (Uppercase, lowercase, number, special char, min 8) -->
+                  <div class="auth-field">
+                    <label for="signupPassword" class="form-label small text-muted">Password</label>
+                    <div class="auth-input-wrap">
+                      <i class="bi bi-lock auth-field-icon" aria-hidden="true"></i>
+                      <input type="password" class="form-control auth-input has-toggle" id="signupPassword"
+                        name="password" placeholder="Create a strong password" autocomplete="new-password"
+                        minlength="8" required />
+                      <button class="auth-toggle" type="button" data-pw-toggle="signupPassword"
+                        aria-label="Show password" aria-pressed="false">
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <div class="invalid-feedback" data-pw-feedback>Password must have at least 8 characters, with uppercase, lowercase, number, and special character.</div>
+                    <div class="pw-meter" aria-hidden="true"><span id="pwMeterBar"></span></div>
+                    <p class="pw-hint mb-0" id="pwHint" aria-live="polite">Mix uppercase, lowercase, a number and a symbol (min 8 chars).</p>
+                  </div>
+
+                  <!-- Confirm Password Field -->
+                  <div class="auth-field">
+                    <label for="signupConfirm" class="form-label small text-muted">Confirm Password</label>
+                    <div class="auth-input-wrap">
+                      <i class="bi bi-lock-fill auth-field-icon" aria-hidden="true"></i>
+                      <input type="password" class="form-control auth-input has-toggle" id="signupConfirm"
+                        name="confirm" placeholder="Repeat your password" autocomplete="new-password"
+                        required />
+                      <button class="auth-toggle" type="button" data-pw-toggle="signupConfirm"
+                        aria-label="Show password" aria-pressed="false">
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <div class="invalid-feedback" data-pw-feedback>Passwords must match.</div>
+                  </div>
+
+                  <!-- Terms & Conditions Checkbox -->
+                  <div class="form-check auth-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="signupTerms" name="terms" required />
+                    <label class="form-check-label small" for="signupTerms">
+                      I agree to the <a href="404.html">Terms Of Service</a> and <a href="404.html">Privacy Policy</a>.
+                    </label>
+                    <div class="invalid-feedback">Please accept the terms to continue.</div>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill auth-submit">
+                    <i class="bi bi-person-plus me-2" aria-hidden="true"></i>Create Account
+                  </button>
+
+                  <p class="auth-alt mb-0">
+                    Already have an account? <a href="login.html">Sign in instead</a>
+                  </p>
+                </form>
+              </div>
+
+              <p class="auth-note mb-0 mt-4">
+                <i class="bi bi-shield-check me-1 text-gold"></i>
+                Selecting <strong>Admin</strong> opens the Admin Management Portal, while <strong>Customer</strong> creates your personal dining salon account.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2 text-success" aria-hidden="true"></i>
+        <strong class="me-auto">Stackly Fine Dining</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+      <div class="toast-body">Thank you! Your request has been received.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

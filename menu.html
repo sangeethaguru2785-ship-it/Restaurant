@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Explore the Stackly Fine Dining menu — seasonal starters, mains, desserts and a bar list of curated wines, cocktails and zero-proof pairings." />
+  <meta property="og:title" content="Menu - Stackly Fine Dining" />
+  <meta property="og:description"
+    content="Starters, mains, desserts and signature drinks, written fresh each morning." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Menu - Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div id="scrollProgress"></div>
+
+  <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="brand-logo" src="assets/img/logo.webp" alt="Stackly Fine Dining" decoding="async"
+          width="1200" height="493" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="menu.html" aria-current="page">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Our Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="404.html" class="btn btn-primary navbar-book px-4 py-2 rounded-pill shadow-sm">Book Table</a>
+          <a class="navbar-login" id="navLogin" href="login.html" data-auth-label="Sign In">
+            <i class="bi bi-person" aria-hidden="true"></i><span class="navbar-login-text">Sign In</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       Page hero
+       ============================================================ -->
+  <section id="page-hero" class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('assets/img/menu-platter.webp')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-noise"></div>
+    <div class="page-hero-content">
+      <div class="container">
+        <ol class="breadcrumb-custom">
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Menu</li>
+        </ol>
+        <p class="eyebrow text-uppercase mb-3">Full Menu</p>
+        <h1 class="page-hero-title display-3 fw-bold text-white mb-3">Taste The Journey</h1>
+        <p class="lead text-white-75 mb-0">
+          Starters, mains, desserts and signature drinks — written the morning it is served.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       The menu
+       ============================================================ -->
+  <section id="menu" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Individual Dishes</p>
+            <h2 class="display-5 fw-bold">Dishes Of The Season</h2>
+            <p class="text-muted mb-0">
+              Our individual dishes run alongside a chef's special menu. Filter by course to find what you are
+              looking for.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-5 reveal">
+        <div class="btn-group flex-wrap justify-content-center filter-buttons" role="group" aria-label="Filter menu by course">
+          <button type="button" class="btn btn-filter active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="btn btn-filter" data-filter="starters" aria-pressed="false">Starters</button>
+          <button type="button" class="btn btn-filter" data-filter="mains" aria-pressed="false">Mains</button>
+          <button type="button" class="btn btn-filter" data-filter="desserts" aria-pressed="false">Desserts</button>
+          <button type="button" class="btn btn-filter" data-filter="drinks" aria-pressed="false">Drinks</button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Starters -->
+        <div class="col-md-6 menu-item reveal" data-category="starters">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-salad.webp" alt="Roasted beet carpaccio with goat cheese" loading="lazy"
+                decoding="async" width="1280" height="853" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Roasted Beet Carpaccio</h3>
+                <span class="price fw-bold">$14</span>
+              </div>
+              <p class="text-muted small mb-0">Goat cheese, orange zest, candied walnuts, microgreens.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-1" data-category="starters">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-bowl.webp" alt="Crispy cauliflower bites with harissa aioli" loading="lazy"
+                decoding="async" width="1280" height="1280" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Crispy Cauliflower</h3>
+                <span class="price fw-bold">$12</span>
+              </div>
+              <p class="text-muted small mb-0">Harissa aioli, toasted sesame, fresh herbs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-2" data-category="starters">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/gallery-4.webp" alt="Chargrilled skewers served with seasonal sides" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Charred Octopus</h3>
+                <span class="price fw-bold">$19</span>
+              </div>
+              <p class="text-muted small mb-0">Smoked paprika, confit fingerling, salsa verde.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-3" data-category="starters">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/gallery-3.webp" alt="Wood-fired flatbread fresh from the hearth" loading="lazy"
+                decoding="async" width="1280" height="1547" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Hearth-Fired Flatbread</h3>
+                <span class="price fw-bold">$13</span>
+              </div>
+              <p class="text-muted small mb-0">Wood-fired dough, cultured butter, smoked sea salt.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mains -->
+        <div class="col-md-6 menu-item reveal" data-category="mains">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/menu-fish.webp" alt="Pan-seared sea bass with saffron velouté" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Pan-Seared Sea Bass</h3>
+                <span class="price fw-bold">$38</span>
+              </div>
+              <p class="text-muted small mb-0">Leek fondue, saffron velouté, charred baby potatoes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-1" data-category="mains">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-steak.webp" alt="Charred herb-crusted ribeye plated with garnish" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Charred Herb Ribeye</h3>
+                <span class="price fw-bold">$46</span>
+              </div>
+              <p class="text-muted small mb-0">Smoked onion jus, marrow crumb, spring onion.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-2" data-category="mains">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-pasta.webp" alt="Silken truffle tagliatelle with fresh herbs" loading="lazy"
+                decoding="async" width="1280" height="853" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Truffle Tagliatelle</h3>
+                <span class="price fw-bold">$32</span>
+              </div>
+              <p class="text-muted small mb-0">Aged parmesan cream, winter truffle, fresh herbs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-3" data-category="mains">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/menu-platter.webp" alt="Grilled seasonal vegetable and lentil platter" loading="lazy"
+                decoding="async" width="1280" height="854" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Grilled Veggie Platter</h3>
+                <span class="price fw-bold">$26</span>
+              </div>
+              <p class="text-muted small mb-0">Smoky lentils, tahini yogurt, herb oil.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="col-md-6 menu-item reveal" data-category="desserts">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/menu-dessert.webp" alt="Dark chocolate mousse with tart berries" loading="lazy"
+                decoding="async" width="1280" height="1927" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Dark Chocolate Mousse</h3>
+                <span class="price fw-bold">$11</span>
+              </div>
+              <p class="text-muted small mb-0">Silken mousse, tart berries, gold leaf crumble.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-1" data-category="desserts">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-bowl.webp" alt="Vanilla poached pears with honey cream" loading="lazy"
+                decoding="async" width="1280" height="1280" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Vanilla Poached Pears</h3>
+                <span class="price fw-bold">$10</span>
+              </div>
+              <p class="text-muted small mb-0">Star anise, honey cream, toasted almonds.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-2" data-category="desserts">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/gallery-2.webp" alt="Seasonal fruit tart with fresh cream" loading="lazy"
+                decoding="async" width="1280" height="1655" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Seasonal Fruit Tart</h3>
+                <span class="price fw-bold">$12</span>
+              </div>
+              <p class="text-muted small mb-0">Vanilla crème pâtissière, macerated fruit, crème fraîche.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks -->
+        <div class="col-md-6 menu-item reveal" data-category="drinks">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/dish-drinks.webp" alt="Signature botanical spritz in a coupe glass" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Botanical Spritz</h3>
+                <span class="price fw-bold">$15</span>
+              </div>
+              <p class="text-muted small mb-0">Elderflower, citrus, sparkling rosé, thyme.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-1" data-category="drinks">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/interior-bar.webp" alt="Smoked old fashioned cocktail at the bar" loading="lazy"
+                decoding="async" width="1280" height="1600" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Smoked Old Fashioned</h3>
+                <span class="price fw-bold">$16</span>
+              </div>
+              <p class="text-muted small mb-0">Small-batch bourbon, orange bitters, cherry wood smoke.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 menu-item reveal delay-2" data-category="drinks">
+          <div class="menu-card d-flex gap-3 p-3 h-100">
+            <div class="menu-card-img">
+              <img src="assets/img/gallery-1.webp" alt="Bar-aged Manhattan cocktail with a cherry garnish" loading="lazy"
+                decoding="async" width="1280" height="853" />
+            </div>
+            <div class="menu-card-content flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Bar-Aged Manhattan</h3>
+                <span class="price fw-bold">$18</span>
+              </div>
+              <p class="text-muted small mb-0">Rye whiskey aged in-house, sweet vermouth, brandied cherry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-muted small mt-5 mb-0 reveal">
+        <i class="bi bi-info-circle me-2 text-primary"></i>
+        A 20% gratuity is added to parties of six or more. Please tell us about allergies when you book so the kitchen
+        can plan ahead.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Pairings
+       ============================================================ -->
+  <section id="pairings" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Pairings &amp; The Bar</p>
+            <h2 class="display-5 fw-bold">Something To Drink Alongside</h2>
+            <p class="text-muted mb-0">
+              Our bar team will match any plate on the menu, course by course, if you would like them to.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-cup-straw"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">The Cellar</h3>
+            <p class="text-muted small mb-3">
+              More than nine hundred labels, weighted toward Old World producers and low-intervention bottles nobody
+              else is carrying.
+            </p>
+            <span class="pill">From $60</span>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-droplet"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Zero-Proof Program</h3>
+            <p class="text-muted small mb-3">
+              Ferments, shrubs and clarified juices built with the same care as the wine list — matched to the tasting
+              menu rather than bolted on.
+            </p>
+            <span class="pill">From $14</span>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-martini"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">House Cocktails</h3>
+            <p class="text-muted small mb-3">
+              Bar classics rebuilt around our own barrels, plus a short list of cocktails that change with the season.
+            </p>
+            <span class="pill">From $15</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Ask About A Wine Pairing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Service & dietary
+       ============================================================ -->
+  <section id="service" class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5 reveal">
+          <p class="eyebrow text-uppercase mb-3">Service</p>
+          <h2 class="display-5 fw-bold mb-4">When We Are Serving</h2>
+          <div class="info-card">
+            <h3 class="card-title fs-6 fw-semibold text-uppercase small mb-3">Service Times</h3>
+            <ul class="meta-list">
+              <li><span>Monday — Thursday</span><span class="fw-medium">11:00 AM — 10:00 PM</span></li>
+              <li><span>Friday — Saturday</span><span class="fw-medium">11:00 AM — 12:00 AM</span></li>
+              <li><span>Sunday</span><span class="fw-medium">10:00 AM — 9:00 PM</span></li>
+              <li><span>Late Bar</span><span class="fw-medium">Daily from 10:30 PM</span></li>
+            </ul>
+            <hr class="border-white-10 my-4" />
+            <ul class="meta-list">
+              <li><span>Lunch</span><span class="fw-medium">Mon — Fri, 11:30 AM — 2:30 PM</span></li>
+              <li><span>Sunday Brunch</span><span class="fw-medium">10:00 AM — 2:00 PM</span></li>
+              <li><span>Dinner</span><span class="fw-medium">Daily from 5:30 PM</span></li>
+            </ul>
+            <a href="404.html" class="btn btn-primary w-100 rounded-pill mt-4">Book A Table</a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="reveal">
+            <p class="eyebrow text-uppercase mb-3">Dietary &amp; Allergens</p>
+            <h2 class="display-5 fw-bold mb-4">Cooking For The Whole Table</h2>
+            <p class="text-muted mb-4">
+              Tell us what you need when you book and the kitchen will build around it. Most of our menu can be adapted
+              without straying far from what the dish was trying to be.
+            </p>
+            <ul class="pill-list mb-4">
+              <li class="pill"><i class="bi bi-check2"></i> Vegetarian</li>
+              <li class="pill"><i class="bi bi-check2"></i> Vegan</li>
+              <li class="pill"><i class="bi bi-check2"></i> Gluten-aware</li>
+              <li class="pill"><i class="bi bi-check2"></i> Dairy-free</li>
+              <li class="pill"><i class="bi bi-check2"></i> Nut-aware</li>
+              <li class="pill"><i class="bi bi-check2"></i> Shellfish-free</li>
+            </ul>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div class="feature-card p-4 h-100">
+                  <i class="bi bi-shield-check fs-3 text-primary"></i>
+                  <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Allergies &amp; Intolerances</h3>
+                  <p class="small text-muted mb-0">
+                    Our kitchen handles nuts, shellfish, gluten and dairy in a shared space. Give us at least 24 hours'
+                    notice and we will tell you honestly what we can do.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="feature-card p-4 h-100">
+                  <i class="bi bi-journal-text fs-3 text-primary"></i>
+                  <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Chef's Special Menu</h3>
+                  <p class="small text-muted mb-0">
+                    Seven courses at $125 per guest, with an optional wine pairing at $85. Available for the whole table
+                    only.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Call to action
+       ============================================================ -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 reveal">
+          <p class="eyebrow text-uppercase mb-3">Ready When You Are</p>
+          <h2 class="display-5 fw-bold text-white mb-3">Taste It For Yourself</h2>
+          <p class="text-white-75 lead mb-0">
+            Tables are released 30 days in advance. Let us know about any dietary needs and the kitchen will plan
+            around them.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end reveal delay-1">
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3">
+            <a href="404.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Book A Table</a>
+            <a href="404.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Ask A Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Newsletter
+       ============================================================ -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="newsletter-card">
+            <span class="newsletter-badge">
+              <i class="bi bi-envelope-paper" aria-hidden="true"></i> Stay Connected
+            </span>
+            <h2 class="newsletter-title display-6 mb-3">Stories, Pairings &amp; Seasonal Releases</h2>
+            <p class="lead text-white-75 mb-4 mx-auto" style="max-width: 580px;">
+              Join our private dispatch for first access to new seasonal chef's special menus, wine cellar drops, and
+              invitation-only chef's table reservations.
+            </p>
+            <form class="newsletter-form mx-auto" action="404.html" method="get" style="max-width: 540px;">
+              <div class="newsletter-input-group">
+                <span class="newsletter-input-icon" aria-hidden="true">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email address"
+                  pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                  title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)"
+                  required
+                  aria-label="Email address for newsletter"
+                />
+                <button type="submit" class="btn btn-primary newsletter-btn">
+                  <span>Subscribe</span>
+                  <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="newsletter-note small text-muted mt-3 mb-0">
+                <i class="bi bi-shield-check me-1 text-gold" aria-hidden="true"></i>
+                We respect your inbox. Only seasonal updates and private invitations. Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer-section pt-5 pb-4">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1 - logo, description, social -->
+        <div class="footer-col footer-col-brand reveal">
+          <a class="footer-logo d-inline-block" href="index.html">
+            <img class="brand-logo brand-logo-lg" src="assets/img/logo.webp" alt="Stackly Fine Dining" loading="lazy"
+              decoding="async" width="1200" height="493" />
+          </a>
+          <p class="footer-about">
+            Redefining fine dining with modern elegance, unforgettable flavors, and heartfelt hospitality.
+          </p>
+          <ul class="footer-social list-unstyled" aria-label="Stackly on social media">
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 - quick links -->
+        <nav class="footer-col reveal delay-1" aria-labelledby="footerQuickLinks">
+          <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3 - explore -->
+        <nav class="footer-col reveal delay-2" aria-labelledby="footerExplore">
+          <h2 class="footer-heading" id="footerExplore">Explore</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="404.html">Our Specialties</a></li>
+            <li><a href="404.html">Chef's Selection</a></li>
+            <li><a href="404.html">Private Dining</a></li>
+            <li><a href="404.html">Events &amp; Celebrations</a></li>
+            <li><a href="404.html">Reservations</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4 - contact details -->
+        <div class="footer-col reveal delay-3">
+          <h2 class="footer-heading">Contact Details</h2>
+          <ul class="footer-contact list-unstyled">
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+              <a href="404.html">742 Park Avenue<br />New York, NY 10021</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+              <a href="404.html">+1 (555) 123-4567</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+              <a href="404.html">hello@stackly.restaurant</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 5 - opening hours -->
+        <div class="footer-col reveal delay-4">
+          <h2 class="footer-heading">Opening Hours</h2>
+          <ul class="footer-hours-list list-unstyled">
+            <li><span class="footer-hours-day">Mon — Thu</span><span class="footer-hours-time">11am — 10pm</span></li>
+            <li><span class="footer-hours-day">Fri — Sat</span><span class="footer-hours-time">11am — 12am</span></li>
+            <li><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">10am — 9pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-4 mb-3" />
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white-75 small mb-0">© <span id="year"></span> Stackly Fine Dining. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <ul class="list-inline mb-0 footer-legal">
+            <li class="list-inline-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="404.html">Terms Of Service</a></li>
+            <li class="list-inline-item"><a href="404.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+        <strong class="me-auto">Stackly Fine Dining</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+      <div class="toast-body">Thank you! Your request has been received.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- A 404 is never a page anyone should land on from a search result. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description"
+    content="That page could not be found at Stackly Fine Dining. Go back, or return to the restaurant home page." />
+  <meta property="og:title" content="Page Not Found - Stackly Fine Dining" />
+  <meta property="og:description" content="This page is off the menu. Go back, or head to the home page." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Page Not Found (404) - Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="error-page">
+  <!-- Drifting gold and wine light, plus the grain the hero uses. Fixed and
+       pointer-events:none, so it costs nothing to interact with. -->
+  <div class="error-bg" aria-hidden="true">
+    <div class="error-bg-orb error-bg-orb-wine"></div>
+    <div class="error-bg-orb error-bg-orb-gold"></div>
+    <div class="error-bg-vignette"></div>
+    <div class="error-bg-grain"></div>
+  </div>
+
+  <!-- ============================================================
+       Everything on this page: mark, error, way back. No navbar,
+       hero or footer - a dead end should offer one obvious exit.
+       ============================================================ -->
+  <section class="error-section">
+    <div class="container">
+      <div class="error-panel">
+
+        <a class="error-logo error-anim" href="index.html">
+          <img src="assets/img/logo.webp" alt="Stackly Fine Dining" decoding="async" width="1200" height="493" />
+        </a>
+
+        <p class="error-code" aria-hidden="true">404</p>
+
+        <span class="error-rule error-anim" aria-hidden="true"></span>
+
+        <h1 class="error-title error-anim">This Page Is Off The Menu</h1>
+
+        <p class="error-text error-anim">
+          The link you followed has been moved, renamed, or never made it out of the kitchen.
+        </p>
+
+        <div class="error-actions">
+          <button type="button" class="btn btn-primary btn-lg px-5 py-3 rounded-pill error-btn error-anim"
+            id="goBack">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i><span>Go Back</span>
+          </button>
+          <a href="index.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill error-btn error-anim"
+            id="goHome">
+            <i class="bi bi-house-door" aria-hidden="true"></i><span>Go to Home</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var d = document;
+      var goBack = d.getElementById("goBack");
+
+      // "Go Back" walks the browser's own history so it lands on the exact
+      // page - or in-page section - the visitor came from. History length is
+      // the reliable signal: document.referrer is frequently empty (referrer
+      // policy, JS-driven navigation, hash jumps), which would otherwise send
+      // everyone to the home page. Only a tab with no earlier entry - the URL
+      // was typed, pasted or bookmarked - falls back to the home page.
+      goBack.addEventListener("click", function () {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Nothing below this point is allowed to affect whether the page is
+      // readable. The stylesheet does not hide anything; the only thing that
+      // ever gets faded out is faded out here, by script, immediately before
+      // GSAP is asked to fade it back in. Every failure path - GSAP missing,
+      // reduced motion, an exception mid-timeline, or a tab that is
+      // backgrounded so requestAnimationFrame never fires at all - has to end
+      // with the content visible and no inline styles left on it.
+      if (!window.gsap || reduced) return;
+
+      var gsap = window.gsap;
+      var targets = ".error-anim, .error-char";
+      var settled = false;
+
+      // Hand the elements back to the stylesheet: clearProps strips the inline
+      // styles GSAP wrote, so the page is left exactly as the CSS describes it
+      // and nothing can stay stuck at opacity 0.
+      function settle() {
+        if (settled) return;
+        settled = true;
+        clearTimeout(failsafe);
+        gsap.set(targets, { clearProps: "all" });
+      }
+
+      // Belt and braces. A stalled or dropped ticker would otherwise leave the
+      // content hidden, and this runs whether or not the timeline ever reports
+      // completion.
+      var failsafe = setTimeout(settle, 5000);
+
+      try {
+        // Split the numeral so each glyph can rise on its own. This happens
+        // before anything is hidden, and the element is aria-hidden, so
+        // assistive tech never sees the extra nodes.
+        var code = d.querySelector(".error-code");
+        var glyphs = code.textContent.trim();
+        code.textContent = "";
+        for (var i = 0; i < glyphs.length; i++) {
+          var span = d.createElement("span");
+          span.className = "error-char";
+          span.textContent = glyphs.charAt(i);
+          code.appendChild(span);
+        }
+
+        // Only fade the content out once requestAnimationFrame has actually
+        // fired. GSAP drives its ticker off rAF, so a tab that is backgrounded
+        // or otherwise throttled never runs the timeline - fading out before
+        // that point is what would strand the page on a blank screen. Waiting
+        // for the first frame means a ticker that never starts is simply never
+        // started, and the content stays visible.
+        window.requestAnimationFrame(function () {
+          try {
+            gsap.set(targets, { opacity: 0 });
+
+            gsap
+              .timeline({ onComplete: settle, onInterrupt: settle })
+              .fromTo(".error-logo",
+                { y: -20, scale: 0.94 },
+                { y: 0, scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" })
+              .fromTo(".error-char",
+                { yPercent: 105, rotateX: -60 },
+                { yPercent: 0, rotateX: 0, opacity: 1, duration: 0.85, stagger: 0.09, ease: "power3.out" }, "-=0.5")
+              .fromTo(".error-rule",
+                { scaleX: 0 },
+                { scaleX: 1, opacity: 1, duration: 0.7, ease: "power2.inOut" }, "-=0.45")
+              .fromTo(".error-title",
+                { y: 22 },
+                { y: 0, opacity: 1, duration: 0.7 }, "-=0.45")
+              .fromTo(".error-text",
+                { y: 18 },
+                { y: 0, opacity: 1, duration: 0.65 }, "-=0.5")
+              .fromTo(".error-btn",
+                { y: 20 },
+                { y: 0, opacity: 1, duration: 0.6, stagger: 0.11 }, "-=0.4");
+          } catch (err) {
+            settle();
+          }
+        });
+      } catch (err) {
+        // A half-built timeline must never leave anything hidden.
+        settle();
+        return;
+      }
+
+      // Micro-interaction: a small lift with the glyph sliding the way it
+      // points. GSAP owns transform here, so CSS only handles the sheen,
+      // the shadow and the border.
+      d.querySelectorAll(".error-btn").forEach(function (btn) {
+        var icon = btn.querySelector(".bi");
+        var nudge = btn.id === "goBack" ? -4 : 4;
+
+        var enter = function () {
+          gsap.to(btn, { y: -3, scale: 1.035, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+          gsap.to(icon, { x: nudge, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+        };
+        var leave = function () {
+          gsap.to(btn, { y: 0, scale: 1, duration: 0.45, ease: "power2.out", overwrite: "auto" });
+          gsap.to(icon, { x: 0, duration: 0.45, ease: "power2.out", overwrite: "auto" });
+        };
+
+        btn.addEventListener("mouseenter", enter);
+        btn.addEventListener("mouseleave", leave);
+        btn.addEventListener("focus", enter);
+        btn.addEventListener("blur", leave);
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Stackly is a modern fine dining restaurant on Park Avenue serving seasonal chef's special menus, an award-winning wine list and warm, intuitive hospitality." />
+  <meta property="og:title" content="Stackly Fine Dining" />
+  <meta property="og:description"
+    content="Experience elevated dining with bold flavors, refined ambiance, and impeccable service." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Home - Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preload" as="image" href="assets/img/hero-bg.webp" fetchpriority="high" />
+</head>
+
+<body>
+  <div id="scrollProgress"></div>
+
+  <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="brand-logo" src="assets/img/logo.webp" alt="Stackly Fine Dining" decoding="async"
+          width="1200" height="493" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Our Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="404.html" class="btn btn-primary navbar-book px-4 py-2 rounded-pill shadow-sm">Book Table</a>
+          <a class="navbar-login" id="navLogin" href="login.html" data-auth-label="Sign In">
+            <i class="bi bi-person" aria-hidden="true"></i><span class="navbar-login-text">Sign In</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       Hero
+       ============================================================ -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-wrap">
+      <div class="hero-bg parallax" style="background-image: url('assets/img/hero-bg.webp')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-noise"></div>
+    </div>
+    <div class="container position-relative z-2">
+      <div class="row justify-content-center align-items-center min-vh-100 pt-5">
+        <div class="col-lg-8 text-center">
+          <p class="eyebrow text-uppercase fade-up">Crafted • Curated • Refined</p>
+          <h1 class="display-1 fw-bold text-white mb-4 fade-up delay-1">Elevate Your Dining Experience</h1>
+          <p class="lead text-white-75 mx-auto mb-5 fade-up delay-2">
+            Where modern culinary artistry meets timeless elegance. Each dish is an expression of passion, precision,
+            and place.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 fade-up delay-3">
+            <a href="404.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Explore Menu</a>
+            <a href="404.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Make Reservation</a>
+          </div>
+        </div>
+      </div>
+      <a href="#welcome" class="scroll-indicator fade-up">
+        <span class="mouse">
+          <span class="wheel"></span>
+        </span>
+        <span class="text-uppercase small ms-3">Scroll Down</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Our story preview
+       ============================================================ -->
+  <section id="welcome" class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="image-stack reveal">
+            <div class="image-main">
+              <img src="assets/img/about-interior.webp" alt="Warm ambient dining room at Stackly" loading="lazy"
+                decoding="async" width="1920" height="1440" />
+            </div>
+            <div class="image-overlay">
+              <img src="assets/img/interior-bar.webp" alt="Sophisticated bar counter with curated glassware" loading="lazy"
+                decoding="async" width="1280" height="1600" />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 ps-lg-5">
+          <div class="reveal">
+            <p class="eyebrow text-uppercase mb-3">Our Story</p>
+            <h2 class="display-5 fw-bold mb-4">A Symphony of Flavor, Design &amp; Hospitality</h2>
+            <p class="text-muted mb-4">
+              Born from a passion for culinary innovation, Stackly Fine Dining opened its doors on Park Avenue with a
+              simple idea: that a restaurant should feel like the best evening of your year, every time you visit. More
+              than a decade later, that idea still guides every plate we send out.
+            </p>
+            <p class="text-muted mb-4">
+              Our kitchen works with small farms, day-boat fishers and heritage producers, letting the season set the
+              agenda. The room was designed to stay conversation-friendly, the lights stay low, and the service stays
+              a step ahead of what you need — never in the way.
+            </p>
+            <div class="d-flex flex-wrap align-items-center gap-4">
+              <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Reserve Your Table</a>
+              <a href="404.html" class="btn btn-outline-light px-5 py-3 rounded-pill">Read Our Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Signature pillars
+       ============================================================ -->
+  <section id="pillars" class="section-padding pt-0">
+    <div class="container">
+      <div class="row g-3 g-lg-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-gem fs-3 text-primary"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Premium Ingredients</h3>
+            <p class="small text-muted mb-0">Thoughtfully sourced, seasonally driven, and sustainably minded.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-1">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-award fs-3 text-primary"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Award-Winning Chefs</h3>
+            <p class="small text-muted mb-0">Globally trained talent crafting bold, refined plates.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-2">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-cup-hot fs-3 text-primary"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Craft Drinks</h3>
+            <p class="small text-muted mb-0">Curated wines, zero-proof, and house signatures.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-3">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-heart fs-3 text-primary"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Unparalleled Service</h3>
+            <p class="small text-muted mb-0">Warm, intuitive hospitality tailored to every guest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Stats band
+       ============================================================ -->
+  <section class="stats-section" aria-label="Stackly by the numbers">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-lg-3 reveal">
+          <div class="stat-card">
+            <div class="stat-value"><span class="counter" data-target="12">0</span></div>
+            <div class="stat-label">Years of Craft</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-1">
+          <div class="stat-card">
+            <div class="stat-value"><span class="counter" data-target="48">0</span></div>
+            <div class="stat-label">Seasonal Dishes</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-2">
+          <div class="stat-card">
+            <div class="stat-value"><span class="counter" data-target="250">0</span>K+</div>
+            <div class="stat-label">Guests Welcomed</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-3">
+          <div class="stat-card">
+            <div class="stat-value"><span class="counter" data-target="14">0</span></div>
+            <div class="stat-label">Industry Awards</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Signature specialties
+       ============================================================ -->
+  <section id="specialties" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Signature Specialties</p>
+            <h2 class="display-5 fw-bold">Three Plates Worth Crossing Town For</h2>
+            <p class="text-muted mb-0">
+              A rotating selection from our chef's special menu — refined nightly, and quietly different every season.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <article class="special-card">
+            <div class="special-card-img">
+              <span class="special-card-badge">Signature</span>
+              <img src="assets/img/dish-steak.webp" alt="Herb-crusted ribeye plated with seasonal garnish" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="special-card-body p-4">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-2">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Charred Herb Ribeye</h3>
+                <span class="price fw-bold">$46</span>
+              </div>
+              <p class="text-muted small mb-3">
+                Forty-five day-aged striploin, smoked onion jus, charred spring onion and a bone-marrow crumb.
+              </p>
+              <span class="small text-uppercase fw-semibold">Main Course</span>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <article class="special-card">
+            <div class="special-card-img">
+              <span class="special-card-badge">Seasonal</span>
+              <img src="assets/img/menu-fish.webp" alt="Butter-poached sea bass with baby potatoes" loading="lazy"
+                decoding="async" width="1280" height="1920" />
+            </div>
+            <div class="special-card-body p-4">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-2">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Butter-Poached Sea Bass</h3>
+                <span class="price fw-bold">$38</span>
+              </div>
+              <p class="text-muted small mb-3">
+                Wild-caught bass, saffron velouté, leek fondue and charred baby potatoes from our rooftop farm.
+              </p>
+              <span class="small text-uppercase fw-semibold">Main Course</span>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <article class="special-card">
+            <div class="special-card-img">
+              <span class="special-card-badge">Chef's Pick</span>
+              <img src="assets/img/dish-pasta.webp" alt="Silken truffle tagliatelle finished with fresh herbs" loading="lazy"
+                decoding="async" width="1280" height="853" />
+            </div>
+            <div class="special-card-body p-4">
+              <div class="d-flex justify-content-between align-items-baseline gap-3 mb-2">
+                <h3 class="card-title fs-5 fw-semibold mb-0">Truffle Tagliatelle</h3>
+                <span class="price fw-bold">$32</span>
+              </div>
+              <p class="text-muted small mb-3">
+                Hand-rolled egg pasta, winter truffle, aged parmesan cream and a finish of fresh herbs.
+              </p>
+              <span class="small text-uppercase fw-semibold">From The Pasta Room</span>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Explore The Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Menu preview
+       ============================================================ -->
+  <section id="menu-preview" class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal">
+          <p class="eyebrow text-uppercase mb-3">From The Menu</p>
+          <h2 class="display-5 fw-bold mb-4">Dishes That Change With The Season</h2>
+          <p class="text-muted mb-4">
+            Our kitchen writes the menu the morning it is served, working with whatever our growers and fishers send
+            us that day. Starters, mains, desserts and a bar list that runs as long as your evening does.
+          </p>
+          <ul class="pill-list mb-4">
+            <li class="pill"><i class="bi bi-leaf"></i> Seasonal</li>
+            <li class="pill"><i class="bi bi-flower1"></i> Vegetarian friendly</li>
+            <li class="pill"><i class="bi bi-fire"></i> Wood-fired grill</li>
+            <li class="pill"><i class="bi bi-cup-straw"></i> Zero-proof pairings</li>
+          </ul>
+          <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">View Full Menu</a>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <div class="col-md-6 reveal">
+              <div class="menu-card d-flex gap-3 p-3 h-100">
+                <div class="menu-card-img">
+                  <img src="assets/img/dish-salad.webp" alt="Roasted beet carpaccio with goat cheese" loading="lazy"
+                    decoding="async" width="1280" height="853" />
+                </div>
+                <div class="menu-card-content flex-grow-1">
+                  <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                    <h3 class="card-title fs-6 fw-semibold mb-0">Roasted Beet Carpaccio</h3>
+                    <span class="price fw-bold">$14</span>
+                  </div>
+                  <p class="text-muted small mb-0">Goat cheese, orange zest, candied walnuts.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 reveal delay-1">
+              <div class="menu-card d-flex gap-3 p-3 h-100">
+                <div class="menu-card-img">
+                  <img src="assets/img/dish-bowl.webp" alt="Crispy cauliflower with harissa aioli" loading="lazy"
+                    decoding="async" width="1280" height="1280" />
+                </div>
+                <div class="menu-card-content flex-grow-1">
+                  <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                    <h3 class="card-title fs-6 fw-semibold mb-0">Crispy Cauliflower</h3>
+                    <span class="price fw-bold">$12</span>
+                  </div>
+                  <p class="text-muted small mb-0">Harissa aioli, toasted sesame, herbs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 reveal delay-2">
+              <div class="menu-card d-flex gap-3 p-3 h-100">
+                <div class="menu-card-img">
+                  <img src="assets/img/dish-drinks.webp" alt="Signature botanical spritz in a coupe glass" loading="lazy"
+                    decoding="async" width="1280" height="1920" />
+                </div>
+                <div class="menu-card-content flex-grow-1">
+                  <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                    <h3 class="card-title fs-6 fw-semibold mb-0">Botanical Spritz</h3>
+                    <span class="price fw-bold">$15</span>
+                  </div>
+                  <p class="text-muted small mb-0">Elderflower, citrus, sparkling rosé.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 reveal delay-3">
+              <div class="menu-card d-flex gap-3 p-3 h-100">
+                <div class="menu-card-img">
+                  <img src="assets/img/menu-dessert.webp" alt="Dark chocolate mousse with tart berries" loading="lazy"
+                    decoding="async" width="1280" height="1927" />
+                </div>
+                <div class="menu-card-content flex-grow-1">
+                  <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                    <h3 class="card-title fs-6 fw-semibold mb-0">Dark Chocolate Mousse</h3>
+                    <span class="price fw-bold">$11</span>
+                  </div>
+                  <p class="text-muted small mb-0">Silken mousse, berries, gold crumble.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Chefs preview
+       ============================================================ -->
+  <section id="chefs-preview" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">The Kitchen</p>
+            <h2 class="display-5 fw-bold">Meet The Team Behind The Menu</h2>
+            <p class="text-muted mb-0">
+              Globally trained, locally obsessed, and entirely allergic to shortcuts.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <article class="chef-card h-100">
+            <div class="chef-card-img">
+              <img src="assets/img/chef-1.webp" alt="Executive Chef Julian Rivera" loading="lazy" decoding="async" width="640" height="960" />
+            </div>
+            <div class="chef-card-body p-4 text-center">
+              <h3 class="card-title fs-5 fw-semibold mb-1">Julian Rivera</h3>
+              <p class="text-primary small text-uppercase mb-3">Executive Chef</p>
+              <p class="text-muted small mb-3">
+                Modern French with Latin flair, focused on seasonal storytelling through plates.
+              </p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="404.html" class="social-icon" aria-label="Julian Rivera profile"><i class="bi bi-person"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Julian Rivera on Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Julian Rivera on LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-1">
+          <article class="chef-card h-100">
+            <div class="chef-card-img">
+              <img src="assets/img/chef-2.webp" alt="Sous Chef Amélie Chen" loading="lazy" decoding="async" width="640" height="985" />
+            </div>
+            <div class="chef-card-body p-4 text-center">
+              <h3 class="card-title fs-5 fw-semibold mb-1">Amélie Chen</h3>
+              <p class="text-primary small text-uppercase mb-3">Sous Chef</p>
+              <p class="text-muted small mb-3">
+                Pastry precision meets savory intuition, crafting balance in every bite.
+              </p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="404.html" class="social-icon" aria-label="Amélie Chen profile"><i class="bi bi-person"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Amélie Chen on Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Amélie Chen on LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-2">
+          <article class="chef-card h-100">
+            <div class="chef-card-img">
+              <img src="assets/img/chef-3.webp" alt="Chef de Partie Malik Osei" loading="lazy" decoding="async" width="640" height="427" />
+            </div>
+            <div class="chef-card-body p-4 text-center">
+              <h3 class="card-title fs-5 fw-semibold mb-1">Malik Osei</h3>
+              <p class="text-primary small text-uppercase mb-3">Chef de Partie</p>
+              <p class="text-muted small mb-3">
+                Grill mastery and bold spice, bringing fire-kissed depth to every plate.
+              </p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="404.html" class="social-icon" aria-label="Malik Osei profile"><i class="bi bi-person"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Malik Osei on Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="404.html" class="social-icon" aria-label="Malik Osei on LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Meet The Full Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Chef's table experience
+       ============================================================ -->
+  <section id="chef-table" class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 reveal">
+          <p class="eyebrow text-uppercase mb-3">The Counter</p>
+          <h2 class="display-5 fw-bold mb-4">Eight Seats, One Chef, No Printed Menu</h2>
+          <p class="text-muted mb-4">
+            Our most intimate room sits directly beside the pass. The Chef's Table seats eight guests at a single
+            walnut counter, and every course is cooked, plated and explained by the chef who wrote it — never handed
+            over the shoulder by a runner.
+          </p>
+          <p class="text-muted mb-4">
+            Twelve courses unfold across roughly three hours. The menu is decided that morning from what the markets
+            offered, so it will never read the same way twice.
+          </p>
+          <ul class="pill-list mb-4">
+            <li class="pill"><i class="bi bi-people"></i> Eight seats</li>
+            <li class="pill"><i class="bi bi-journal-text"></i> Twelve courses</li>
+            <li class="pill"><i class="bi bi-cup-straw"></i> Pairing optional</li>
+            <li class="pill"><i class="bi bi-calendar2-week"></i> Booked a month ahead</li>
+          </ul>
+          <div class="d-flex flex-wrap align-items-center gap-3">
+            <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Request The Chef's Table</a>
+            <a href="404.html" class="btn btn-outline-light px-5 py-3 rounded-pill">Read The Chef's Special Menu</a>
+          </div>
+          <p class="small text-muted mt-3 mb-0">
+            <span class="price fw-bold">$195</span> per guest, wine pairing <span class="price fw-bold">$125</span>.
+          </p>
+        </div>
+        <div class="col-lg-6 reveal delay-1">
+          <div class="media-frame">
+            <img src="assets/img/about-interior.webp" alt="Eight-seat counter seating beside the kitchen pass"
+              loading="lazy" decoding="async" width="1920" height="1440" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Wine and cellar
+       ============================================================ -->
+  <section id="wine-cellar" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">The Cellar</p>
+            <h2 class="display-5 fw-bold">Pairings Chosen Bottle By Bottle</h2>
+            <p class="text-muted mb-0">
+              Around nine hundred labels, a dedicated sommelier, and a cellar list rewritten every spring.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-flower1 fs-3 text-primary" aria-hidden="true"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">By The Glass</h3>
+            <p class="small text-muted mb-2">
+              Twenty-four pours open at any time, with three zero-proof selections built alongside them.
+            </p>
+            <span class="small text-uppercase fw-semibold">From $16</span>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-gem fs-3 text-primary" aria-hidden="true"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Chef's Pairing</h3>
+            <p class="small text-muted mb-2">
+              Six pours chosen to follow the course in front of you, poured at the correct temperature and pace.
+            </p>
+            <span class="small text-uppercase fw-semibold">$125</span>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <div class="feature-card p-4 h-100">
+            <i class="bi bi-book fs-3 text-primary" aria-hidden="true"></i>
+            <h3 class="card-title fs-6 fw-semibold mt-3 mb-2">Reserve Cellar</h3>
+            <p class="small text-muted mb-2">
+              Cellar-aged verticals and library bottles, released to the table on request with two weeks' notice.
+            </p>
+            <span class="small text-uppercase fw-semibold">By Arrangement</span>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5 align-items-center mt-2">
+        <div class="col-lg-7 reveal">
+          <div class="media-frame">
+            <img src="assets/img/dish-drinks.webp" alt="Cellar reds and botanical pairings arranged for service"
+              loading="lazy" decoding="async" width="1280" height="1920" />
+          </div>
+        </div>
+        <div class="col-lg-5 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-chat-square-quote"></i></span>
+            <h3 class="card-title fs-5 fw-semibold mb-2">From Our Sommelier</h3>
+            <p class="text-muted small mb-3">
+              "The list is deliberately short in front of the pass and deliberately deep in the cellar. If you tell me
+              what you usually drink, I will find you the bottle — including the one you did not know you wanted."
+            </p>
+            <p class="small text-uppercase fw-semibold mb-3">Elena Voss &middot; Head Sommelier</p>
+            <a href="404.html" class="small">See the wine list <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Testimonials
+       ============================================================ -->
+  <section id="testimonials" class="testimonials-section section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Guest Book</p>
+            <h2 class="display-5 fw-bold text-white">What Our Guests Remember</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10 reveal">
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <blockquote class="testimonial-card mx-auto">
+                  <i class="bi bi-quote quote-icon" aria-hidden="true"></i>
+                  <div class="stars mb-2" aria-label="Rated 5 out of 5">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="testimonial-text mb-4">
+                    We came for an anniversary and left talking about the sea bass. The room feels considered without
+                    ever feeling stiff, and the service had a way of being exactly there when we needed it.
+                  </p>
+                  <footer class="d-flex align-items-center justify-content-center gap-3">
+                    <span class="avatar" aria-hidden="true">
+                      <img src="assets/img/p1.webp" alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="text-start">
+                      <span class="d-block fw-semibold">Elena Moreau</span>
+                      <span class="d-block small text-white-75">Anniversary Dinner</span>
+                    </span>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <blockquote class="testimonial-card mx-auto">
+                  <i class="bi bi-quote quote-icon" aria-hidden="true"></i>
+                  <div class="stars mb-2" aria-label="Rated 5 out of 5">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="testimonial-text mb-4">
+                    As a chef myself I did not want to be impressed, only interested. I was interested for two hours.
+                    The pastry program is genuinely one of the best in the city right now.
+                  </p>
+                  <footer class="d-flex align-items-center justify-content-center gap-3">
+                    <span class="avatar" aria-hidden="true">
+                      <img src="assets/img/p2.webp" alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="text-start">
+                      <span class="d-block fw-semibold">Daniel Reyes</span>
+                      <span class="d-block small text-white-75">Chef &amp; Long-Time Guest</span>
+                    </span>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="carousel-item">
+                <blockquote class="testimonial-card mx-auto">
+                  <i class="bi bi-quote quote-icon" aria-hidden="true"></i>
+                  <div class="stars mb-2" aria-label="Rated 5 out of 5">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="testimonial-text mb-4">
+                    We booked the bar counter for a birthday and they rebuilt the whole tasting around what my partner
+                    could eat. That kind of care is rarer than it should be.
+                  </p>
+                  <footer class="d-flex align-items-center justify-content-center gap-3">
+                    <span class="avatar" aria-hidden="true">
+                      <img src="assets/img/p3.webp" alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="text-start">
+                      <span class="d-block fw-semibold">Aisha Patel</span>
+                      <span class="d-block small text-white-75">Birthday Celebration</span>
+                    </span>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="carousel-indicators position-static mt-4 mb-0">
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Review 1"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                aria-label="Review 2"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                aria-label="Review 3"></button>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+              data-bs-slide="prev">
+              <i class="bi bi-arrow-left" aria-hidden="true"></i>
+              <span class="visually-hidden">Previous review</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+              data-bs-slide="next">
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              <span class="visually-hidden">Next review</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Gallery preview
+       ============================================================ -->
+  <section id="gallery-preview" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Inside Stackly</p>
+            <h2 class="display-5 fw-bold">A Look Around The Room</h2>
+            <p class="text-muted mb-0">Warm light, quiet corners, and plates built to be photographed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-lg-3 reveal">
+          <a href="assets/img/gallery-1.webp" class="glightbox gallery-item" data-gallery="stackly-gallery"
+            data-description="Freshly plated gourmet dish in ambient lighting">
+            <img src="assets/img/gallery-1.webp" alt="Gourmet dish presentation" loading="lazy" decoding="async" width="1280" height="853" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-1">
+          <a href="assets/img/gallery-2.webp" class="glightbox gallery-item" data-gallery="stackly-gallery"
+            data-description="Bright, colorful brunch bowl">
+            <img src="assets/img/gallery-2.webp" alt="Colorful brunch bowl" loading="lazy" decoding="async" width="1280" height="1655" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-2">
+          <a href="assets/img/hero-interior.webp" class="glightbox gallery-item" data-gallery="stackly-gallery"
+            data-description="Elegant dining room with warm lighting">
+            <img src="assets/img/hero-interior.webp" alt="Elegant dining interior" loading="lazy" decoding="async" width="1920" height="1280" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3 reveal delay-3">
+          <a href="assets/img/interior-bar.webp" class="glightbox gallery-item" data-gallery="stackly-gallery"
+            data-description="Modern bar with curated glassware">
+            <img src="assets/img/interior-bar.webp" alt="Luxury bar area" loading="lazy" decoding="async" width="1280" height="1600" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="404.html" class="btn btn-outline-light px-5 py-3 rounded-pill">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Private events and celebrations
+       ============================================================ -->
+  <section id="private-events" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Private Dining</p>
+            <h2 class="display-5 fw-bold">Celebrations, Weddings &amp; Corporate Evenings</h2>
+            <p class="text-muted mb-0">
+              Three spaces, one dedicated events team, and a menu written around your guests rather than our schedule.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-heart"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Weddings &amp; Milestones</h3>
+            <p class="text-muted small mb-2">
+              Ceremonies on the terrace, canapés through the bar room and a long table in the main dining room.
+            </p>
+            <p class="small mb-0"><strong>Up to 60 seated</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-briefcase"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Corporate &amp; Offsites</h3>
+            <p class="text-muted small mb-2">
+              Buy-outs with AV, a private bar and flexible service windows built around your agenda.
+            </p>
+            <p class="small mb-0"><strong>20&ndash;80 guests</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-2">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-stars"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Private Dining Room</h3>
+            <p class="text-muted small mb-2">
+              A closed room with its own entrance, wine wall and menu you write with the chef directly.
+            </p>
+            <p class="small mb-0"><strong>Up to 24 seated</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal delay-3">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-building"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Full Buyout</h3>
+            <p class="text-muted small mb-2">
+              The entire restaurant, bar programme and kitchen team placed entirely at your disposal.
+            </p>
+            <p class="small mb-0"><strong>Up to 80 guests</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8 reveal">
+          <div class="text-center">
+            <p class="text-muted mb-4">
+              Dates are held with a 25% deposit, refundable up to fourteen days before the event. We will reply with
+              availability and a sample menu within one business day.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Enquire About Your Event</a>
+              <a href="404.html" class="btn btn-outline-light px-5 py-3 rounded-pill">See The Rooms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Call to action
+       ============================================================ -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 reveal">
+          <p class="eyebrow text-uppercase mb-3">Reservations Open</p>
+          <h2 class="display-5 fw-bold text-white mb-3">Reserve Your Evening At Stackly</h2>
+          <p class="text-white-75 mb-0 lead">
+            Tables are released 30 days in advance. For parties of seven or more, or to plan a private event, get in
+            touch and we will take care of the details.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end reveal delay-1">
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3">
+            <a href="404.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Book A Table</a>
+            <a href="404.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Plan An Event</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Newsletter
+       ============================================================ -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="newsletter-card">
+            <span class="newsletter-badge">
+              <i class="bi bi-envelope-paper" aria-hidden="true"></i> Stay Connected
+            </span>
+            <h2 class="newsletter-title display-6 mb-3">Stories, Pairings &amp; Seasonal Releases</h2>
+            <p class="lead text-white-75 mb-4 mx-auto" style="max-width: 580px;">
+              Join our private dispatch for first access to new seasonal chef's special menus, wine cellar drops, and
+              invitation-only chef's table reservations.
+            </p>
+            <form class="newsletter-form mx-auto" action="404.html" method="get" style="max-width: 540px;">
+              <div class="newsletter-input-group">
+                <span class="newsletter-input-icon" aria-hidden="true">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email address"
+                  pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                  title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)"
+                  required
+                  aria-label="Email address for newsletter"
+                />
+                <button type="submit" class="btn btn-primary newsletter-btn">
+                  <span>Subscribe</span>
+                  <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="newsletter-note small text-muted mt-3 mb-0">
+                <i class="bi bi-shield-check me-1 text-gold" aria-hidden="true"></i>
+                We respect your inbox. Only seasonal updates and private invitations. Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer-section pt-5 pb-4">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1 - logo, description, social -->
+        <div class="footer-col footer-col-brand reveal">
+          <a class="footer-logo d-inline-block" href="index.html">
+            <img class="brand-logo brand-logo-lg" src="assets/img/logo.webp" alt="Stackly Fine Dining" loading="lazy"
+              decoding="async" width="1200" height="493" />
+          </a>
+          <p class="footer-about">
+            Redefining fine dining with modern elegance, unforgettable flavors, and heartfelt hospitality.
+          </p>
+          <ul class="footer-social list-unstyled" aria-label="Stackly on social media">
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 - quick links -->
+        <nav class="footer-col reveal delay-1" aria-labelledby="footerQuickLinks">
+          <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3 - explore -->
+        <nav class="footer-col reveal delay-2" aria-labelledby="footerExplore">
+          <h2 class="footer-heading" id="footerExplore">Explore</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="404.html">Our Specialties</a></li>
+            <li><a href="404.html">Chef's Selection</a></li>
+            <li><a href="404.html">Private Dining</a></li>
+            <li><a href="404.html">Events &amp; Celebrations</a></li>
+            <li><a href="404.html">Reservations</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4 - contact details -->
+        <div class="footer-col reveal delay-3">
+          <h2 class="footer-heading">Contact Details</h2>
+          <ul class="footer-contact list-unstyled">
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+              <a href="404.html">742 Park Avenue<br />New York, NY 10021</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+              <a href="404.html">+1 (555) 123-4567</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+              <a href="404.html">hello@stackly.restaurant</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 5 - opening hours -->
+        <div class="footer-col reveal delay-4">
+          <h2 class="footer-heading">Opening Hours</h2>
+          <ul class="footer-hours-list list-unstyled">
+            <li><span class="footer-hours-day">Mon — Thu</span><span class="footer-hours-time">11am — 10pm</span></li>
+            <li><span class="footer-hours-day">Fri — Sat</span><span class="footer-hours-time">11am — 12am</span></li>
+            <li><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">10am — 9pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-4 mb-3" />
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white-75 small mb-0">© <span id="year"></span> Stackly Fine Dining. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <ul class="list-inline mb-0 footer-legal">
+            <li class="list-inline-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="404.html">Terms Of Service</a></li>
+            <li class="list-inline-item"><a href="404.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+        <strong class="me-auto">Stackly Fine Dining</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+      <div class="toast-body">Thank you! Your request has been received.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

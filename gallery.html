@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A look inside Stackly Fine Dining — our dining room, bar, open kitchen and seasonal plates, plus private event and celebration hosting." />
+  <meta property="og:title" content="Gallery - Stackly Fine Dining" />
+  <meta property="og:description"
+    content="A glimpse into our ambiance, plates, and celebrations." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Gallery - Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div id="scrollProgress"></div>
+
+  <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="brand-logo" src="assets/img/logo.webp" alt="Stackly Fine Dining" decoding="async"
+          width="1200" height="493" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Our Chefs</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html" aria-current="page">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="404.html" class="btn btn-primary navbar-book px-4 py-2 rounded-pill shadow-sm">Book Table</a>
+          <a class="navbar-login" id="navLogin" href="login.html" data-auth-label="Sign In">
+            <i class="bi bi-person" aria-hidden="true"></i><span class="navbar-login-text">Sign In</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       Page hero
+       ============================================================ -->
+  <section id="page-hero" class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('assets/img/gallery-3.webp')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-noise"></div>
+    <div class="page-hero-content">
+      <div class="container">
+        <ol class="breadcrumb-custom">
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Gallery</li>
+        </ol>
+        <p class="eyebrow text-uppercase mb-3">Gallery</p>
+        <h1 class="page-hero-title display-3 fw-bold text-white mb-3">Moments At Stackly</h1>
+        <p class="lead text-white-75 mb-0">
+          A glimpse into our ambiance, plates, and celebrations. Select any image to view it full size.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Gallery grid
+       ============================================================ -->
+  <section id="gallery" class="section-padding">
+    <div class="container-fluid px-3 px-lg-5">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center px-3 reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">The Gallery</p>
+            <h2 class="display-5 fw-bold">The Room &amp; The Food</h2>
+            <p class="text-muted mb-0">
+              The dining room, the bar, the wood hearth, and a few plates we are proud of.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3" id="galleryGrid">
+        <div class="col-6 col-md-4 col-lg-3 reveal" data-category="food">
+          <a href="assets/img/gallery-1.webp" class="glightbox gallery-item"
+            data-description="Freshly plated gourmet dish in ambient lighting">
+            <img src="assets/img/gallery-1.webp" alt="Gourmet dish presentation" loading="lazy" decoding="async" width="1280" height="853" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-1" data-category="food">
+          <a href="assets/img/gallery-2.webp" class="glightbox gallery-item"
+            data-description="Bright, colourful seasonal bowl">
+            <img src="assets/img/gallery-2.webp" alt="Colourful seasonal bowl" loading="lazy" decoding="async" width="1280" height="1655" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-2" data-category="food">
+          <a href="assets/img/gallery-3.webp" class="glightbox gallery-item"
+            data-description="Dough finished and blistered in our wood hearth">
+            <img src="assets/img/gallery-3.webp" alt="Wood-fired dish straight from the hearth" loading="lazy"
+              decoding="async" width="1280" height="1547" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-3" data-category="food">
+          <a href="assets/img/gallery-4.webp" class="glightbox gallery-item"
+            data-description="Juicy flame-grilled skewers and sides">
+            <img src="assets/img/gallery-4.webp" alt="Grilled meat skewers" loading="lazy" decoding="async" width="1280" height="1920" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal" data-category="room">
+          <a href="assets/img/hero-interior.webp" class="glightbox gallery-item"
+            data-description="Elegant dining room with warm lighting">
+            <img src="assets/img/hero-interior.webp" alt="Elegant dining interior" loading="lazy" decoding="async" width="1920" height="1280" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-1" data-category="bar">
+          <a href="assets/img/interior-bar.webp" class="glightbox gallery-item"
+            data-description="Modern bar with curated glassware">
+            <img src="assets/img/interior-bar.webp" alt="Luxury bar area" loading="lazy" decoding="async" width="1280" height="1600" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-2" data-category="room">
+          <a href="assets/img/about-interior.webp" class="glightbox gallery-item"
+            data-description="The main dining room set for evening service">
+            <img src="assets/img/about-interior.webp" alt="Main dining room set for service" loading="lazy"
+              decoding="async" width="1920" height="1440" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-3" data-category="food">
+          <a href="assets/img/dish-pasta.webp" class="glightbox gallery-item"
+            data-description="Silken truffle tagliatelle with fresh herbs">
+            <img src="assets/img/dish-pasta.webp" alt="Truffle pasta dish" loading="lazy" decoding="async" width="1280" height="853" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal" data-category="food">
+          <a href="assets/img/dish-steak.webp" class="glightbox gallery-item"
+            data-description="Charred ribeye with its smoked onion jus">
+            <img src="assets/img/dish-steak.webp" alt="Charred ribeye with jus" loading="lazy" decoding="async" width="1280" height="1920" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-1" data-category="food">
+          <a href="assets/img/menu-fish.webp" class="glightbox gallery-item"
+            data-description="Butter-poached sea bass with saffron velouté">
+            <img src="assets/img/menu-fish.webp" alt="Butter-poached sea bass" loading="lazy" decoding="async" width="1280" height="1920" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-2" data-category="food">
+          <a href="assets/img/menu-dessert.webp" class="glightbox gallery-item"
+            data-description="Dark chocolate mousse with gold leaf crumble">
+            <img src="assets/img/menu-dessert.webp" alt="Dark chocolate mousse" loading="lazy" decoding="async" width="1280" height="1927" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 reveal delay-3" data-category="food">
+          <a href="assets/img/menu-platter.webp" class="glightbox gallery-item"
+            data-description="Shareable seasonal platter">
+            <img src="assets/img/menu-platter.webp" alt="Seasonal sharing platter" loading="lazy" decoding="async" width="1280" height="854" />
+            <div class="gallery-overlay"><i class="bi bi-zoom-in fs-2" aria-hidden="true"></i></div>
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center text-muted small mt-4 mb-0 reveal">
+        <i class="bi bi-arrows-fullscreen me-2 text-primary"></i>
+        Select any image to open it full size. Use the arrow keys to move through the gallery.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Private events
+       ============================================================ -->
+  <section id="private-events" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Private Events</p>
+            <h2 class="display-5 fw-bold">Something Worth Gathering For</h2>
+            <p class="text-muted mb-0">
+              We host around twenty celebrations a month and only eight of them are ours.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-cake"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Celebrations</h3>
+            <p class="text-muted small mb-0">
+              Birthdays, anniversaries and engagements. We will set the table, bring the cake, and keep the room
+              yours for the evening.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-briefcase"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Private Dining</h3>
+            <p class="text-muted small mb-0">
+              The bar counter and a private room are both available for buy-outs after 8:30 PM, with a set menu built
+              around your guests.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-building"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Corporate Evenings</h3>
+            <p class="text-muted small mb-0">
+              Seated dinners for ten to forty, with a printed menu, a dedicated sommelier and predictable timings for
+              presentations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5 reveal">
+        <div class="col-lg-8">
+          <div class="info-card">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-7">
+                <h3 class="card-title fs-5 fw-semibold mb-2">Every event starts with a conversation</h3>
+                <p class="text-muted small mb-0">
+                  Tell us the date, the number of guests and what you are celebrating. Our events lead will come back
+                  to you within one business day with availability, a sample menu and a cost estimate.
+                </p>
+              </div>
+              <div class="col-md-5 text-md-end">
+                <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Plan An Event</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Full-bleed showcase band
+       ============================================================ -->
+  <section class="showcase-band">
+    <div class="showcase-band-media" style="background-image: url('assets/img/hero-bg.webp');" role="img"
+      aria-label="A candlelit table set for dinner in the main dining room"></div>
+    <div class="container">
+      <div class="showcase-caption reveal">
+        <p class="eyebrow text-uppercase mb-3">Every Evening, Twice</p>
+        <h2 class="display-4 fw-bold text-white mb-3">Two Seatings, One Standard</h2>
+        <p class="text-white-75 lead mb-0">
+          First service from 5:30, last orders at 9:45. The kitchen cooks to the room, not to a clock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Drinks and the bar
+       ============================================================ -->
+  <section id="drinks" class="section-padding section-alt">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 reveal">
+          <div class="media-frame">
+            <img src="assets/img/dish-drinks.webp" alt="A row of cocktails beside the bar" loading="lazy" decoding="async" />
+            <div class="media-badge">Seasonal List</div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal delay-1">
+          <div class="section-heading text-start">
+            <p class="eyebrow text-uppercase">Drinks And The Bar</p>
+            <h2 class="display-5 fw-bold">Poured By People Who Care</h2>
+            <p class="text-muted">
+              Our bar team buys in small lots and rewrites the list four times a year. Nothing on it is
+              bought for a margin, only for how it drinks.
+            </p>
+          </div>
+          <ul class="drink-list mt-4">
+            <li>
+              <div class="drink-name"><span>Smoked Cherry Old Fashioned</span><span class="drink-price">$16</span></div>
+              <p class="drink-note">Bourbon, smoked cherry, demerara, orange oil.</p>
+            </li>
+            <li>
+              <div class="drink-name"><span>Sage &amp; Grapefruit Martini</span><span class="drink-price">$17</span></div>
+              <p class="drink-note">Vodka, garden sage, pink grapefruit, sea salt.</p>
+            </li>
+            <li>
+              <div class="drink-name"><span>Charred Peach Spritz</span><span class="drink-price">$15</span></div>
+              <p class="drink-note">Aperol, charred peach cordial, prosecco, thyme.</p>
+            </li>
+            <li>
+              <div class="drink-name"><span>Cellar Selection, By The Glass</span><span class="drink-price">$12&ndash;34</span></div>
+              <p class="drink-note">Forty growers on the list, twelve poured by the glass.</p>
+            </li>
+          </ul>
+          <p class="text-muted small mb-0 mt-3">
+            Ask for the off-menu pairings. We will build one around what you are already drinking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Guest moments and press wall
+       ============================================================ -->
+  <section id="guest-moments" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Guest Moments</p>
+            <h2 class="display-5 fw-bold">What People Tell Us On The Way Out</h2>
+            <p class="text-muted mb-0">
+              Some of it made it into print. Most of it did not, and that is the point.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">EH</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;The best table in the city and they will only tell you that once, quietly, as you are
+              leaving.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">Elena H.</span>
+              <span class="text-muted">Food critic, The Evening Ledger</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-1">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">DM</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;They cooked for my father&rsquo;s eightieth like it was the only table that
+              mattered that night. It was.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">Daniel M.</span>
+              <span class="text-muted">Booked the chef&rsquo;s table for fourteen</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-2">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">PR</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;Rarely does a dining room this warm have a kitchen this exact underneath it.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">Priya R.</span>
+              <span class="text-muted">Weekend Table</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-6 col-md-3 reveal">
+          <div class="info-card h-100 text-center">
+            <p class="eyebrow text-uppercase small mb-2">Recognition</p>
+            <p class="text-muted small mb-0">Best New Restaurant, City Dining Awards 2024</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal delay-1">
+          <div class="info-card h-100 text-center">
+            <p class="eyebrow text-uppercase small mb-2">Review</p>
+            <p class="text-muted small mb-0">Four stars, The Evening Ledger</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal delay-2">
+          <div class="info-card h-100 text-center">
+            <p class="eyebrow text-uppercase small mb-2">Guide</p>
+            <p class="text-muted small mb-0">Two stars, Continental Guide</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal delay-3">
+          <div class="info-card h-100 text-center">
+            <p class="eyebrow text-uppercase small mb-2">Feature</p>
+            <p class="text-muted small mb-0">Cover story, Harvest Quarterly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       The team at work
+       ============================================================ -->
+  <section id="team-at-work" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">The Team At Work</p>
+            <h2 class="display-5 fw-bold">The People Behind The Pass</h2>
+            <p class="text-muted mb-0">
+              Three of the eleven people who run this place on a Saturday. The others were also here,
+              they were just carrying something.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <figure class="team-portrait mb-0">
+            <img src="assets/img/chef-1.webp" alt="Executive chef plating a dish on the pass" loading="lazy" decoding="async" />
+            <figcaption>
+              <p class="team-portrait-name">Marco Vidal</p>
+              <p class="team-portrait-role">Executive Chef</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 reveal delay-1">
+          <figure class="team-portrait mb-0">
+            <img src="assets/img/chef-2.webp" alt="Pastry chef finishing a dessert plate" loading="lazy" decoding="async" />
+            <figcaption>
+              <p class="team-portrait-name">Ana Ferreira</p>
+              <p class="team-portrait-role">Head Pastry Chef</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <figure class="team-portrait mb-0">
+            <img src="assets/img/chef-3.webp" alt="Sous chef checking a pan on the stove" loading="lazy" decoding="async" />
+            <figcaption>
+              <p class="team-portrait-name">Tomas Reiner</p>
+              <p class="team-portrait-role">Sous Chef</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <p class="text-center text-muted small mt-4 mb-0 reveal">
+        Meet the rest of the team in
+        <a href="404.html" class="text-primary">our chefs&rsquo; profiles</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Call to action
+       ============================================================ -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 reveal">
+          <p class="eyebrow text-uppercase mb-3">Better In Person</p>
+          <h2 class="display-5 fw-bold text-white mb-3">Photos Are A Poor Substitute</h2>
+          <p class="text-white-75 lead mb-0">
+            The light is better in person, and so is the food. Tables are released 30 days in advance.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end reveal delay-1">
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3">
+            <a href="404.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Book A Table</a>
+            <a href="404.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">See The Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Newsletter
+       ============================================================ -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="newsletter-card">
+            <span class="newsletter-badge">
+              <i class="bi bi-envelope-paper" aria-hidden="true"></i> Stay Connected
+            </span>
+            <h2 class="newsletter-title display-6 mb-3">Stories, Pairings &amp; Seasonal Releases</h2>
+            <p class="lead text-white-75 mb-4 mx-auto" style="max-width: 580px;">
+              Join our private dispatch for first access to new seasonal chef's special menus, wine cellar drops, and
+              invitation-only chef's table reservations.
+            </p>
+            <form class="newsletter-form mx-auto" action="404.html" method="get" style="max-width: 540px;">
+              <div class="newsletter-input-group">
+                <span class="newsletter-input-icon" aria-hidden="true">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email address"
+                  pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                  title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)"
+                  required
+                  aria-label="Email address for newsletter"
+                />
+                <button type="submit" class="btn btn-primary newsletter-btn">
+                  <span>Subscribe</span>
+                  <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="newsletter-note small text-muted mt-3 mb-0">
+                <i class="bi bi-shield-check me-1 text-gold" aria-hidden="true"></i>
+                We respect your inbox. Only seasonal updates and private invitations. Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer-section pt-5 pb-4">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1 - logo, description, social -->
+        <div class="footer-col footer-col-brand reveal">
+          <a class="footer-logo d-inline-block" href="index.html">
+            <img class="brand-logo brand-logo-lg" src="assets/img/logo.webp" alt="Stackly Fine Dining" loading="lazy"
+              decoding="async" width="1200" height="493" />
+          </a>
+          <p class="footer-about">
+            Redefining fine dining with modern elegance, unforgettable flavors, and heartfelt hospitality.
+          </p>
+          <ul class="footer-social list-unstyled" aria-label="Stackly on social media">
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 - quick links -->
+        <nav class="footer-col reveal delay-1" aria-labelledby="footerQuickLinks">
+          <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3 - explore -->
+        <nav class="footer-col reveal delay-2" aria-labelledby="footerExplore">
+          <h2 class="footer-heading" id="footerExplore">Explore</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="404.html">Our Specialties</a></li>
+            <li><a href="404.html">Chef's Selection</a></li>
+            <li><a href="404.html">Private Dining</a></li>
+            <li><a href="404.html">Events &amp; Celebrations</a></li>
+            <li><a href="404.html">Reservations</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4 - contact details -->
+        <div class="footer-col reveal delay-3">
+          <h2 class="footer-heading">Contact Details</h2>
+          <ul class="footer-contact list-unstyled">
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+              <a href="404.html">742 Park Avenue<br />New York, NY 10021</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+              <a href="404.html">+1 (555) 123-4567</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+              <a href="404.html">hello@stackly.restaurant</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 5 - opening hours -->
+        <div class="footer-col reveal delay-4">
+          <h2 class="footer-heading">Opening Hours</h2>
+          <ul class="footer-hours-list list-unstyled">
+            <li><span class="footer-hours-day">Mon — Thu</span><span class="footer-hours-time">11am — 10pm</span></li>
+            <li><span class="footer-hours-day">Fri — Sat</span><span class="footer-hours-time">11am — 12am</span></li>
+            <li><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">10am — 9pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-4 mb-3" />
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white-75 small mb-0">© <span id="year"></span> Stackly Fine Dining. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <ul class="list-inline mb-0 footer-legal">
+            <li class="list-inline-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="404.html">Terms Of Service</a></li>
+            <li class="list-inline-item"><a href="404.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+        <strong class="me-auto">Stackly Fine Dining</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+      <div class="toast-body">Thank you! Your request has been received.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+
+  <script>
+    (function () {
+      const filters = document.getElementById("galleryFilters");
+      const grid = document.getElementById("galleryGrid");
+      const status = document.getElementById("galleryFilterStatus");
+      if (!filters || !grid) return;
+
+      const buttons = Array.from(filters.querySelectorAll(".gallery-filter-btn"));
+      const items = Array.from(grid.querySelectorAll(".gallery-item")).map((el) => ({
+        el,
+        col: el.closest("[data-category]"),
+        category: (el.closest("[data-category]") || {}).dataset?.category || "food",
+      }));
+
+      const counts = items.reduce((acc, item) => {
+        acc[item.category] = (acc[item.category] || 0) + 1;
+        return acc;
+      }, {});
+      counts.all = items.length;
+
+      // Counts are written into the markup by the page author, so only fill in
+      // the ones that are blank. A wrong number is left alone and flagged
+      // rather than silently overwritten.
+      filters.querySelectorAll("[data-count-for]").forEach((el) => {
+        const actual = counts[el.dataset.countFor] || 0;
+        if (!el.textContent.trim()) {
+          el.textContent = String(actual);
+        } else if (Number(el.textContent.trim()) !== actual) {
+          el.dataset.stale = "true";
+        }
+      });
+
+      filters.classList.add("is-ready");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.dataset.filter;
+          const label = btn.textContent.trim().replace(/\s*\d+\s*$/, "").trim();
+
+          buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+
+          let shown = 0;
+          const shownEls = [];
+          items.forEach((item) => {
+            const match = filter === "all" || item.category === filter;
+            item.col.classList.toggle("is-filtered-out", !match);
+            if (match) {
+              shown += 1;
+              shownEls.push(item.el);
+            }
+          });
+
+          // The overlay cached the full photo list on page load, so hand it the
+          // photos that survived the filter. Without this the arrow keys would
+          // still walk through the images the visitor just filtered away.
+          if (typeof window.setLightboxElements === "function") {
+            window.setLightboxElements(shownEls);
+          }
+
+          if (status) {
+            status.textContent = `${shown} photo${shown === 1 ? "" : "s"} in ${label}.`;
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Reserve a table at Stackly Fine Dining. Tables are released 30 days in advance — book online, by phone, or plan a private event with our events team." />
+  <meta property="og:title" content="Reservations - Stackly Fine Dining" />
+  <meta property="og:description"
+    content="Secure your spot for an unforgettable dining experience." />
+  <meta property="og:image" content="assets/img/hero-interior.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Reservations - Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div id="scrollProgress"></div>
+
+  <nav id="navbar" class="navbar navbar-expand-xxl navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="brand-logo" src="assets/img/logo.webp" alt="Stackly Fine Dining" decoding="async"
+          width="1200" height="493" />
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="chefs.html">Our Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reservations.html" aria-current="page">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="404.html" class="btn btn-primary navbar-book px-4 py-2 rounded-pill shadow-sm">Book Table</a>
+          <a class="navbar-login" id="navLogin" href="login.html" data-auth-label="Sign In">
+            <i class="bi bi-person" aria-hidden="true"></i><span class="navbar-login-text">Sign In</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       Page hero
+       ============================================================ -->
+  <section id="page-hero" class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('assets/img/interior-bar.webp')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-noise"></div>
+    <div class="page-hero-content">
+      <div class="container">
+        <ol class="breadcrumb-custom">
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Reservations</li>
+        </ol>
+        <p class="eyebrow text-uppercase mb-3">Reservations</p>
+        <h1 class="page-hero-title display-3 fw-bold text-white mb-3">Book A Table</h1>
+        <p class="lead text-white-75 mb-0">
+          Secure your spot for an unforgettable dining experience. Tables open 30 days in advance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Booking form + practical information
+       ============================================================ -->
+  <section id="reservation" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Your Evening</p>
+            <h2 class="display-5 fw-bold">Reserve Your Seat</h2>
+            <p class="text-muted mb-0">
+              Tell us when you are coming and we will confirm by email within a few hours of your request.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 align-items-stretch">
+        <!-- Practical information -->
+        <div class="col-lg-5 order-lg-2 reveal">
+          <div class="reservation-info p-4 p-lg-5 h-100">
+            <h3 class="card-title fs-4 fw-semibold mb-3">Opening Hours</h3>
+            <ul class="meta-list mb-4">
+              <li><span>Monday — Thursday</span><span class="fw-medium">11:00 AM — 10:00 PM</span></li>
+              <li><span>Friday — Saturday</span><span class="fw-medium">11:00 AM — 12:00 AM</span></li>
+              <li><span>Sunday</span><span class="fw-medium">10:00 AM — 9:00 PM</span></li>
+            </ul>
+
+            <h3 class="card-title fs-4 fw-semibold mb-3 mt-4">Service</h3>
+            <ul class="meta-list mb-4">
+              <li><span>Lunch</span><span class="fw-medium">Mon — Fri, 11:30 AM — 2:30 PM</span></li>
+              <li><span>Sunday Brunch</span><span class="fw-medium">10:00 AM — 2:00 PM</span></li>
+              <li><span>Dinner</span><span class="fw-medium">Daily from 5:30 PM</span></li>
+              <li><span>Late Bar</span><span class="fw-medium">Daily from 10:30 PM</span></li>
+            </ul>
+
+            <h3 class="card-title fs-4 fw-semibold mb-3 mt-4">Find Us</h3>
+            <p class="mb-2">742 Park Avenue, New York, NY 10021</p>
+            <p class="mb-4">
+              <i class="bi bi-telephone me-2"></i>+1 (555) 123-4567 &nbsp;|&nbsp;
+              <i class="bi bi-envelope me-2"></i>hello@stackly.restaurant
+            </p>
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.977966364106!2d-73.96543232363332!3d40.76280573430636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258e6ec4d3b49%3A0xec3dbf42fb4d748e!2sPark%20Ave%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                title="Map showing Stackly Fine Dining at 742 Park Avenue, New York" style="border:0;" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking form -->
+        <div class="col-lg-7 order-lg-1 reveal delay-1">
+          <form id="reservationForm" class="reservation-form p-4 p-lg-5 needs-validation h-100" novalidate data-redirect="404.html">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" autocomplete="name"
+                  required />
+                <div class="invalid-feedback">Please enter your full name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com"
+                  autocomplete="email"
+                  pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                  title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)" required />
+                <div class="invalid-feedback">Please enter a valid email address (only letters, numbers, @, and . allowed).</div>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="e.g. 5551234567"
+                  autocomplete="tel" required />
+                <div class="invalid-feedback">Please enter your phone number.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="guests" class="form-label">Number Of Guests</label>
+                <select class="form-select" id="guests" name="guests" required>
+                  <option value="">Select Guests</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7+">7+ Guests (we will call you)</option>
+                </select>
+                <div class="invalid-feedback">Please select number of guests.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="date" class="form-label">Reservation Date</label>
+                <input type="date" class="form-control" id="date" name="date" required />
+                <div class="invalid-feedback">Please choose a date.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="time" class="form-label">Reservation Time</label>
+                <input type="time" class="form-control" id="time" name="time" required />
+                <div class="invalid-feedback">Please choose a time.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="seating" class="form-label">Seating Preference</label>
+                <select class="form-select" id="seating" name="seating">
+                  <option value="any">No Preference</option>
+                  <option value="main">The Main Room</option>
+                  <option value="bar">The Bar Counter</option>
+                  <option value="cellar">The Cellar Room</option>
+                  <option value="private">Private Dining</option>
+                  <option value="quiet">Quiet Corner Table</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="occasion" class="form-label">Occasion</label>
+                <select class="form-select" id="occasion" name="occasion">
+                  <option value="none">Just Dinner</option>
+                  <option value="birthday">Birthday</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="date">Date Night</option>
+                  <option value="business">Business Dinner</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Special Requests</label>
+                <textarea class="form-control" id="message" name="message" rows="4"
+                  placeholder="Dietary preferences, allergies, occasion details, seating preference..."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="d-flex flex-wrap align-items-center gap-3 justify-content-between">
+                  <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Confirm Reservation</button>
+                  <small class="text-muted">No card required to request.</small>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Dining rooms and spaces
+       ============================================================ -->
+  <section id="spaces" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Dining Rooms</p>
+            <h2 class="display-5 fw-bold">Pick The Room Before You Pick The Time</h2>
+            <p class="text-muted mb-0">
+              Four rooms, four quite different evenings. Tell us which one you want and we will hold it
+              for you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-3 reveal">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/hero-interior.webp" alt="The main dining room set for evening service" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">Up To 64 Seats</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Main Room</h3>
+              <p class="tile-card-text">
+                Our biggest and loudest room, which is the point on a Friday. Order individual dishes and enjoy the
+                entire wine list.
+              </p>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Request this room <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-1">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/interior-bar.webp" alt="The bar counter with its stools and glassware" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">12 Stools</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Bar Counter</h3>
+              <p class="tile-card-text">
+                Six stools facing the pass, a shorter menu and an earlier sitting. The best view of the
+                kitchen in the house.
+              </p>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Request this room <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-2">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/about-interior.webp" alt="The cellar room with low beams and warm lighting" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">Up To 28 Seats</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Cellar Room</h3>
+              <p class="tile-card-text">
+                Low beams, warm light and the chef's special menu only. The quietest room we have, and the one
+                people book for birthdays.
+              </p>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Request this room <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-3">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/hero-bg.webp" alt="The private dining room laid out for a long table" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">Up To 20 Seated</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">Private Dining</h3>
+              <p class="tile-card-text">
+                A locked door, your own service team and a menu we write with you three weeks ahead.
+              </p>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Request this room <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Your evening, step by step
+       ============================================================ -->
+  <section id="evening" class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-4 reveal">
+          <div class="section-heading text-start">
+            <p class="eyebrow text-uppercase">The Night Itself</p>
+            <h2 class="display-6 fw-bold">What Actually Happens, Hour By Hour</h2>
+            <p class="text-muted mb-0">
+              Nobody is timing your table. This is roughly how a two-and-a-half hour dinner runs, so
+              you know what you are booking into.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-8 reveal delay-1">
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">5:30 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">Doors And Pre-Dinner Drinks</h3>
+              <p class="text-muted small mb-0">
+                Seated within fifteen minutes. A drink before anything, while the kitchen watches the
+                room rather than a ticket rail.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">6:15 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">Starters</h3>
+              <p class="text-muted small mb-0">
+                Three small plates, shared or not depending entirely on how many of you there are.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">7:00 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">Mains</h3>
+              <p class="text-muted small mb-0">
+                The long part. Roughly seventy minutes, and we will not rush you out of it.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">8:05 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">Cheese And Dessert</h3>
+              <p class="text-muted small mb-0">
+                The cheese trolley, then dessert. Both optional, and nobody minds either way.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">9:00 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">After-Dinner Drinks At The Bar</h3>
+              <p class="text-muted small mb-0">
+                Tables turn over at about half past, but the bar stays open and nobody checks the time.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <p class="timeline-year mb-1">9:45 PM</p>
+              <h3 class="card-title fs-5 fw-semibold">Last Orders</h3>
+              <p class="text-muted small mb-0">
+                Last orders for food at 9:45. The kitchen closes when the room does.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Chef's table and tasting experiences
+       ============================================================ -->
+  <section id="experiences" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Experiences</p>
+            <h2 class="display-5 fw-bold">Three Nights That Are Not Ordinary</h2>
+            <p class="text-muted mb-0">
+              Limited seats, fixed menus and more talking than is usual. All three are booked through
+              the same form.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/chef-1.webp" alt="The chef cooking at the pass in front of the counter" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">8 Seats</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Chef&rsquo;s Table</h3>
+              <p class="tile-card-text">
+                Eight stools in the kitchen, two services cooked in front of you and finished at your
+                place. We cook what the market gave us that morning, which is the entire point.
+              </p>
+              <ul class="experience-facts">
+                <li><span>Duration</span><span>3 hours</span></li>
+                <li><span>Price</span><span class="price">$145</span></li>
+              </ul>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Enquire about this <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-4 reveal delay-1">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/menu-platter.webp" alt="A tasting course served on a ceramic plate" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">6 Seats</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Cellar Table</h3>
+              <p class="tile-card-text">
+                Seven matching courses poured against forty growers in the cellar, led by whoever
+                bought the bottles that week.
+              </p>
+              <ul class="experience-facts">
+                <li><span>Duration</span><span>2.5 hours</span></li>
+                <li><span>Price</span><span class="price">$110</span></li>
+              </ul>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Enquire about this <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-4 reveal delay-2">
+          <article class="tile-card">
+            <div class="tile-card-media">
+              <img src="assets/img/gallery-3.webp" alt="Bread finished in the wood hearth" loading="lazy" decoding="async" />
+              <span class="tile-card-tag">Sundays Only</span>
+            </div>
+            <div class="tile-card-body">
+              <h3 class="tile-card-title">The Sunday Long Table</h3>
+              <p class="tile-card-text">
+                One table, one seating, everyone together and the food passed hand to hand. Book it
+                months ahead or not at all.
+              </p>
+              <ul class="experience-facts">
+                <li><span>Seatings</span><span>One, at 1:00 PM</span></li>
+                <li><span>Price</span><span class="price">$85</span></li>
+              </ul>
+              <div class="tile-card-action">
+                <a href="404.html" class="tile-request">Enquire about this <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Special occasions and groups
+       ============================================================ -->
+  <section id="occasions" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Something To Mark</p>
+            <h2 class="display-5 fw-bold">We Have Done This A Few Hundred Times</h2>
+            <p class="text-muted mb-0">
+              Tell us what the occasion is in the form and we will take it from there. No charge for any
+              of the extras below.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-3 reveal">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-cake"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Birthdays</h3>
+            <ul class="occasion-list">
+              <li>Cake plated with the dessert, candles lit without being asked</li>
+              <li>One cake per table, no charge</li>
+              <li>A quiet corner held back from the online window</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-heart"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Anniversaries</h3>
+            <ul class="occasion-list">
+              <li>A glass of your choice on the house</li>
+              <li>The two-top by the window, if it is free</li>
+              <li>Dessert timed for when you say so</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-2">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-briefcase"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Corporate Dinners</h3>
+            <ul class="occasion-list">
+              <li>One contact for the whole booking</li>
+              <li>Invoiced to the company, no deposit needed</li>
+              <li>A screen and a printer you can actually use</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 reveal delay-3">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-people"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Weddings &amp; Large Groups</h3>
+            <ul class="occasion-list">
+              <li>Seven to twenty seated, planned with you in advance</li>
+              <li>A tasting for two included</li>
+              <li>We run the room ourselves, you keep the evening</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8 text-center reveal">
+          <p class="text-muted mb-3">
+            Parties of seven or more go through the same form above. We call you back within a day,
+            usually sooner.
+          </p>
+          <a href="404.html" class="btn btn-primary px-5 py-3 rounded-pill">Back To The Form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Guest reviews
+       ============================================================ -->
+  <section id="reviews" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Guest Reviews</p>
+            <h2 class="display-5 fw-bold">What The Bookers Say</h2>
+            <p class="text-muted mb-0">
+              Collected after the visit, from people who actually sat down.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-summary reveal">
+        <p class="review-score">4.8</p>
+        <div class="review-stars" aria-hidden="true">
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        </div>
+        <p class="visually-hidden">Rated 4.8 out of 5</p>
+        <p class="text-muted mb-0">Average from 2,140 verified bookings</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">EH</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;Booked for nine, and they moved a table twice to make it work. Nobody asked them
+              to.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">Elena H.</span>
+              <span class="text-muted">Anniversary, The Cellar Room</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-1">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">RM</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;The quietest dinner I have had in this city, and we did not raise our voices
+              once.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">Rachel M.</span>
+              <span class="text-muted">Birthday, seated at the bar</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal delay-2">
+          <figure class="guest-card mb-0">
+            <span class="monogram" aria-hidden="true">JO</span>
+            <blockquote class="guest-quote mb-3">
+              &ldquo;They cooked for eight people in a room the size of my kitchen and not one course
+              was rushed.&rdquo;
+            </blockquote>
+            <figcaption class="small">
+              <span class="d-block text-light">James O.</span>
+              <span class="text-muted">Chef&rsquo;s Table, March</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Good to know
+       ============================================================ -->
+  <section id="policies" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Good To Know</p>
+            <h2 class="display-5 fw-bold">How Booking Works Here</h2>
+            <p class="text-muted mb-0">
+              Four things worth knowing before you reserve, so nothing comes as a surprise.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-sm-6 reveal">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-calendar3"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Thirty-Day Window</h3>
+            <p class="text-muted small mb-0">
+              Tables open exactly 30 days ahead at 10:00 AM Eastern. The 7:00 PM and 9:00 PM slots go first.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 reveal delay-1">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-hourglass"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Two-Hour Tables</h3>
+            <p class="text-muted small mb-0">
+              We hold your table for two hours. If you are running late, call us — we will do what we can.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 reveal delay-2">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-people"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Parties Of Seven Or More</h3>
+            <p class="text-muted small mb-0">
+              Call the restaurant or use the form above and choose “7+ Guests”. Our events lead will set a menu with
+              you.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 reveal delay-3">
+          <div class="info-card">
+            <span class="info-card-icon mb-3" aria-hidden="true"><i class="bi bi-universal-access"></i></span>
+            <h3 class="card-title fs-5 fw-semibold">Access &amp; Dietary Needs</h3>
+            <p class="text-muted small mb-0">
+              Step-free entry, accessible restroom, and a kitchen that plans around allergies. Tell us in advance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Frequently asked questions
+       ============================================================ -->
+  <section id="faq" class="section-padding section-alt">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="section-heading">
+            <p class="eyebrow text-uppercase">Questions</p>
+            <h2 class="display-5 fw-bold">Frequently Asked</h2>
+            <p class="text-muted mb-0">
+              If your question is not here, call us and a person will answer it.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9 reveal">
+          <div class="accordion" id="reservationFaq">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                  aria-expanded="true" aria-controls="faq1">
+                  How far in advance should I book?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faqHead1"
+                data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  Tables are released 30 days in advance at 10:00 AM Eastern, and popular evening slots tend to go within
+                  the first few days. Booking earlier is always better — particularly for Fridays, Saturdays and the
+                  bar counter.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                  aria-expanded="false" aria-controls="faq2">
+                  What is the cancellation policy?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  Please cancel at least 24 hours in advance so we can release the table. Later cancellations and
+                  no-shows may carry a $50 per person charge. We will always call if we have to, and we are flexible
+                  when the reason is a good one — just tell us.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                  aria-expanded="false" aria-controls="faq3">
+                  Can you accommodate allergies and dietary requirements?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  Yes. Please give us at least 24 hours' notice and list every allergy in the special requests field.
+                  Our kitchen handles nuts, shellfish, gluten and dairy in a shared space, and we will tell you
+                  honestly what we can and cannot do rather than guessing.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
+                  aria-expanded="false" aria-controls="faq4">
+                  Can I book the bar counter or a private room?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  Both are available. The ten-seat bar counter takes single bookings and is our most requested
+                  seating. The private dining room is available for buy-outs after 8:30 PM for parties of ten to forty.
+                  Choose your preference in the booking form and we will confirm it.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5"
+                  aria-expanded="false" aria-controls="faq5">
+                  Is there a dress code?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faqHead5" data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  Smart casual. We ask guests to leave sportswear, flip-flops and work attire at home, but we will not
+                  turn anyone away at the door for it. Jacket optional.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6"
+                  aria-expanded="false" aria-controls="faq6">
+                  Do you offer gift cards?
+                </button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faqHead6" data-bs-parent="#reservationFaq">
+                <div class="accordion-body">
+                  We do. Gift cards are available in any amount, never expire, and can be used for the chef's special menu,
+                  wine pairings or a whole evening. Call the restaurant and we will post yours out, or pick one up at
+                  the host stand.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Call to action
+       ============================================================ -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 reveal">
+          <p class="eyebrow text-uppercase mb-3">Large Parties &amp; Events</p>
+          <h2 class="display-5 fw-bold text-white mb-3">Planning Something Larger?</h2>
+          <p class="text-white-75 lead mb-0">
+            For parties of seven or more, a private room, or a full buy-out, our events team will build the evening
+            around your guests.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end reveal delay-1">
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-3">
+            <a href="404.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Plan An Event</a>
+            <a href="404.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">See The Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Newsletter
+       ============================================================ -->
+  <section id="newsletter" class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="newsletter-card">
+            <span class="newsletter-badge">
+              <i class="bi bi-envelope-paper" aria-hidden="true"></i> Stay Connected
+            </span>
+            <h2 class="newsletter-title display-6 mb-3">Stories, Pairings &amp; Seasonal Releases</h2>
+            <p class="lead text-white-75 mb-4 mx-auto" style="max-width: 580px;">
+              Join our private dispatch for first access to new seasonal chef's special menus, wine cellar drops, and
+              invitation-only chef's table reservations.
+            </p>
+            <form class="newsletter-form mx-auto" action="404.html" method="get" style="max-width: 540px;">
+              <div class="newsletter-input-group">
+                <span class="newsletter-input-icon" aria-hidden="true">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email address"
+                  pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                  title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)"
+                  required
+                  aria-label="Email address for newsletter"
+                />
+                <button type="submit" class="btn btn-primary newsletter-btn">
+                  <span>Subscribe</span>
+                  <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="newsletter-note small text-muted mt-3 mb-0">
+                <i class="bi bi-shield-check me-1 text-gold" aria-hidden="true"></i>
+                We respect your inbox. Only seasonal updates and private invitations. Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer-section pt-5 pb-4">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1 - logo, description, social -->
+        <div class="footer-col footer-col-brand reveal">
+          <a class="footer-logo d-inline-block" href="index.html">
+            <img class="brand-logo brand-logo-lg" src="assets/img/logo.webp" alt="Stackly Fine Dining" loading="lazy"
+              decoding="async" width="1200" height="493" />
+          </a>
+          <p class="footer-about">
+            Redefining fine dining with modern elegance, unforgettable flavors, and heartfelt hospitality.
+          </p>
+          <ul class="footer-social list-unstyled" aria-label="Stackly on social media">
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on X"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+            <li><a href="404.html" class="social-icon" aria-label="Stackly on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2 - quick links -->
+        <nav class="footer-col reveal delay-1" aria-labelledby="footerQuickLinks">
+          <h2 class="footer-heading" id="footerQuickLinks">Quick Links</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3 - explore -->
+        <nav class="footer-col reveal delay-2" aria-labelledby="footerExplore">
+          <h2 class="footer-heading" id="footerExplore">Explore</h2>
+          <ul class="footer-links list-unstyled">
+            <li><a href="404.html">Our Specialties</a></li>
+            <li><a href="404.html">Chef's Selection</a></li>
+            <li><a href="404.html">Private Dining</a></li>
+            <li><a href="404.html">Events &amp; Celebrations</a></li>
+            <li><a href="404.html">Reservations</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 4 - contact details -->
+        <div class="footer-col reveal delay-3">
+          <h2 class="footer-heading">Contact Details</h2>
+          <ul class="footer-contact list-unstyled">
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
+              <a href="404.html">742 Park Avenue<br />New York, NY 10021</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-telephone"></i></span>
+              <a href="404.html">+1 (555) 123-4567</a>
+            </li>
+            <li>
+              <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+              <a href="404.html">hello@stackly.restaurant</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 5 - opening hours -->
+        <div class="footer-col reveal delay-4">
+          <h2 class="footer-heading">Opening Hours</h2>
+          <ul class="footer-hours-list list-unstyled">
+            <li><span class="footer-hours-day">Mon — Thu</span><span class="footer-hours-time">11am — 10pm</span></li>
+            <li><span class="footer-hours-day">Fri — Sat</span><span class="footer-hours-time">11am — 12am</span></li>
+            <li><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">10am — 9pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-4 mb-3" />
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white-75 small mb-0">© <span id="year"></span> Stackly Fine Dining. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <ul class="list-inline mb-0 footer-legal">
+            <li class="list-inline-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="404.html">Terms Of Service</a></li>
+            <li class="list-inline-item"><a href="404.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
+        <strong class="me-auto">Stackly Fine Dining</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close notification"></button>
+      </div>
+      <div class="toast-body">Thank you! Your request has been received.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

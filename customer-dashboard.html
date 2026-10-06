@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Stackly Fine Dining — Member Guest Dashboard for reservations, dining history, favorite cellar selections, and rewards." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp" />
+  <title>Customer Dashboard — Stackly Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+
+<body>
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+  <div class="dashboard-layout">
+    <!-- ============================================================
+         Customer Sidebar
+         ============================================================ -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Customer Navigation">
+      <div class="sidebar-header">
+        <a class="sidebar-brand" href="index.html">
+          <img class="sidebar-logo" src="assets/img/logo.webp" alt="Stackly Fine Dining" width="120" height="49" />
+          <span class="sidebar-role-badge badge-customer"><i class="bi bi-gem"></i> Member Salon</span>
+        </a>
+        <button class="sidebar-close-btn" id="sidebarClose" type="button" aria-label="Close sidebar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-heading">My Dining</span>
+        <a class="sidebar-link active" href="#overview" data-section="section-overview">
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>Overview</span>
+        </a>
+        <a class="sidebar-link" href="#my-orders" data-section="section-my-orders">
+          <i class="bi bi-receipt"></i>
+          <span>My Orders</span>
+        </a>
+        <a class="sidebar-link" href="#my-reservations" data-section="section-my-reservations">
+          <i class="bi bi-calendar-heart-fill"></i>
+          <span>My Reservations</span>
+          <span class="sidebar-badge">1 Active</span>
+        </a>
+        <a class="sidebar-link" href="#favorites" data-section="section-favorites">
+          <i class="bi bi-heart-fill"></i>
+          <span>Favorites</span>
+        </a>
+
+        <span class="sidebar-heading">Account</span>
+        <a class="sidebar-link" href="#profile" data-section="section-profile">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+        <a class="sidebar-link" href="#settings" data-section="section-settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="sidebar-link" href="index.html">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Go to Home</span>
+        </a>
+        <a class="sidebar-link text-danger-emphasis" href="login.html" data-logout-btn>
+          <i class="bi bi-box-arrow-right text-danger"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============================================================
+         Main Dashboard Content Area
+         ============================================================ -->
+    <main class="dashboard-main">
+      <!-- Essential Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open sidebar">
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="header-greeting">
+            <h1>Welcome, <span data-user-name>Sarah Jenkins</span></h1>
+            <p>Gold Connoisseur Member · Member Since 2024</p>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <a href="404.html" class="btn btn-primary rounded-pill btn-sm px-3 d-none d-sm-inline-flex align-items-center gap-2">
+            <i class="bi bi-plus-circle"></i> Book Table
+          </a>
+
+          <!-- Notification Bell -->
+          <a class="header-icon-btn" href="404.html" aria-label="Notifications" title="Notifications">
+            <i class="bi bi-bell"></i>
+            <span class="header-badge-dot"></span>
+          </a>
+
+          <!-- Customer Profile Pill -->
+          <div class="header-user-profile">
+            <span class="header-avatar" data-user-initials>SJ</span>
+            <div class="d-none d-sm-block text-start">
+              <span class="header-user-name" data-user-name>Sarah Jenkins</span>
+              <span class="header-user-role">Gold Patron</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <div class="dashboard-body">
+        <!-- ============================================================
+             Section 1: Customer Overview
+             ============================================================ -->
+        <div class="dashboard-section active" id="section-overview">
+          <!-- 1. Overview Metric Cards -->
+          <div class="row g-3 g-xl-4 mb-4">
+          <!-- Card 1: Total Orders -->
+          <div class="col-sm-6 col-xl-3 stat-card-anim">
+            <div class="dash-card">
+              <div class="stat-widget">
+                <div class="stat-widget-info">
+                  <div class="stat-widget-label">Total Visits &amp; Orders</div>
+                  <div class="stat-widget-value dash-counter" data-target="24">0</div>
+                  <div class="stat-widget-trend positive">
+                    <i class="bi bi-check-circle"></i> 5 Visits this year
+                  </div>
+                </div>
+                <div class="stat-widget-icon icon-burgundy">
+                  <i class="bi bi-bag-heart-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Upcoming Reservations -->
+          <div class="col-sm-6 col-xl-3 stat-card-anim">
+            <div class="dash-card">
+              <div class="stat-widget">
+                <div class="stat-widget-info">
+                  <div class="stat-widget-label">Upcoming Reservations</div>
+                  <div class="stat-widget-value dash-counter" data-target="1">0</div>
+                  <div class="stat-widget-trend positive">
+                    <i class="bi bi-calendar-event"></i> Friday, Oct 16
+                  </div>
+                </div>
+                <div class="stat-widget-icon icon-gold">
+                  <i class="bi bi-calendar2-check-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Favorite Dishes -->
+          <div class="col-sm-6 col-xl-3 stat-card-anim">
+            <div class="dash-card">
+              <div class="stat-widget">
+                <div class="stat-widget-info">
+                  <div class="stat-widget-label">Favorite Dishes</div>
+                  <div class="stat-widget-value dash-counter" data-target="8">0</div>
+                  <div class="stat-widget-trend neutral">
+                    <i class="bi bi-bookmark-star-fill"></i> Curated Selections
+                  </div>
+                </div>
+                <div class="stat-widget-icon icon-emerald">
+                  <i class="bi bi-heart-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Loyalty Points -->
+          <div class="col-sm-6 col-xl-3 stat-card-anim">
+            <div class="dash-card">
+              <div class="stat-widget">
+                <div class="stat-widget-info">
+                  <div class="stat-widget-label">Loyalty Reward Points</div>
+                  <div class="stat-widget-value dash-counter" data-target="2850">0</div>
+                  <div class="stat-widget-trend positive">
+                    <i class="bi bi-award-fill"></i> Gold Connoisseur Tier
+                  </div>
+                </div>
+                <div class="stat-widget-icon icon-gold">
+                  <i class="bi bi-award"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Upcoming Reservation Feature & Loyalty Progress -->
+        <div class="row g-3 g-xl-4 mb-4">
+          <!-- Upcoming Reservation Card -->
+          <div class="col-xl-7 dash-card-anim">
+            <div class="upcoming-reservation-hero h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div>
+                    <span class="badge bg-warning-subtle text-warning border border-warning-subtle mb-2">
+                      <i class="bi bi-check2-circle me-1"></i>Confirmed Reservation
+                    </span>
+                    <h2 class="dash-card-title fs-4">Your Next Evening at Stackly</h2>
+                  </div>
+                  <span class="text-gold fs-5"><i class="bi bi-stars"></i></span>
+                </div>
+
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                      <div class="text-muted small mb-1"><i class="bi bi-calendar3 me-1 text-gold"></i> Date &amp; Time</div>
+                      <div class="fw-semibold text-white">Friday, Oct 16, 2026</div>
+                      <div class="small text-gold-light">7:30 PM (Dinner Service)</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                      <div class="text-muted small mb-1"><i class="bi bi-geo-alt me-1 text-gold"></i> Seating &amp; Party</div>
+                      <div class="fw-semibold text-white">2 Guests · Table 8</div>
+                      <div class="small text-white-50">Main Salon Window Alcove</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-3 mb-4" style="background: rgba(122, 31, 43, 0.15); border: 1px dashed rgba(201, 162, 39, 0.35);">
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <i class="bi bi-cup-straw text-gold"></i>
+                    <span class="fw-semibold text-white small">Chef's Special Menu with Sommelier Reserve Pairing</span>
+                  </div>
+                  <p class="small text-white-75 mb-0">
+                    Special Note: Celebrating Wedding Anniversary · Complimentary Champagne welcome requested.
+                  </p>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 pt-2">
+                <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                  <i class="bi bi-pencil-square me-1"></i> Modify
+                </a>
+                <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                  <i class="bi bi-compass me-1"></i> Directions
+                </a>
+                <a href="404.html" class="btn btn-outline-danger rounded-pill btn-sm px-3 ms-auto">
+                  Cancel Reservation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Loyalty / Reward Progress Indicator -->
+          <div class="col-xl-5 dash-card-anim">
+            <div class="loyalty-progress-box h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h2 class="dash-card-title fs-5 mb-0">Member Rewards Club</h2>
+                  <span class="badge bg-warning-subtle text-warning border border-warning-subtle">
+                    <i class="bi bi-gem me-1"></i>Gold Level
+                  </span>
+                </div>
+                <p class="small text-white-75 mb-3">
+                  Earn 10 points per \$1 spent on dining and private events.
+                </p>
+
+                <div class="d-flex justify-content-between align-items-baseline mb-1">
+                  <span class="fw-semibold text-white fs-4">2,850 <span class="fs-6 text-muted fw-normal">/ 3,000 pts</span></span>
+                  <span class="small text-gold-light fw-medium">150 pts to Diamond Tier</span>
+                </div>
+
+                <div class="loyalty-progress-bar">
+                  <div class="loyalty-progress-fill" style="width: 95%;"></div>
+                </div>
+
+                <div class="mt-4">
+                  <h3 class="fs-6 fw-semibold text-white mb-2">Active Member Privileges</h3>
+                  <ul class="meta-list small">
+                    <li><span>Sommelier Welcome Glass</span><span class="text-gold fw-medium">Active</span></li>
+                    <li><span>Guaranteed Window Seating</span><span class="text-gold fw-medium">Active</span></li>
+                    <li><span>Chef's Seasonal Welcome Bite</span><span class="text-gold fw-medium">Included</span></li>
+                    <li><span>Annual Vintage Allocation</span><span class="text-white-50">Unlocks at 3,000 pts</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2">
+                <a href="404.html" class="btn btn-primary rounded-pill btn-sm w-100 py-2">
+                  <i class="bi bi-gift me-1"></i> Redeem Reward Vouchers
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Favorite Dishes Section with Images -->
+        <div class="dash-card-anim mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h2 class="dash-card-title fs-4">Your Saved Culinary Favorites</h2>
+              <div class="dash-card-subtitle">Dishes and pairings you loved during past dining experiences</div>
+            </div>
+            <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill px-3">
+              Explore Full Menu <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+
+          <div class="row g-3 g-xl-4">
+            <!-- Dish 1 -->
+            <div class="col-sm-6 col-xl-3">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-steak.webp" alt="Dry-Aged Wagyu Striploin" />
+                  <span class="tile-card-tag"><i class="bi bi-star-fill text-gold me-1"></i>Chef's Cut</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Dry-Aged Wagyu Striploin</h3>
+                    <span class="text-gold fw-semibold">$68</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Hearth-charred bone marrow glaze, roasted shallot, and black garlic jus.</p>
+                  <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill w-100">
+                    Order for Next Visit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dish 2 -->
+            <div class="col-sm-6 col-xl-3">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-pasta.webp" alt="Hand-Rolled Tagliolini with White Truffle" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">White Truffle Tagliolini</h3>
+                    <span class="text-gold fw-semibold">$44</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Fresh hand-rolled pasta, 36-month aged Parmigiano, and shaved Alba truffle.</p>
+                  <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill w-100">
+                    Order for Next Visit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dish 3 -->
+            <div class="col-sm-6 col-xl-3">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-drinks.webp" alt="Smoked Rosemary Old Fashioned" />
+                  <span class="tile-card-tag"><i class="bi bi-cup-straw text-gold me-1"></i>Signature Bar</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Smoked Old Fashioned</h3>
+                    <span class="text-gold fw-semibold">$24</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Small-batch rye, torch-smoked rosemary branch, and artisanal bitters.</p>
+                  <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill w-100">
+                    Order for Next Visit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dish 4 -->
+            <div class="col-sm-6 col-xl-3">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/menu-dessert.webp" alt="Valrhona Dark Chocolate Soufflé" />
+                  <span class="tile-card-tag"><i class="bi bi-award text-gold me-1"></i>Pastry</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Chocolate Soufflé</h3>
+                    <span class="text-gold fw-semibold">$22</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">70% Guanaja chocolate, Grand Marnier crème anglaise, and Maldon salt.</p>
+                  <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill w-100">
+                    Order for Next Visit
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Recent Orders Table & Activity Timeline / Profile Summary -->
+        <div class="row g-3 g-xl-4">
+          <!-- Recent Orders Section -->
+          <div class="col-xl-7 dash-card-anim">
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <h2 class="dash-card-title">Recent Dining Experiences</h2>
+                  <div class="dash-card-subtitle">Your past receipts and booked menus</div>
+                </div>
+                <a href="404.html" class="small text-gold text-decoration-none">All Receipts</a>
+              </div>
+
+              <div class="dash-table-wrap">
+                <table class="dash-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Experience / Tasting</th>
+                      <th>Table</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <th>Receipt</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-white">Sep 28, 2026</td>
+                      <td class="fw-medium">Autumn Chef's Special &times; 2</td>
+                      <td class="text-muted">Table 8</td>
+                      <td class="fw-semibold text-gold">$420.00</td>
+                      <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                      <td>
+                        <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill px-2 py-1 small" title="Download invoice">
+                          <i class="bi bi-download"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-white">Aug 14, 2026</td>
+                      <td class="fw-medium">Chef's Selection &amp; Wine Flight</td>
+                      <td class="text-muted">The Wine Vault</td>
+                      <td class="fw-semibold text-gold">$530.00</td>
+                      <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                      <td>
+                        <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill px-2 py-1 small" title="Download invoice">
+                          <i class="bi bi-download"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-white">Jul 02, 2026</td>
+                      <td class="fw-medium">Summer Chef's Special Menu</td>
+                      <td class="text-muted">Table 4</td>
+                      <td class="fw-semibold text-gold">$380.00</td>
+                      <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                      <td>
+                        <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill px-2 py-1 small" title="Download invoice">
+                          <i class="bi bi-download"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Timeline & Profile Summary -->
+          <div class="col-xl-5 dash-card-anim">
+            <div class="dash-card">
+              <!-- Profile Summary -->
+              <div class="p-3 rounded-3 mb-4" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="fs-6 fw-semibold text-white mb-0">Guest Dining Preferences</h3>
+                  <a href="404.html" class="small text-gold text-decoration-none">Edit</a>
+                </div>
+                <div class="row g-2 small text-muted">
+                  <div class="col-6">
+                    <span class="d-block text-white-50">Dietary Note:</span>
+                    <span class="text-white">Pescatarian preferred</span>
+                  </div>
+                  <div class="col-6">
+                    <span class="d-block text-white-50">Allergies:</span>
+                    <span class="text-white">Peanut sensitive</span>
+                  </div>
+                  <div class="col-6">
+                    <span class="d-block text-white-50">Seating:</span>
+                    <span class="text-white">Window alcove</span>
+                  </div>
+                  <div class="col-6">
+                    <span class="d-block text-white-50">Preferred Sommelier:</span>
+                    <span class="text-white">Matthieu Laurent</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Activity Section -->
+              <div class="dash-card-header mb-3">
+                <h3 class="dash-card-title fs-6">Recent Activity Timeline</h3>
+                <span class="small text-muted">Last 30 days</span>
+              </div>
+
+              <ul class="timeline-list">
+                <li class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="fw-medium text-white small">Reserved Table for Oct 16</div>
+                  <div class="text-muted small">Confirmed 2-guest chef's special seating in Main Salon</div>
+                  <small class="text-gold-light" style="font-size: 0.72rem;">Yesterday · 4:15 PM</small>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-dot dot-emerald"></span>
+                  <div class="fw-medium text-white small">Earned +420 Reward Points</div>
+                  <div class="text-muted small">Dinner service points added to your member account</div>
+                  <small class="text-gold-light" style="font-size: 0.72rem;">Sep 29, 2026</small>
+                </li>
+                <li class="timeline-item">
+                  <span class="timeline-dot dot-burgundy"></span>
+                  <div class="fw-medium text-white small">Saved Truffle Tagliolini to Favorites</div>
+                  <div class="text-muted small">Added dish to your personal cellar &amp; menu list</div>
+                  <small class="text-gold-light" style="font-size: 0.72rem;">Sep 28, 2026</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /#section-overview -->
+
+        <!-- ============================================================
+             Section 2: My Orders & Receipts
+             ============================================================ -->
+        <div class="dashboard-section" id="section-my-orders">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div>
+              <h2 class="dash-card-title fs-4">My Dining Receipts &amp; Experiences</h2>
+              <p class="dash-card-subtitle mb-0">Itemized bills, chef's special menu logs, sommelier pairings, and downloadable VAT invoices</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <div class="dash-search-wrap">
+                <i class="bi bi-search dash-search-icon"></i>
+                <input type="text" class="dash-search-input" id="custOrderSearchInput" placeholder="Search previous orders..." />
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="d-flex align-items-center gap-2 mb-4 overflow-x-auto pb-1">
+            <button class="dash-filter-btn active" data-cust-order-filter="all">All Experiences (4)</button>
+            <button class="dash-filter-btn" data-cust-order-filter="tasting">Chef's Special Menus (2)</button>
+            <button class="dash-filter-btn" data-cust-order-filter="alacarte">Individual Dishes (1)</button>
+            <button class="dash-filter-btn" data-cust-order-filter="private">Private Vault (1)</button>
+          </div>
+
+          <!-- Orders Cards -->
+          <div class="d-flex flex-column gap-3">
+            <!-- Order 1 -->
+            <div class="dash-card cust-order-item" data-cust-order-type="tasting">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-3 mb-3 border-bottom border-secondary-subtle">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="fw-semibold text-gold fs-5">#ORD-9824</span>
+                    <span class="badge bg-warning-subtle text-warning border border-warning-subtle">Chef's Special</span>
+                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>Completed</span>
+                  </div>
+                  <div class="text-white-50 small">Dined on September 28, 2026 · Table 8 (Window Alcove) · Sommelier: Matthieu Laurent</div>
+                </div>
+                <div class="text-md-end">
+                  <div class="fs-4 fw-bold text-white">$580.00</div>
+                  <small class="text-muted">Paid via Amex Centurion</small>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-7">
+                  <div class="small fw-semibold text-white mb-2">Itemized Selections:</div>
+                  <ul class="list-unstyled small text-white-75 mb-0 d-flex flex-column gap-1">
+                    <li class="d-flex justify-content-between">
+                      <span>2&times; 7-Course Autumn Chef's Special Menu</span>
+                      <span class="text-gold">$320.00</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <span>2&times; Grand Cru Sommelier Wine Pairing (Flight of 7)</span>
+                      <span class="text-gold">$210.00</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <span>Hospitality &amp; Service Charge</span>
+                      <span class="text-gold">$50.00</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-5">
+                  <div class="p-3 rounded-2 h-100" style="background: rgba(247, 241, 227, 0.03); border: 1px solid rgba(247, 241, 227, 0.07);">
+                    <div class="small fw-semibold text-gold mb-1"><i class="bi bi-journal-bookmark-fill me-1"></i>Tasting Note Recorded:</div>
+                    <p class="small text-white-75 mb-0">"Noted guest fondness for 2012 Barolo Riserva from Piedmont. Complimentary cellar pour provided."</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center pt-2">
+                <a href="404.html" class="dash-action-btn">
+                  <i class="bi bi-download me-1"></i> Download Invoice (PDF)
+                </a>
+                <a href="404.html" class="btn btn-primary btn-sm rounded-pill px-3">
+                  <i class="bi bi-arrow-repeat me-1"></i> Re-book Experience
+                </a>
+              </div>
+            </div>
+
+            <!-- Order 2 -->
+            <div class="dash-card cust-order-item" data-cust-order-type="private">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-3 mb-3 border-bottom border-secondary-subtle">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="fw-semibold text-gold fs-5">#ORD-9610</span>
+                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Private Salon</span>
+                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>Completed</span>
+                  </div>
+                  <div class="text-white-50 small">Dined on August 14, 2026 · The Wine Vault · 4 Guests</div>
+                </div>
+                <div class="text-md-end">
+                  <div class="fs-4 fw-bold text-white">$530.00</div>
+                  <small class="text-muted">Paid via Visa Infinite</small>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-7">
+                  <div class="small fw-semibold text-white mb-2">Itemized Selections:</div>
+                  <ul class="list-unstyled small text-white-75 mb-0 d-flex flex-column gap-1">
+                    <li class="d-flex justify-content-between">
+                      <span>4&times; Chef's Private Selection &amp; Cellar Tour</span>
+                      <span class="text-gold">$420.00</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <span>Château Margaux Premier Grand Cru 2015 Flight</span>
+                      <span class="text-gold">$110.00</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-5">
+                  <div class="p-3 rounded-2 h-100" style="background: rgba(247, 241, 227, 0.03); border: 1px solid rgba(247, 241, 227, 0.07);">
+                    <div class="small fw-semibold text-gold mb-1"><i class="bi bi-gift-fill me-1"></i>Patron Benefit:</div>
+                    <p class="small text-white-75 mb-0">+530 Gold Loyalty Points credited to Sarah Jenkins account.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center pt-2">
+                <a href="404.html" class="dash-action-btn">
+                  <i class="bi bi-download me-1"></i> Download Invoice (PDF)
+                </a>
+                <a href="404.html" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                  <i class="bi bi-arrow-repeat me-1"></i> Re-book Experience
+                </a>
+              </div>
+            </div>
+
+            <!-- Order 3 -->
+            <div class="dash-card cust-order-item" data-cust-order-type="tasting">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-3 mb-3 border-bottom border-secondary-subtle">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="fw-semibold text-gold fs-5">#ORD-9422</span>
+                    <span class="badge bg-warning-subtle text-warning border border-warning-subtle">Chef's Special</span>
+                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>Completed</span>
+                  </div>
+                  <div class="text-white-50 small">Dined on July 02, 2026 · Table 4 · 2 Guests</div>
+                </div>
+                <div class="text-md-end">
+                  <div class="fs-4 fw-bold text-white">$380.00</div>
+                  <small class="text-muted">Paid via Apple Pay</small>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center pt-2">
+                <a href="404.html" class="dash-action-btn">
+                  <i class="bi bi-download me-1"></i> Download Invoice (PDF)
+                </a>
+                <a href="404.html" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                  <i class="bi bi-arrow-repeat me-1"></i> Re-book Experience
+                </a>
+              </div>
+            </div>
+
+            <!-- Order 4 -->
+            <div class="dash-card cust-order-item" data-cust-order-type="alacarte">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-3 mb-3 border-bottom border-secondary-subtle">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="fw-semibold text-gold fs-5">#ORD-9211</span>
+                    <span class="badge bg-secondary-subtle text-white-75 border border-secondary">Individual Dishes</span>
+                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>Completed</span>
+                  </div>
+                  <div class="text-white-50 small">Dined on May 18, 2026 · Main Dining Salon · 2 Guests</div>
+                </div>
+                <div class="text-md-end">
+                  <div class="fs-4 fw-bold text-white">$295.00</div>
+                  <small class="text-muted">Paid via Visa Infinite</small>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center pt-2">
+                <a href="404.html" class="dash-action-btn">
+                  <i class="bi bi-download me-1"></i> Download Invoice (PDF)
+                </a>
+                <a href="404.html" class="btn btn-outline-light btn-sm rounded-pill px-3">
+                  <i class="bi bi-arrow-repeat me-1"></i> Re-book Experience
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#section-my-orders -->
+
+        <!-- ============================================================
+             Section 3: My Reservations
+             ============================================================ -->
+        <div class="dashboard-section" id="section-my-reservations">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div>
+              <h2 class="dash-card-title fs-4">My Table Reservations</h2>
+              <p class="dash-card-subtitle mb-0">Manage upcoming reservations, salon requests, table locations, and dining history</p>
+            </div>
+            <a href="404.html" class="btn btn-primary btn-sm rounded-pill px-3 d-inline-flex align-items-center gap-1">
+              <i class="bi bi-calendar-plus"></i> Book Another Table
+            </a>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="d-flex align-items-center gap-2 mb-4 overflow-x-auto pb-1">
+            <button class="dash-filter-btn active" data-cust-res-filter="all">All Bookings (4)</button>
+            <button class="dash-filter-btn" data-cust-res-filter="upcoming">Upcoming (1)</button>
+            <button class="dash-filter-btn" data-cust-res-filter="completed">Past Visits (3)</button>
+          </div>
+
+          <!-- Upcoming Reservation Card -->
+          <div class="upcoming-reservation-hero mb-4 cust-res-item" data-cust-res-status="upcoming">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <span class="badge bg-warning-subtle text-warning border border-warning-subtle mb-2">
+                  <i class="bi bi-check2-circle me-1"></i>Confirmed Reservation · #RES-8842
+                </span>
+                <h3 class="dash-card-title fs-3 text-white">Your Next Evening at Stackly</h3>
+              </div>
+              <span class="text-gold fs-4"><i class="bi bi-stars"></i></span>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6 col-lg-3">
+                <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                  <div class="text-muted small mb-1"><i class="bi bi-calendar3 me-1 text-gold"></i> Date</div>
+                  <div class="fw-semibold text-white">Friday, Oct 16, 2026</div>
+                  <div class="small text-gold-light">Dinner Service</div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                  <div class="text-muted small mb-1"><i class="bi bi-clock me-1 text-gold"></i> Arrival Time</div>
+                  <div class="fw-semibold text-white">7:30 PM</div>
+                  <div class="small text-white-50">120m Turn Time</div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                  <div class="text-muted small mb-1"><i class="bi bi-people me-1 text-gold"></i> Party Size</div>
+                  <div class="fw-semibold text-white">2 Guests</div>
+                  <div class="small text-white-50">Private Tasting</div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <div class="p-3 rounded-3" style="background: rgba(247, 241, 227, 0.04); border: 1px solid rgba(247, 241, 227, 0.08);">
+                  <div class="text-muted small mb-1"><i class="bi bi-geo-alt me-1 text-gold"></i> Seating</div>
+                  <div class="fw-semibold text-white">Table 8</div>
+                  <div class="small text-white-50">Window Alcove</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-3 mb-4" style="background: rgba(122, 31, 43, 0.15); border: 1px dashed rgba(201, 162, 39, 0.35);">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <i class="bi bi-cup-straw text-gold"></i>
+                <span class="fw-semibold text-white small">Chef's Special Menu with Sommelier Reserve Pairing</span>
+              </div>
+              <p class="small text-white-75 mb-0">
+                Special Note: Celebrating 20th Wedding Anniversary · Preferred Sommelier: Matthieu Laurent · Dietary: Pescatarian, Peanut Allergy Alert.
+              </p>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 pt-2">
+              <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                <i class="bi bi-calendar-event me-1"></i> Add to Calendar
+              </a>
+              <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                <i class="bi bi-compass me-1"></i> Directions
+              </a>
+              <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+                <i class="bi bi-telephone me-1"></i> Call Maître D'
+              </a>
+              <a href="404.html" class="btn btn-outline-danger rounded-pill btn-sm px-3 ms-auto">
+                Cancel Reservation
+              </a>
+            </div>
+          </div>
+
+          <!-- Past Bookings Card -->
+          <div class="dash-card cust-res-item" data-cust-res-status="completed">
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title fs-5">Past Reservations Archive</h3>
+                <div class="dash-card-subtitle">Previous visits to Stackly Dining Salons</div>
+              </div>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Salon / Table</th>
+                    <th>Guests</th>
+                    <th>Experience</th>
+                    <th>Status</th>
+                    <th>Your Rating</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-white">Aug 14, 2026</td>
+                    <td class="text-white-50">The Wine Vault</td>
+                    <td><span class="badge bg-secondary-subtle border border-secondary text-white">4 Guests</span></td>
+                    <td class="text-white">Private Cellar Chef's Special</td>
+                    <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                    <td><span class="star-rating">★★★★★</span></td>
+                    <td>
+                      <a href="404.html" class="dash-action-btn" title="Re-book"><i class="bi bi-arrow-repeat"></i> Re-book</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-white">Jul 02, 2026</td>
+                    <td class="text-white-50">Table 4 · Main Room</td>
+                    <td><span class="badge bg-secondary-subtle border border-secondary text-white">2 Guests</span></td>
+                    <td class="text-white">Summer Chef's Special Menu</td>
+                    <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                    <td><span class="star-rating">★★★★★</span></td>
+                    <td>
+                      <a href="404.html" class="dash-action-btn" title="Re-book"><i class="bi bi-arrow-repeat"></i> Re-book</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-white">May 18, 2026</td>
+                    <td class="text-white-50">Table 7 · Window Alcove</td>
+                    <td><span class="badge bg-secondary-subtle border border-secondary text-white">2 Guests</span></td>
+                    <td class="text-white">Individual Dishes Dinner</td>
+                    <td><span class="status-pill-badge status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span></td>
+                    <td><span class="star-rating">★★★★★</span></td>
+                    <td>
+                      <a href="404.html" class="dash-action-btn" title="Re-book"><i class="bi bi-arrow-repeat"></i> Re-book</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /#section-my-reservations -->
+
+        <!-- ============================================================
+             Section 4: Saved Favorites
+             ============================================================ -->
+        <div class="dashboard-section" id="section-favorites">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div>
+              <h2 class="dash-card-title fs-4">My Saved Culinary Favorites</h2>
+              <p class="dash-card-subtitle mb-0">Curated dishes, rare vintage wines, and seasonal desserts you favorited</p>
+            </div>
+            <a href="404.html" class="btn btn-outline-light rounded-pill btn-sm px-4">
+              Explore Full Menu <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="d-flex align-items-center gap-2 mb-4 overflow-x-auto pb-1">
+            <button class="dash-filter-btn active" data-cust-fav-filter="all">All Favorites (6)</button>
+            <button class="dash-filter-btn" data-cust-fav-filter="mains">Mains &amp; Cuts (2)</button>
+            <button class="dash-filter-btn" data-cust-fav-filter="pasta">Primi &amp; Starters (2)</button>
+            <button class="dash-filter-btn" data-cust-fav-filter="dessert">Desserts (1)</button>
+            <button class="dash-filter-btn" data-cust-fav-filter="wine">Grand Cellar (1)</button>
+          </div>
+
+          <!-- Favorites Grid -->
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            <!-- Favorite 1 -->
+            <div class="col cust-fav-item" data-cust-fav-type="mains">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-steak.webp" alt="Dry-Aged Wagyu Striploin" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Dry-Aged Wagyu Striploin</h3>
+                    <span class="text-gold fw-semibold">$68.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Hearth-charred bone marrow glaze, roasted shallot, and black garlic jus.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favorite 2 -->
+            <div class="col cust-fav-item" data-cust-fav-type="pasta">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-pasta.webp" alt="Hand-Rolled Tagliolini with White Truffle" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">White Truffle Tagliolini</h3>
+                    <span class="text-gold fw-semibold">$44.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Fresh hand-rolled pasta, 36-month aged Parmigiano, and shaved Alba truffle.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favorite 3 -->
+            <div class="col cust-fav-item" data-cust-fav-type="mains">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/menu-fish.webp" alt="Pan-Seared Chilean Seabass" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Pan-Seared Chilean Seabass</h3>
+                    <span class="text-gold fw-semibold">$68.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Saffron velouté, asparagus spears, sea fennel, crispy leeks.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favorite 4 -->
+            <div class="col cust-fav-item" data-cust-fav-type="dessert">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/menu-dessert.webp" alt="Valrhona Dark Chocolate Soufflé" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Valrhona Chocolate Soufflé</h3>
+                    <span class="text-gold fw-semibold">$22.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Grand Marnier crème anglaise and smoked sea salt with Tahitian vanilla bean.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favorite 5 -->
+            <div class="col cust-fav-item" data-cust-fav-type="pasta">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/menu-platter.webp" alt="Imperial Seafood Platter" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Imperial Seafood Platter</h3>
+                    <span class="text-gold fw-semibold">$165.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Brittany oysters, royal king crab, oscietra caviar &amp; Meyer lemon foam.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favorite 6 -->
+            <div class="col cust-fav-item" data-cust-fav-type="wine">
+              <div class="favorite-dish-card">
+                <div class="favorite-dish-img-wrap">
+                  <img src="assets/img/dish-drinks.webp" alt="Smoked Rosemary Old Fashioned" />
+                  <span class="tile-card-tag"><i class="bi bi-heart-fill text-danger me-1"></i>Favorite</span>
+                </div>
+                <div class="favorite-dish-body">
+                  <div class="d-flex justify-content-between align-items-baseline mb-1">
+                    <h3 class="fs-6 fw-bold text-white mb-0">Smoked Rosemary Old Fashioned</h3>
+                    <span class="text-gold fw-semibold">$24.00</span>
+                  </div>
+                  <p class="small text-muted mb-3 flex-grow-1">Small-batch rye whiskey, torch-smoked rosemary sprig, aromatic bitters.</p>
+                  <div class="d-flex gap-2">
+                    <a href="404.html" class="btn btn-sm btn-outline-light rounded-pill flex-grow-1">Order for Next Visit</a>
+                    <a href="404.html" class="dash-action-btn" title="Remove"><i class="bi bi-trash"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#section-favorites -->
+
+        <!-- ============================================================
+             Section 5: Profile & Dining Preferences
+             ============================================================ -->
+        <div class="dashboard-section" id="section-profile">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div>
+              <h2 class="dash-card-title fs-4">Guest Profile &amp; Dining Preferences</h2>
+              <p class="dash-card-subtitle mb-0">Personalized sommelier notes, dietary requirements, and VIP patron information</p>
+            </div>
+          </div>
+
+          <form data-feedback-form data-feedback-msg="Dining preferences saved and updated in Maître D' system.">
+            <div class="row g-4">
+              <!-- Personal Details -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Personal &amp; Contact Information</h3>
+                      <div class="dash-card-subtitle">Member identity details</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label small text-muted mb-1">Full Legal Name</label>
+                      <input type="text" class="dash-form-control" value="Sarah Jenkins" />
+                    </div>
+                    <div class="row g-2">
+                      <div class="col-sm-6">
+                        <label class="form-label small text-muted mb-1">Primary Email</label>
+                        <input type="email" class="dash-form-control" value="sarah.j@lifestyle.co"
+                          pattern="[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}"
+                          title="Only letters, numbers, @, and . are allowed (e.g. name@example.com)" />
+                      </div>
+                      <div class="col-sm-6">
+                        <label class="form-label small text-muted mb-1">Mobile Phone (SMS)</label>
+                        <input type="tel" class="dash-form-control" value="+1 (555) 234-8901" />
+                      </div>
+                    </div>
+                    <div class="row g-2">
+                      <div class="col-sm-6">
+                        <label class="form-label small text-muted mb-1">Wedding Anniversary</label>
+                        <input type="text" class="dash-form-control" value="October 16" />
+                      </div>
+                      <div class="col-sm-6">
+                        <label class="form-label small text-muted mb-1">Birthday</label>
+                        <input type="text" class="dash-form-control" value="March 22" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Culinary & Dietary Requirements -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Dietary Notes &amp; Allergies</h3>
+                      <div class="dash-card-subtitle">Forwarded to Executive Chef prior to dining</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label small text-muted mb-1">Dietary Regimen</label>
+                      <select class="dash-form-control">
+                        <option selected>Pescatarian Preferred</option>
+                        <option>Vegetarian</option>
+                        <option>Vegan</option>
+                        <option>No Restrictions (Omnivore)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label class="form-label small text-muted mb-1">Allergies &amp; Sensitivities</label>
+                      <input type="text" class="dash-form-control" value="Peanut sensitive (Strict) · Minor shellfish sensitivity" />
+                    </div>
+
+                    <div>
+                      <label class="form-label small text-muted mb-1">Preferred Mineral Water</label>
+                      <select class="dash-form-control">
+                        <option selected>San Pellegrino Sparkling (Chilled, Lemon slice)</option>
+                        <option>Acqua Panna Still (Room temperature)</option>
+                        <option>Filtered Iced Water</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hospitality & Sommelier Preferences -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Atmosphere &amp; Seating Preferences</h3>
+                      <div class="dash-card-subtitle">Seating style and salon ambiance</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label small text-muted mb-1">Preferred Seating Zone</label>
+                      <select class="dash-form-control">
+                        <option selected>Quiet Window Alcove (Table 8 / 9)</option>
+                        <option>Main Dining Salon Center</option>
+                        <option>The Wine Vault (Intimate)</option>
+                        <option>Chef's Counter</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label class="form-label small text-muted mb-1">Dedicated Sommelier</label>
+                      <select class="dash-form-control">
+                        <option selected>Matthieu Laurent (Head Sommelier)</option>
+                        <option>Julian Rivera (Chef Patron)</option>
+                        <option>Chloe Saint-Germain</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wine Palate Profile -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Wine &amp; Drinks Profile</h3>
+                      <div class="dash-card-subtitle">Cellar sommelier pairing notes</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label small text-muted mb-1">Preferred Varietal Profile</label>
+                      <input type="text" class="dash-form-control" value="Aged Barolo, Piedmont Nebbiolo & Mineral Dry White Burgundy" />
+                    </div>
+
+                    <div>
+                      <label class="form-label small text-muted mb-1">Aperitivo Style</label>
+                      <input type="text" class="dash-form-control" value="Dry Champagne vintage or botanical smoked Old Fashioned" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                  <i class="bi bi-check2-circle"></i> Save Dining Profile
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /#section-profile -->
+
+        <!-- ============================================================
+             Section 6: Account Settings & Security
+             ============================================================ -->
+        <div class="dashboard-section" id="section-settings">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div>
+              <h2 class="dash-card-title fs-4">Account Settings &amp; Security</h2>
+              <p class="dash-card-subtitle mb-0">Manage password, communication channels, SMS notifications, and security</p>
+            </div>
+          </div>
+
+          <form data-feedback-form data-feedback-msg="Account preferences and security settings saved.">
+            <div class="row g-4">
+              <!-- Security -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Password &amp; Authentication</h3>
+                      <div class="dash-card-subtitle">Update your account login password</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label small text-muted mb-1">Current Password</label>
+                      <input type="password" class="dash-form-control" placeholder="Enter current password" />
+                    </div>
+                    <div>
+                      <label class="form-label small text-muted mb-1">New Password</label>
+                      <input type="password" class="dash-form-control" placeholder="Min. 8 characters with upper, lower, number" />
+                    </div>
+                    <div>
+                      <label class="form-label small text-muted mb-1">Confirm New Password</label>
+                      <input type="password" class="dash-form-control" placeholder="Re-type new password" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notification Toggles -->
+              <div class="col-lg-6">
+                <div class="dash-card h-100">
+                  <div class="dash-card-header">
+                    <div>
+                      <h3 class="dash-card-title fs-6">Communication Channels</h3>
+                      <div class="dash-card-subtitle">Select how Stackly contacts you</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3">
+                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary-subtle">
+                      <div>
+                        <div class="small fw-semibold text-white">SMS Booking Reminders</div>
+                        <div class="small text-muted">Receive arrival reminder text 2 hours prior to reservation</div>
+                      </div>
+                      <div class="form-check form-switch mb-0">
+                        <input class="form-check-input" type="checkbox" checked />
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary-subtle">
+                      <div>
+                        <div class="small fw-semibold text-white">Exclusive Chef's Special Menu Invitations</div>
+                        <div class="small text-muted">Priority booking access to seasonal chef's special menu reveals</div>
+                      </div>
+                      <div class="form-check form-switch mb-0">
+                        <input class="form-check-input" type="checkbox" checked />
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary-subtle">
+                      <div>
+                        <div class="small fw-semibold text-white">Sommelier Grand Cellar Alerts</div>
+                        <div class="small text-muted">Direct notification when rare vintage allocations arrive</div>
+                      </div>
+                      <div class="form-check form-switch mb-0">
+                        <input class="form-check-input" type="checkbox" checked />
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center py-2">
+                      <div>
+                        <div class="small fw-semibold text-white">Monthly Reward Points Statement</div>
+                        <div class="small text-muted">Email summary of member tier points and available perks</div>
+                      </div>
+                      <div class="form-check form-switch mb-0">
+                        <input class="form-check-input" type="checkbox" checked />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                  <i class="bi bi-check2-circle"></i> Update Account Settings
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /#section-settings -->
+      </div>
+      <!-- /.dashboard-body -->
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>
