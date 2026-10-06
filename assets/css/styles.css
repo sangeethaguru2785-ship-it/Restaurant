@@ -1,0 +1,4166 @@
+/* =============================================================
+   Stackly — Dark Luxury theme
+   Palette: Deep Charcoal #111111 · Warm Cream #F7F1E3
+            Rich Burgundy #7A1F2B · Gold #C9A227 · White #FFFFFF
+   Ratio: ~50% dark · 30% cream · 15% burgundy · 5% gold
+   ============================================================= */
+
+:root {
+  /* Core palette */
+  --charcoal: #111111;
+  --cream: #f7f1e3;
+  --burgundy: #7a1f2b;
+  --gold: #c9a227;
+  --white: #ffffff;
+
+  /* Supporting tones derived from the core palette */
+  --charcoal-deep: #0a0a0b;
+  --charcoal-soft: #1a1918;
+  --charcoal-warm: #201d1a;
+  --burgundy-deep: #4a121a;
+  --burgundy-mid: #5e1721;
+  --burgundy-light: #9a2a38;
+  --gold-light: #e3c766;
+  --gold-deep: #a8841c;
+  --cream-dim: #ded5c1;
+
+  /* Semantic tokens — dark surfaces (default) */
+  --bg-primary: var(--charcoal);
+  --bg-secondary: var(--charcoal-soft);
+  --bg-elevated: rgba(17, 17, 17, 0.92);
+  --text-primary: var(--cream);
+  --text-secondary: #ddd4c0;
+  --text-muted: #b0a794;
+  --accent: var(--burgundy);
+  --accent-text: var(--gold);
+  --on-accent: var(--cream);
+  --on-gold: var(--charcoal);
+  --surface: rgba(247, 241, 227, 0.045);
+  --surface-strong: rgba(247, 241, 227, 0.075);
+  --border-color: rgba(247, 241, 227, 0.12);
+  --glass-bg: rgba(17, 17, 17, 0.6);
+  --glass-border: rgba(247, 241, 227, 0.16);
+  --card-bg: var(--charcoal-soft);
+  --card-border: var(--border-color);
+  --card-hover-border: rgba(201, 162, 39, 0.45);
+  --shadow-card: 0 30px 70px -40px rgba(0, 0, 0, 0.9);
+  --shadow-xl: 0 40px 80px -40px rgba(0, 0, 0, 0.85);
+
+  /* Form tokens */
+  --input-bg: rgba(17, 17, 17, 0.6);
+  --input-border: rgba(247, 241, 227, 0.16);
+  --input-color: var(--cream);
+  --input-placeholder: #a49b88;
+  --select-bg: #16150f;
+  --invalid-text: #ff9d9d;
+  --invalid-border: #e06a6a;
+  --invalid-ring: rgba(224, 106, 106, 0.18);
+  --valid-border: rgba(155, 224, 176, 0.75);
+  --valid-ring: rgba(155, 224, 176, 0.14);
+
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --nav-gap: 0.75rem;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-alt: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Bridge into Bootstrap 5.3 so its utility classes match the Dark Luxury
+     theme and clear WCAG AA (4.5:1 body / 3:1 large). Bootstrap's stock
+     light-theme values render near-black text on these surfaces. */
+  --bs-primary: #7a1f2b;
+  --bs-primary-rgb: 122, 31, 43;
+  --bs-body-color: #f7f1e3;
+  --bs-body-color-rgb: 247, 241, 227;
+  --bs-body-bg: #111111;
+  --bs-emphasis-color: #ffffff;
+  --bs-emphasis-color-rgb: 255, 255, 255;
+  --bs-secondary-color: #b0a794;
+  --bs-secondary-color-rgb: 176, 167, 148;
+  --bs-secondary-bg: #1a1918;
+  --bs-tertiary-color: #b0a794;
+  --bs-tertiary-bg: #1a1918;
+  --bs-border-color: rgba(247, 241, 227, 0.16);
+  --bs-border-color-translucent: rgba(247, 241, 227, 0.16);
+  --bs-link-color: #c9a227;
+  --bs-link-color-rgb: 201, 162, 39;
+  --bs-link-hover-color: #e3c766;
+  --bs-link-hover-color-rgb: 227, 199, 102;
+  --bs-heading-color: #ffffff;
+  --bs-form-invalid-color: #ff9d9d;
+  --bs-form-invalid-border-color: #e06a6a;
+  --bs-form-valid-color: #9be0b0;
+  --bs-highlight-bg: #4a121a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: radial-gradient(1200px 800px at 50% 0%, #1c1a19 0%, var(--charcoal) 100%);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.section-padding {
+  padding: clamp(4rem, 6vw, 7.5rem) 0;
+}
+
+/* Anchor targets clear the fixed navbar on jump */
+section[id],
+footer [id] {
+  scroll-margin-top: 90px;
+}
+
+.eyebrow {
+  letter-spacing: 0.4em;
+  font-size: 0.75rem;
+  color: var(--accent-text);
+  font-family: var(--font-alt);
+  font-weight: 600;
+}
+
+.text-white-75 {
+  color: rgba(247, 241, 227, 0.82) !important;
+}
+
+.text-white-10 {
+  color: rgba(247, 241, 227, 0.12);
+}
+
+.border-white-10 {
+  border-color: rgba(247, 241, 227, 0.12) !important;
+}
+
+/* Warm Cream surface. This is the 30% cream block of the palette and it
+   re-points every semantic token so the components inside stay readable. */
+.section-alt {
+  --text-primary: #16130f;
+  --text-secondary: #3d362c;
+  --text-muted: #5f574a;
+  --accent: var(--burgundy);
+  --accent-text: var(--burgundy);
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: #ffffff;
+  --border-color: rgba(17, 17, 17, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(17, 17, 17, 0.12);
+  --card-bg: var(--white);
+  --card-border: rgba(17, 17, 17, 0.1);
+  --card-hover-border: rgba(122, 31, 43, 0.45);
+  --shadow-card: 0 30px 60px -38px rgba(17, 17, 17, 0.45);
+  --shadow-xl: 0 40px 70px -40px rgba(17, 17, 17, 0.5);
+  --input-bg: var(--white);
+  --input-border: rgba(17, 17, 17, 0.16);
+  --input-color: #16130f;
+  --input-placeholder: #8b8272;
+  --select-bg: var(--white);
+  --invalid-text: var(--burgundy);
+  --invalid-border: var(--burgundy);
+  --invalid-ring: rgba(122, 31, 43, 0.14);
+  --valid-border: #2f6b45;
+  --valid-ring: rgba(47, 107, 69, 0.14);
+
+  --bs-body-color: #16130f;
+  --bs-body-color-rgb: 22, 19, 15;
+  --bs-body-bg: var(--cream);
+  --bs-emphasis-color: #16130f;
+  --bs-emphasis-color-rgb: 22, 19, 15;
+  --bs-secondary-color: #5f574a;
+  --bs-secondary-color-rgb: 95, 87, 74;
+  --bs-secondary-bg: #efe7d5;
+  --bs-tertiary-color: #5f574a;
+  --bs-tertiary-bg: #efe7d5;
+  --bs-border-color: rgba(17, 17, 17, 0.16);
+  --bs-border-color-translucent: rgba(17, 17, 17, 0.16);
+  --bs-link-color: #7a1f2b;
+  --bs-link-color-rgb: 122, 31, 43;
+  --bs-link-hover-color: #4a121a;
+  --bs-link-hover-color-rgb: 74, 18, 26;
+  --bs-heading-color: #16130f;
+  --bs-form-invalid-color: #7a1f2b;
+  --bs-form-invalid-border-color: #7a1f2b;
+  --bs-form-valid-color: #2f6b45;
+  --bs-highlight-bg: rgba(201, 162, 39, 0.28);
+
+  position: relative;
+  color: var(--text-primary);
+  background: linear-gradient(180deg, var(--cream) 0%, #f1e8d6 100%);
+  /* Burgundy + gold hairlines frame the cream block */
+  box-shadow: inset 0 3px 0 -1px var(--burgundy), inset 0 6px 0 -3px rgba(201, 162, 39, 0.55);
+}
+
+/* Explicit readable muted / secondary text (Bootstrap utilities inherit these) */
+.text-muted,
+.text-body-secondary {
+  color: var(--bs-secondary-color) !important;
+}
+
+.text-primary {
+  color: var(--accent-text) !important;
+}
+
+/* Bootstrap 5 ships no fw-medium; the meta-list values use it as a lighter
+   emphasis step between fw-normal and fw-semibold. */
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+a {
+  color: var(--bs-link-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--bs-link-hover-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scroll progress — burgundy into gold */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--burgundy) 0%, var(--gold) 100%);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 9997;
+}
+
+/* Navbar */
+.navbar {
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.88) 0%, rgba(10, 10, 10, 0.52) 65%, transparent 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar.scrolled {
+  background: rgba(14, 13, 12, 0.96) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 16px 45px -15px rgba(0, 0, 0, 0.92), inset 0 -1px 0 rgba(201, 162, 39, 0.25);
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
+}
+
+/* --- Brand logo ----------------------------------------------------
+   logo.webp is a 1200x493 horizontal lockup (2.43:1). It is sized by
+   height so the aspect ratio is always preserved, and stepped down
+   across breakpoints so it never crowds the collapsed navbar or forces
+   the expanded bar onto a second line. */
+.brand-logo {
+  display: block;
+  height: 2.6rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.brand-logo-lg {
+  height: 3rem;
+}
+
+/* Tablet / collapsed navbar (Bootstrap expands this bar at 1400px) */
+@media (max-width: 1399.98px) {
+  .brand-logo {
+    height: 2.2rem;
+  }
+
+  .brand-logo-lg {
+    height: 2.6rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .brand-logo {
+    height: 2rem;
+  }
+
+  .brand-logo-lg {
+    height: 2.4rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .brand-logo {
+    height: 1.85rem;
+  }
+
+  .brand-logo-lg {
+    height: 2.15rem;
+  }
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-alt);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0.75rem !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.75);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 14px rgba(247, 215, 124, 0.7), 0 1px 4px rgba(0, 0, 0, 0.95);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  background: rgba(14, 13, 12, 0.5);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.menu-line {
+  width: 1.75rem;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .menu-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .menu-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Seven links plus the CTA only fit the horizontal bar once the container
+   reaches its widest tier (Bootstrap xxl, 1400px), so the panel treatment
+   runs until then. Link labels are centred in the panel too. */
+@media (max-width: 1399.98px) {
+  #navContent {
+    background: rgba(14, 13, 12, 0.98);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1rem 1.35rem;
+    margin-top: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(201, 162, 39, 0.35);
+  }
+
+  .navbar-nav {
+    gap: 0.35rem !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.8rem 1rem !important;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #ffffff;
+    background: rgba(201, 162, 39, 0.15);
+    border-radius: 0.5rem;
+  }
+
+  .navbar-nav .btn {
+    margin-top: 0.75rem;
+    width: 100%;
+  }
+
+  .navbar-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    margin-left: 0;
+  }
+
+  .navbar-actions .btn,
+  .navbar-actions .navbar-login {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Sign-in control, pinned to the bar's right corner.
+   Desktop (>=1400px) the bar is a `1fr auto 1fr` grid: brand in track 1, the
+   link run centred in track 2, and track 3 left empty purely to balance that
+   centring. This control claims track 3 and pins to the container's right
+   edge, so it adds to the spacer that was already there instead of widening
+   the centred run. It sits outside `.navbar-nav`, which keeps it clear of the
+   link-run gap rules and of the `.navbar-nav .btn` full-width collapse rules. */
+.navbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.navbar-actions .navbar-login {
+  margin-left: 0;
+}
+
+.navbar-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  /* In the collapsed bar Bootstrap centres the row with `space-between`,
+     which on its own would strand this control mid-bar. The auto margin pulls
+     it back so it sits immediately left of the toggler. */
+  margin-left: auto;
+  padding: 0.45rem 1.05rem;
+  border: 1.5px solid rgba(247, 241, 227, 0.85);
+  border-radius: 999px;
+  background: rgba(14, 13, 12, 0.65);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar-login:hover,
+.navbar-login:focus-visible {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--charcoal);
+  text-shadow: none;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.navbar-login .bi {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* A fixed label footprint, so swapping "Sign In" for a name after sign-in can
+   never resize the pill and reflow the centred link run. */
+.navbar-login-text {
+  min-width: 3.4rem;
+  text-align: center;
+}
+
+/* Current page, and the signed-in state */
+.navbar-login.is-current,
+.navbar-login.is-authed {
+  border-color: rgba(201, 162, 39, 0.7);
+}
+
+.navbar-login.is-current .navbar-login-text,
+.navbar-login.is-authed .navbar-login-text {
+  color: var(--gold-light);
+}
+
+.navbar-login.is-authed:hover,
+.navbar-login.is-authed:focus-visible,
+.navbar-login.is-current:hover,
+.navbar-login.is-current:focus-visible {
+  background: var(--cream);
+  border-color: var(--cream);
+}
+
+.navbar-login.is-authed:hover .navbar-login-text,
+.navbar-login.is-authed:focus-visible .navbar-login-text,
+.navbar-login.is-current:hover .navbar-login-text,
+.navbar-login.is-current:focus-visible .navbar-login-text {
+  color: var(--charcoal);
+}
+
+/* Centred nav bar (Bootstrap xxl and up).
+
+   The bar is laid out as a three-column grid: brand in the first track, the
+   link group in a content-sized middle track, and an empty 1fr track on the
+   right. Because the two outer tracks are equal, the links land on the true
+   horizontal centre line of the container no matter how wide the brand is.
+
+   Two things this deliberately avoids:
+
+   - Absolutely positioning the brand. It used to be pinned with `left: 12px`,
+     which hard-codes the gutter and silently breaks if the container padding
+     ever changes.
+   - Bootstrap's `.ms-auto` on .navbar-nav. That utility is `!important`, and an
+     auto inline margin absorbs every bit of free space, which quietly defeats
+     `justify-content: center` and pushes the whole group to the right edge.
+     It has to be cancelled explicitly.
+
+   The row is pinned on all three children. Auto-placement only runs row-first,
+   and these items declare a column but not a row. The markup order is brand,
+   Sign In, then the link run, so the placement cursor walks past column 2 while
+   placing Sign In in column 3 and drops the link run into a second implicit row
+   underneath the brand. Naming the row on every child removes the auto-placement
+   step entirely, which is what keeps logo, links and Sign In on one line. */
+@media (min-width: 1400px) {
+  .navbar > .container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  .navbar > .container > .navbar-brand {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .navbar > .container > .navbar-collapse {
+    display: contents !important;
+  }
+
+  .navbar > .container > .navbar-collapse > .navbar-nav {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .navbar > .container > .navbar-collapse > .navbar-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    margin-left: 0;
+  }
+
+  .navbar-nav {
+    /* cancels Bootstrap's .ms-auto !important so centring can take effect */
+    margin-left: 0 !important;
+    gap: var(--nav-gap) !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  /* inline-flex + align-items keeps every label on the same optical baseline
+     regardless of label length or descenders */
+  .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+
+  /* Breathing room between the link run and the CTA pill. The markup carries
+     no .ms-lg-3 (the old selectors for it matched nothing), so the CTA is
+     targeted structurally instead. */
+  .navbar-nav .nav-item:has(> .btn) {
+    margin-left: 0.75rem;
+  }
+}
+
+/* The bar still compacts a little at 1400-1599px so the links always stay on
+   one line with a comfortable gutter. */
+@media (min-width: 1400px) and (max-width: 1599.98px) {
+  .navbar .navbar-brand {
+    font-size: 1.75rem;
+  }
+
+  .navbar .brand-logo {
+    height: 2.45rem;
+  }
+
+  .navbar-nav {
+    gap: 0.35rem !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.45rem 0.4rem !important;
+    font-size: 0.95rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    left: 0.4rem;
+    right: 0.4rem;
+  }
+
+  .navbar-nav .btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .navbar-nav .nav-item:has(> .btn) {
+    margin-left: 0.5rem;
+  }
+
+  /* The sign-in pill shrinks with the rest of the bar in this tier, which is
+     the tightest point: eight links, the CTA pill and this control all share
+     the width here. */
+  .navbar-actions .btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .navbar-login {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar-login .bi {
+    font-size: 0.9rem;
+  }
+}
+
+/* Roomier bar on wide displays */
+@media (min-width: 1600px) {
+  .navbar-nav {
+    gap: 0.55rem !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.45rem !important;
+    font-size: 1rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    left: 0.45rem;
+    right: 0.45rem;
+  }
+
+  .navbar-nav .nav-item:has(> .btn) {
+    margin-left: 0.7rem;
+  }
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.hero-bg-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0.72) 0%, rgba(10, 10, 10, 0.46) 32%, rgba(10, 10, 10, 0.63) 68%, rgba(10, 10, 10, 0.86) 100%),
+    radial-gradient(ellipse 1200px 850px at 50% 42%, rgba(10, 10, 10, 0.38) 0%, rgba(122, 31, 43, 0.34) 50%, rgba(10, 10, 10, 0.82) 100%);
+  z-index: 1;
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3C/g%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.display-1 {
+  font-family: var(--font-heading);
+  line-height: 1.05;
+}
+
+.lead {
+  max-width: 48ch;
+}
+
+/* Hero Text Visibility & Contrast */
+.hero-section .eyebrow {
+  color: #f7d77c !important;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.85);
+  margin-bottom: 1.25rem;
+}
+
+.hero-section .display-1,
+.hero-section h1 {
+  font-family: var(--font-heading);
+  line-height: 1.05;
+  min-height: 2.1em;
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 6px 24px rgba(0, 0, 0, 0.82), 0 14px 40px rgba(0, 0, 0, 0.65);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.hero-section .lead,
+.hero-section .text-white-75 {
+  color: #f8f4ec !important;
+  font-size: clamp(1.1rem, 2vw, 1.28rem);
+  line-height: 1.75;
+  max-width: 52ch;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 3px 14px rgba(0, 0, 0, 0.8);
+}
+
+/* Burgundy is the primary action colour; cream type on it clears AA (9:1) */
+.btn-primary {
+  background: linear-gradient(135deg, var(--burgundy-light) 0%, var(--burgundy) 55%, var(--burgundy-deep) 100%);
+  border: 0;
+  color: var(--cream);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 30px 80px -40px rgba(122, 31, 43, 0.95);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 40px 90px -40px rgba(122, 31, 43, 0.98);
+  color: var(--cream);
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  color: var(--cream);
+  background: #4a121a;
+}
+
+.btn-outline-light {
+  border-width: 1.5px;
+  border-color: rgba(255, 255, 255, 0.88);
+  background: rgba(14, 13, 12, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--charcoal);
+  text-shadow: none;
+}
+
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(14, 13, 12, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  z-index: 2;
+}
+
+.scroll-indicator:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.mouse {
+  width: 1.5rem;
+  height: 2.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.wheel {
+  width: 4px;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hero entrance elements start visible so there is no flash of hidden text.
+   GSAP animates them in from a hidden state; without JS they simply render. */
+.fade-up {
+  will-change: transform, opacity;
+}
+
+.hero-split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.hero-split-word > span {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* When JS drives the reveal states, remove the CSS transition so GSAP owns
+   opacity/transform and there is no conflict between the two systems. */
+.js-anim .reveal {
+  transition: none;
+}
+
+/* Allow GSAP full control of button transforms without competing CSS transform transitions */
+.js-anim .btn-primary,
+.js-anim .btn-outline-light,
+.js-anim .navbar-login,
+.js-anim .social-icon {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+/* Safety net: if scripts fail to load, never leave content invisible */
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reveal.delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal.delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal.delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal.delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* About */
+.image-stack {
+  position: relative;
+}
+
+.image-main,
+.image-overlay {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.image-main img,
+.image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-main {
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(201, 162, 39, 0.28);
+}
+
+.image-overlay {
+  position: absolute;
+  right: -10%;
+  bottom: -10%;
+  width: clamp(180px, 40vw, 240px);
+  border: 8px solid rgba(17, 17, 17, 0.92);
+}
+
+@media (max-width: 991.98px) {
+  .image-overlay {
+    right: -4%;
+    bottom: -6%;
+  }
+}
+
+.feature-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 162, 39, 0.42);
+}
+
+/* Stats — the burgundy band */
+.stats-section {
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  background: linear-gradient(135deg, var(--burgundy-deep) 0%, var(--burgundy) 48%, var(--burgundy-mid) 100%);
+  border-top: 1px solid rgba(201, 162, 39, 0.35);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.stat-card {
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.12) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--radius-lg);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 162, 39, 0.7);
+}
+
+/* Specialties */
+.special-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-hover-border);
+}
+
+.special-card-img {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.special-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.special-card:hover .special-card-img img {
+  transform: scale(1.05);
+}
+
+.special-card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(74, 18, 26, 0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.special-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  color: var(--accent-text);
+}
+
+/* Menu */
+.menu-card {
+  background: linear-gradient(180deg, var(--surface-strong) 0%, var(--surface) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-hover-border);
+}
+
+.menu-card-img {
+  width: clamp(72px, 8vw, 96px);
+  height: clamp(72px, 8vw, 96px);
+  border-radius: calc(var(--radius-lg) - 0.25rem);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.menu-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filter-buttons {
+  background: rgba(17, 17, 17, 0.72);
+  padding: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 39, 0.24);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: var(--shadow-card);
+  gap: 0.25rem;
+}
+
+.btn-filter {
+  border-radius: 999px;
+  padding: 0.5rem clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  border: 0;
+  background: transparent;
+  font-family: var(--font-alt);
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-filter.active,
+.btn-filter:hover {
+  color: var(--on-gold);
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 70%);
+  transform: translateY(-1px);
+}
+
+.menu-item {
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.menu-item.hide {
+  display: none !important;
+}
+
+.menu-item.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Chefs */
+.chef-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.chef-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-hover-border);
+}
+
+.chef-card-img {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.chef-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.chef-card:hover .chef-card-img img {
+  transform: scale(1.05);
+}
+
+.social-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--cream);
+  background: var(--burgundy);
+  border-color: rgba(201, 162, 39, 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- Chef deep-dive profiles ---------------------------------------
+   .chef-card is the square summary tile. These are the long form: an
+   alternating media/text row per chef, carrying the career story and a pull
+   quote the tiles have no room for. */
+.chef-profile {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .chef-profile {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+
+  /* Mirroring every other profile keeps the eye travelling down the page
+     instead of jumping back to the same column each time. Applied with an
+     explicit class rather than a sibling-position selector, because the
+     profiles are each wrapped in their own grid column. */
+  .chef-profile.is-reversed .chef-profile-media {
+    order: 2;
+  }
+}
+
+.chef-profile-media {
+  position: relative;
+}
+
+/* Portraits are taller than the shared 4/3 media frame. */
+.chef-profile-media img {
+  aspect-ratio: 4 / 5;
+}
+
+/* dl, so the label/value pairing is expressed in the markup rather than by
+   bolding a run of text inside a paragraph. */
+.chef-profile-facts {
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  display: grid;
+}
+
+.chef-profile-facts > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.25rem 1.25rem;
+  padding-block: 0.7rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.chef-profile-facts dt {
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.chef-profile-facts dd {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* --- Brigade role cards --------------------------------------------
+   Monograms rather than invented portraits - the wider team has no
+   photography, and a gold initial reads as deliberate. */
+.brigade-card {
+  height: 100%;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.brigade-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+}
+
+/* .brigade-monogram is defined with the shared .monogram further down. */
+
+/* --- Signature dishes ----------------------------------------------- */
+.dish-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-hover-border);
+}
+
+.dish-card-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.dish-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dish-card:hover .dish-card-media img {
+  transform: scale(1.06);
+}
+
+.dish-card-body {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Ties each dish back to the chef who owns it. */
+.dish-chef-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-bottom: 0.9rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+}
+
+/* --- Training steps ---------------------------------------------------- */
+.process-step {
+  position: relative;
+  padding-left: 4rem;
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+.process-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--gold);
+  background: var(--surface-strong);
+  border: 1px solid rgba(201, 162, 39, 0.32);
+}
+
+/* Connector between steps, stopping at the last one so it does not dangle. */
+.process-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 2.9rem;
+  bottom: 0.4rem;
+  left: 1.35rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(201, 162, 39, 0.4), rgba(201, 162, 39, 0.05));
+}
+
+@media (max-width: 575.98px) {
+  .chef-profile-facts > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Gallery filter bar ---------------------------------------------
+   Hidden until script adds .is-ready, so a visitor without JS is never
+   shown filter buttons that cannot do anything. */
+.gallery-filters {
+  display: none;
+}
+
+.gallery-filters.is-ready {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.gallery-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  background: var(--surface-strong);
+  border: 1px solid var(--border-color);
+  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-filter-btn:hover {
+  color: var(--cream);
+  border-color: rgba(201, 162, 39, 0.5);
+  transform: translateY(-2px);
+}
+
+.gallery-filter-btn[aria-pressed="true"] {
+  color: var(--burgundy-deep);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-color: var(--gold);
+}
+
+.gallery-filter-count {
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+/* Applied by the filter script rather than an attribute, so the rule stays
+   out of the way of anything else that might want to hide an item. */
+.gallery-item.is-filtered-out {
+  display: none !important;
+}
+
+/* Filtered counts are rendered up front, so the total only changes when the
+   markup does. Marked so a mismatch is visible during review. */
+.gallery-filter-count[data-stale="true"] {
+  color: var(--gold);
+}
+
+/* --- Full-bleed showcase band ---------------------------------------
+   A slow push on the image itself. transform only, so the pan runs on the
+   compositor without repainting a full-width photograph every frame. */
+.showcase-band {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(20rem, 62vh, 34rem);
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.showcase-band-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  animation: showcase-pan 28s ease-in-out infinite alternate;
+}
+
+.showcase-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.62) 0%, rgba(17, 17, 17, 0.35) 45%, rgba(17, 17, 17, 0.78) 100%);
+}
+
+@keyframes showcase-pan {
+  from {
+    transform: scale(1.04) translate3d(-1.5%, 0, 0);
+  }
+
+  to {
+    transform: scale(1.16) translate3d(1.5%, -1%, 0);
+  }
+}
+
+.showcase-caption {
+  text-align: center;
+  max-width: 46rem;
+  padding: clamp(3rem, 8vh, 5rem) 0;
+}
+
+/* --- Drifting label over a media frame -------------------------------
+   Sits inside .media-frame, which is position: relative and clips to the
+   rounded corner, so it is inset rather than hung off the edge. */
+.media-badge {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.1rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(17, 17, 17, 0.74);
+  border: 1px solid rgba(201, 162, 39, 0.42);
+  backdrop-filter: blur(6px);
+}
+
+/* --- Drinks list ---------------------------------------------------- */
+.drink-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.drink-list li {
+  padding-block: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.drink-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.drink-name {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.drink-price {
+  font-family: var(--font-alt);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.drink-note {
+  margin: 0.2rem 0 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+/* --- Shared monogram -------------------------------------------------
+   Used by the chef brigade cards and the guest quotes; .brigade-monogram
+   is kept as an alias so the chefs page is unaffected. */
+.monogram,
+.brigade-monogram {
+  width: 4.25rem;
+  height: 4.25rem;
+  margin: 0 auto 1.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  background: radial-gradient(circle at 50% 30%, rgba(201, 162, 39, 0.18), rgba(201, 162, 39, 0.04));
+  border: 1px solid rgba(201, 162, 39, 0.32);
+}
+
+/* --- Team portraits -------------------------------------------------- */
+.team-portrait {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  aspect-ratio: 3 / 4;
+}
+
+.team-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.team-portrait:hover img {
+  transform: scale(1.06);
+}
+
+/* Caption sits over the image and rises on hover; always visible enough to
+   read, so it is not hover-only information. */
+.team-portrait figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 1.25rem 1.15rem;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.88) 62%);
+  color: var(--white);
+}
+
+.team-portrait-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.team-portrait-role {
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0.15rem 0 0;
+}
+
+/* --- Guest quotes ---------------------------------------------------- */
+.guest-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.guest-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+}
+
+.guest-card .monogram {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 0 1.15rem;
+  font-size: 1rem;
+}
+
+.guest-quote {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-band-media {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Card with an image on top
+ * Shared by the dining-room cards and the tasting-experience cards.
+ * ------------------------------------------------------------------ */
+.tile-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.tile-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-hover-border);
+}
+
+.tile-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-strong);
+}
+
+.tile-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tile-card:hover .tile-card-media img {
+  transform: scale(1.06);
+}
+
+/* Capacity / duration pill, inset so the card's overflow clips it cleanly. */
+.tile-card-tag {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(17, 17, 17, 0.74);
+  border: 1px solid rgba(201, 162, 39, 0.42);
+  backdrop-filter: blur(6px);
+}
+
+.tile-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.tile-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.tile-card-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+}
+
+/* Pushed to the bottom of the flex column so cards of differing text
+   length still line their action up across the row. */
+.tile-card-action {
+  margin-top: auto;
+}
+
+/* Quiet text link rather than a filled pill: the card already reads as
+   the target, this only points elsewhere. */
+.tile-request {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  font-family: var(--font-alt);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.tile-request:hover,
+.tile-request:focus-visible {
+  color: var(--gold-light);
+  gap: 0.9rem;
+}
+
+.tile-request .bi {
+  transition: transform 0.3s ease;
+}
+
+.tile-request:hover .bi,
+.tile-request:focus-visible .bi {
+  transform: translateX(3px);
+}
+
+.tile-request:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* --- Tasting experience facts (duration, price) --------------------- */
+.experience-facts {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.experience-facts li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.experience-facts span:first-child {
+  font-family: var(--font-alt);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.experience-facts .price {
+  font-weight: 600;
+}
+
+/* --- Occasion cards -------------------------------------------------- */
+.occasion-list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.occasion-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.occasion-list li:last-child {
+  margin-bottom: 0;
+}
+
+.occasion-list li::before {
+  content: "\F26E";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-family: "bootstrap-icons";
+  font-size: 0.7rem;
+  color: var(--gold);
+}
+
+/* --- Review summary -------------------------------------------------- */
+.review-summary {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.review-score {
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  line-height: 1;
+  color: var(--gold);
+  margin: 0 0 0.6rem;
+}
+
+.review-stars {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+
+.review-stars i {
+  line-height: 1;
+}
+
+/* Gallery */
+.gallery-item {
+  position: relative;
+  display: block;
+  border-radius: calc(var(--radius-lg) - 0.25rem);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(201, 162, 39, 0.16);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 400px at 50% 50%, rgba(122, 31, 43, 0.2) 0%, rgba(17, 17, 17, 0.88) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: scale(0.98);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Testimonials — burgundy-charcoal */
+.testimonials-section {
+  background: radial-gradient(1400px 800px at 50% 0%, var(--burgundy-mid) 0%, #2a1015 45%, var(--charcoal) 100%);
+  position: relative;
+}
+
+.testimonials-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/interior-bar.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.testimonial-card {
+  max-width: min(720px, 90vw);
+  background: rgba(17, 17, 17, 0.78);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: var(--shadow-xl);
+}
+
+.quote-icon {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--gold);
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.9;
+  color: var(--cream);
+  margin-top: 1.5rem;
+}
+
+.avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(201, 162, 39, 0.75);
+  box-shadow: 0 20px 60px -30px rgba(201, 162, 39, 0.9);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initial-based avatar so review sections need no stock portraits */
+.avatar-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, var(--burgundy-light) 0%, var(--burgundy-deep) 100%);
+  color: var(--cream);
+}
+
+.stars {
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: rgba(247, 241, 227, 0.5);
+  border: 0;
+}
+
+.carousel-indicators .active {
+  background: var(--gold);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 3.5rem;
+  height: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.66);
+  border: 1px solid rgba(201, 162, 39, 0.32);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-control-prev {
+  left: clamp(-0.5rem, 2vw, 1rem);
+}
+
+.carousel-control-next {
+  right: clamp(-0.5rem, 2vw, 1rem);
+}
+
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}
+
+/* Reservation — stays a charcoal panel even inside the cream section */
+.reservation-info {
+  background: linear-gradient(180deg, var(--charcoal-warm) 0%, var(--charcoal) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: var(--radius-xl);
+  color: var(--cream);
+  --bs-heading-color: var(--cream);
+  --bs-secondary-color: var(--cream-dim);
+  /* Re-point the light-surface rule colour back to a cream hairline so
+     .meta-list stays legible on this dark panel. */
+  --border-color: rgba(247, 241, 227, 0.14);
+  box-shadow: var(--shadow-xl);
+}
+
+.reservation-form {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.form-control,
+.form-select {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: var(--input-placeholder);
+  opacity: 1;
+}
+
+.form-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.invalid-feedback {
+  color: var(--invalid-text);
+  font-size: 0.85rem;
+}
+
+/* The Remember Me checkbox float would otherwise overlap its message. */
+.auth-check .invalid-feedback {
+  clear: both;
+  margin-top: 0.45rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: var(--input-bg);
+  border-color: var(--accent-text);
+  color: var(--input-color);
+  box-shadow: 0 0 0 0.25rem var(--invalid-ring);
+}
+
+.section-alt .form-control:focus,
+.section-alt .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(122, 31, 43, 0.16);
+}
+
+.form-select option {
+  background: var(--select-bg);
+  color: var(--input-color);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .form-select:invalid,
+.form-select.is-invalid {
+  border-color: var(--invalid-border);
+  background-image: none;
+  box-shadow: 0 0 0 0.2rem var(--invalid-ring);
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid,
+.was-validated .form-select:valid,
+.form-select.is-valid {
+    border-color: var(--valid-border);
+    box-shadow: 0 0 0 0.2rem var(--valid-ring);
+  }
+
+  /* --- Sign in / Create account ------------------------------- */
+  .auth-section {
+    background: radial-gradient(760px 520px at 82% 8%, rgba(122, 31, 43, 0.24) 0%, rgba(17, 17, 17, 0) 68%),
+      linear-gradient(180deg, var(--charcoal-deep) 0%, var(--charcoal) 42%, var(--charcoal-warm) 100%);
+  }
+
+  .auth-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    backdrop-filter: blur(22px) saturate(140%);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .auth-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid rgba(201, 162, 39, 0.38);
+    border-radius: 999px;
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* The icon is anchored to the input row rather than the wrapper, so it stays
+     optically centred when validation feedback makes the wrapper taller. */
+  .auth-field {
+    position: relative;
+    margin-bottom: 1.15rem;
+  }
+
+  .auth-input-wrap {
+    position: relative;
+  }
+
+  .auth-field-icon {
+    position: absolute;
+    top: 50%;
+    left: 1.05rem;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .auth-input {
+    padding-left: 2.85rem;
+  }
+
+  /* The eye button sits on the field edge, so the input hands over its right
+     corner radius to keep the pair reading as one control. */
+  .auth-input.has-toggle {
+    padding-right: 3.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .auth-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.35rem;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0.6rem;
+    background: transparent;
+    color: var(--text-muted);
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .auth-toggle:hover,
+  .auth-toggle:focus-visible {
+    background: rgba(247, 241, 227, 0.08);
+    color: var(--cream);
+  }
+
+  .auth-toggle .bi {
+    font-size: 1.05rem;
+  }
+
+  /* Bootstrap only reveals .invalid-feedback when the control is a direct
+     sibling of it, which the icon and toggle wrappers prevent. :has() keeps the
+     markup readable and is already relied on elsewhere in this file. */
+  .auth-field .invalid-feedback {
+    display: none;
+    margin: 0.45rem 0 0;
+  }
+
+  .was-validated .auth-field:has(.form-control:invalid) .invalid-feedback,
+  .auth-field:has(.form-control.is-invalid) .invalid-feedback {
+    display: block;
+  }
+
+  .auth-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-check {
+    min-height: 0;
+    margin: 0;
+  }
+
+  .auth-check .form-check-input {
+    margin-top: 0.15rem;
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+  }
+
+  .auth-forgot {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .auth-forgot:hover,
+  .auth-forgot:focus-visible {
+    color: var(--cream);
+    text-decoration: underline;
+  }
+
+  .auth-submit {
+    font-size: 1rem;
+  }
+
+  .auth-alt {
+    margin-top: 1.35rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .auth-alt a {
+    color: var(--gold-light);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .auth-alt a:hover,
+  .auth-alt a:focus-visible {
+    color: var(--cream);
+    text-decoration: underline;
+  }
+
+  .auth-note {
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* Password strength meter */
+  .pw-meter {
+    height: 4px;
+    margin-top: 0.7rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(247, 241, 227, 0.12);
+  }
+
+  .pw-meter span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--invalid-border);
+    transition: width 0.35s ease, background-color 0.35s ease;
+  }
+
+  .pw-meter[data-level="1"] span {
+    width: 22%;
+  }
+
+  .pw-meter[data-level="2"] span {
+    width: 45%;
+    background: var(--gold);
+  }
+
+  .pw-meter[data-level="3"] span {
+    width: 75%;
+    background: var(--gold-light);
+  }
+
+  .pw-meter[data-level="4"] span {
+    width: 100%;
+    background: var(--valid-border);
+  }
+
+  .pw-hint {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  /* --- Role Selection Cards (Admin & Customer) --- */
+  .role-selector-wrap {
+    margin-bottom: 1.35rem;
+  }
+
+  .role-selector-label {
+    display: block;
+    font-family: var(--font-alt, 'Poppins', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .role-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+  }
+
+  .role-card-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .role-card-label {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.95rem;
+    border-radius: var(--radius-lg);
+    background: rgba(247, 241, 227, 0.04);
+    border: 1.5px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    user-select: none;
+  }
+
+  .role-card-label:hover {
+    background: rgba(247, 241, 227, 0.07);
+    border-color: rgba(201, 162, 39, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .role-card-input:checked + .role-card-label {
+    background: linear-gradient(135deg, rgba(122, 31, 43, 0.32), rgba(201, 162, 39, 0.12));
+    border-color: var(--gold);
+    box-shadow: 0 8px 24px -6px rgba(201, 162, 39, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .role-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .role-card-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    background: rgba(201, 162, 39, 0.14);
+    border: 1px solid rgba(201, 162, 39, 0.28);
+    transition: all 0.3s ease;
+  }
+
+  .role-card-input:checked + .role-card-label .role-card-icon {
+    background: var(--burgundy);
+    border-color: var(--gold);
+    color: #ffffff;
+    transform: scale(1.08);
+  }
+
+  .role-check-indicator {
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(247, 241, 227, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: transparent;
+    transition: all 0.25s ease;
+  }
+
+  .role-card-input:checked + .role-card-label .role-check-indicator {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: #111111;
+  }
+
+  .role-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .role-card-input:checked + .role-card-label .role-card-title {
+    color: #ffffff;
+  }
+
+  .role-card-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .role-card-input:checked + .role-card-label .role-card-desc {
+    color: var(--text-secondary);
+  }
+
+  .auth-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .auth-back-link:hover {
+    color: var(--gold-light);
+    transform: translateX(-3px);
+  }
+
+  .auth-brand-logo {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-width: 150px;
+    height: auto;
+  }
+
+  /* --- Two-Card Split Authentication Layout --- */
+  .auth-split-wrapper {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .auth-branding-card {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: #161514;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-xl);
+    padding: clamp(2rem, 3.5vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 480px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .auth-branding-card:hover {
+    border-color: rgba(201, 162, 39, 0.38);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+  }
+
+  .auth-branding-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    filter: saturate(120%) brightness(0.85);
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+  }
+
+  .auth-branding-card:hover .auth-branding-bg {
+    transform: scale(1.05);
+  }
+
+  .auth-branding-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 11, 10, 0.78) 0%, rgba(14, 13, 12, 0.96) 100%);
+    pointer-events: none;
+  }
+
+  .auth-branding-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .auth-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-family: var(--font-alt, 'Poppins', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(201, 162, 39, 0.16);
+    border: 1px solid rgba(201, 162, 39, 0.4);
+    color: var(--gold-light);
+    width: fit-content;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  .auth-brand-title {
+    font-family: var(--font-heading, 'Playfair Display', serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+    margin-top: 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .auth-brand-lead {
+    font-size: 0.92rem;
+    color: #f0eae0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .auth-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.86rem;
+    color: var(--cream, #f7f1e3);
+  }
+
+  .auth-features-list li i {
+    color: var(--gold, #c9a227);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .auth-testimonial-box {
+    padding: 1.15rem 1.25rem;
+    border-radius: var(--radius-lg, 1.25rem);
+    background: rgba(247, 241, 227, 0.04);
+    border: 1px solid rgba(247, 241, 227, 0.09);
+    margin-top: auto;
+    backdrop-filter: blur(8px);
+  }
+
+  .auth-testimonial-quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--cream);
+    line-height: 1.45;
+    margin-bottom: 0.35rem;
+  }
+
+  .auth-testimonial-author {
+    font-family: var(--font-alt);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin: 0;
+  }
+
+  /* --- Standalone screens ------------------------------------------
+     login.html, signup.html and 404.html carry no navbar, hero or footer,
+     so the card or panel is the whole page. The body becomes a full-height
+     column and the section centres its content with auto block margins:
+     centred while there is room, and collapsing to zero once the content is
+     taller than the viewport, which keeps the top reachable by scroll
+     instead of clipping it above the fold. This padding also replaces
+     .section-padding's tall rhythm, which existed to clear the fixed
+     navbar and the hero - neither of which is on these pages any more. */
+  body.auth-page,
+  body.error-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  body.auth-page .auth-section,
+  body.error-page .error-section {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
+    padding: clamp(1.5rem, 5vh, 3.5rem) 0;
+  }
+
+  body.auth-page .auth-section > .container,
+  body.error-page .error-section > .container {
+    margin-block: auto;
+  }
+
+/* --- Modern Newsletter Section (Above Footer) ------------------ */
+.newsletter-section {
+  position: relative;
+  padding: clamp(4rem, 6vw, 6.5rem) 0;
+  background: radial-gradient(1000px 500px at 50% 0%, rgba(122, 31, 43, 0.28) 0%, var(--charcoal) 100%);
+  border-top: 1px solid rgba(247, 241, 227, 0.1);
+  overflow: hidden;
+}
+
+.newsletter-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(26, 25, 24, 0.9) 0%, rgba(17, 17, 17, 0.96) 100%);
+  border: 1px solid rgba(247, 241, 227, 0.14);
+  border-radius: var(--radius-xl);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  box-shadow: 0 35px 80px -30px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(247, 241, 227, 0.1);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.newsletter-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  opacity: 0.75;
+}
+
+.newsletter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.32);
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.newsletter-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.85);
+  border: 1.5px solid rgba(247, 241, 227, 0.2);
+  border-radius: 999px;
+  padding: 0.35rem 0.4rem 0.35rem 1.25rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-input-group:focus-within {
+  border-color: rgba(201, 162, 39, 0.75);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45), 0 0 0 3px rgba(201, 162, 39, 0.2);
+}
+
+.newsletter-input-icon {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.newsletter-input {
+  border: none !important;
+  background: transparent !important;
+  color: var(--cream) !important;
+  font-size: 0.95rem;
+  padding: 0.75rem 0.5rem;
+  box-shadow: none !important;
+  outline: none !important;
+  flex-grow: 1;
+}
+
+.newsletter-input::placeholder {
+  color: #8b8272;
+}
+
+.newsletter-btn {
+  flex-shrink: 0;
+  border-radius: 999px !important;
+  padding: 0.75rem 1.75rem !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.text-gold {
+  color: var(--gold-light) !important;
+}
+
+@media (max-width: 575.98px) {
+  .newsletter-input-group {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    padding: 0.65rem;
+    gap: 0.6rem;
+  }
+
+  .newsletter-input-icon {
+    display: none;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+    padding: 0.85rem !important;
+  }
+}
+
+  /* Footer */
+.footer-section {
+  background-color: var(--charcoal-deep);
+  background-image:
+    linear-gradient(180deg, rgba(20, 18, 19, 0.70) 0%, rgba(17, 17, 17, 0.86) 100%),
+    url("../img/footer.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(122, 31, 43, 0.6);
+  box-shadow: inset 0 1px 0 rgba(201, 162, 39, 0.18);
+}
+
+.footer-section hr {
+  border-color: rgba(201, 162, 39, 0.22) !important;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a,
+.footer-legal a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-legal a:hover {
+  color: var(--gold);
+}
+
+.footer-legal .list-inline-item + .list-inline-item::before {
+  content: "•";
+  margin: 0 0.5rem 0 0.25rem;
+  color: rgba(247, 241, 227, 0.35);
+}
+
+/* Five-column footer grid.
+   Tracks are content-proportioned, not equal: at >=1400px the container gives
+   1168px after gutters, and the measured one-line needs are brand ~306 (36ch
+   cap), Quick Links ~90, Explore 166, Contact 230 (186 text + 44 icon), Hours
+   205. Equal tracks (189px each) made the email and the hours rows wrap, so the
+   widths below are sized to what each column actually has to hold. Gutters stay
+   uniform, which is what reads as "evenly spaced". */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 0.75fr 0.95fr 1.25fr 1.2fr;
+  gap: 2.75rem 2rem;
+  align-items: start;
+}
+
+.footer-col {
+  min-width: 0;
+}
+
+.footer-heading {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.01em;
+  margin: 0 0 1.25rem;
+}
+
+.footer-logo {
+  margin-bottom: 1.25rem;
+  line-height: 0;
+}
+
+.footer-about {
+  color: rgba(247, 241, 227, 0.75);
+  margin: 0 0 1.5rem;
+  max-width: 36ch;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-contact {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-contact-icon {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--gold);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.footer-contact a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding-top: 0.35rem;
+}
+
+.footer-contact a:hover {
+  color: var(--gold);
+}
+
+.footer-hours-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-hours-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--cream-dim);
+}
+
+.footer-hours-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-hours-day {
+  white-space: nowrap;
+}
+
+.footer-hours-time {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 1399.98px) {
+  /* five columns no longer fit: 3 + 3, brand spanning two of the three so both
+     rows come out completely full instead of leaving a hole */
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+
+  .footer-col-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Below the sm breakpoint a Bootstrap .container only supplies 12px of inline
+   padding, but .row.g-5 sets --bs-gutter-x: 3rem, which pulls the row 24px past
+   the container edge on each side. The 12px the padding absorbs is not enough,
+   so the row overhangs the viewport and the whole document scrolls sideways on
+   phones. Cap the horizontal gutter on small screens only: --bs-gutter-y is
+   left alone, so the generous 3rem vertical rhythm of g-5 is preserved, and
+   from 576px up the container padding is wide enough to absorb the margin
+   again, so desktop spacing is untouched. */
+@media (max-width: 575.98px) {
+  .row.g-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+
+  .footer-col-brand {
+    grid-column: span 1;
+  }
+
+  .footer-heading {
+    margin-bottom: 1rem;
+  }
+
+  .footer-hours-list li {
+    margin-bottom: 0.65rem;
+  }
+}
+
+/* Toast */
+.toast {
+  background: rgba(17, 17, 17, 0.96);
+  color: var(--cream);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: calc(var(--radius-lg) - 0.25rem);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: var(--shadow-xl);
+}
+
+.toast-header {
+  background: transparent;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(247, 241, 227, 0.12);
+}
+
+.toast .btn-close {
+  filter: invert(1) grayscale(1) brightness(2);
+}
+
+/* =============================================================
+   Warm Cream surface refinements
+   ============================================================= */
+
+/* Burgundy-to-gold flourish under the cream section headings.
+   Scoped to centred headings only — a left-aligned column heading
+   centres its own body copy, so the rule follows that alignment
+   instead of floating away from the text. */
+.section-alt .text-center h2::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 2px;
+  margin: 1.25rem auto 0;
+  background: linear-gradient(90deg, var(--burgundy) 0%, var(--gold) 100%);
+}
+
+.section-alt h2:not(.text-center)::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 2px;
+  margin: 1.25rem 0 0;
+  background: linear-gradient(90deg, var(--burgundy) 0%, var(--gold) 100%);
+}
+
+.section-alt .special-card-img,
+.section-alt .chef-card-img {
+  border-bottom: 1px solid var(--card-border);
+}
+
+.section-alt .menu-card {
+  background: var(--surface-strong);
+}
+
+.section-alt .btn-primary {
+  box-shadow: 0 24px 50px -32px rgba(122, 31, 43, 0.7);
+}
+
+.section-alt .btn-outline-light {
+  border-color: rgba(17, 17, 17, 0.35);
+  color: var(--charcoal);
+}
+
+.section-alt .btn-outline-light:hover,
+.section-alt .btn-outline-light:focus {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--cream);
+}
+
+.section-alt .social-icon:hover {
+  color: var(--cream);
+}
+
+/* Cream-section gold is reserved for borders and rules only (2.1:1 on cream),
+   so any gold type on the light surface is promoted to burgundy. */
+.section-alt .stars,
+.section-alt .quote-icon {
+  color: var(--burgundy);
+}
+
+/* =============================================================
+   Shared page furniture
+   Every sub-page opens with .page-hero and closes with .cta-band
+   so the vertical rhythm and padding stay identical sitewide.
+   These blocks are token-driven (--surface, --card-bg, --text-*)
+   rather than hard-coded, so they re-theme automatically when
+   they are dropped inside the cream .section-alt surface.
+   ============================================================= */
+
+/* --- Section heading ------------------------------------------- */
+.section-heading {
+  max-width: 46rem;
+}
+
+.text-center .section-heading {
+  margin-inline: auto;
+}
+
+.section-heading .eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* Balanced wrapping stops orphaned words in the Playfair headings */
+h1,
+h2,
+h3,
+.display-1,
+.display-4,
+.display-5,
+.display-6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* --- Page hero (sub-page banner) ------------------------------- */
+.page-hero {
+  position: relative;
+  min-height: clamp(24rem, 58vh, 32rem);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0.75) 0%, rgba(10, 10, 10, 0.52) 40%, rgba(10, 10, 10, 0.86) 100%),
+    radial-gradient(1000px 650px at 15% 30%, rgba(122, 31, 43, 0.38) 0%, rgba(10, 10, 10, 0.70) 75%);
+  z-index: 1;
+}
+
+.page-hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3C/g%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: clamp(7.5rem, 17vh, 10.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 6px 20px rgba(0, 0, 0, 0.8), 0 12px 35px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.75rem;
+}
+
+.page-hero .eyebrow {
+  color: #f7d77c !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.85);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+}
+
+.page-hero .lead,
+.page-hero .text-white-75 {
+  color: #f8f4ec !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 3px 14px rgba(0, 0, 0, 0.75);
+  font-weight: 400;
+  max-width: 58ch;
+  font-size: clamp(1.05rem, 1.8vw, 1.24rem);
+  line-height: 1.7;
+}
+
+/* --- Breadcrumb ----------------------------------------------- */
+.breadcrumb-custom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-alt);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.breadcrumb-custom li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+}
+
+.breadcrumb-custom li + li::before {
+  content: "/";
+  color: #f3d47a;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.breadcrumb-custom a {
+  color: #f7d77c;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.breadcrumb-custom a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(247, 215, 124, 0.85);
+}
+
+.breadcrumb-custom [aria-current="page"] {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+/* --- 404 page ----------------------------------------------------
+   One centred column - the wordmark, the numeral, the way back - over a
+   slowly drifting backdrop.
+
+   Performance notes, because this page animates continuously:
+   - the two backdrop orbs only ever change transform/opacity, so they stay
+     on the compositor and never trigger layout or paint;
+   - they are pre-graded radial gradients rather than blurred boxes, which
+     keeps filter: blur() (a per-frame repaint of a huge surface) off the page;
+   - the grain is the same inline SVG the page hero already uses;
+   - everything stops under prefers-reduced-motion. */
+.error-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #111111;
+  background-image: url("../img/error.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.error-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.error-bg-orb-gold {
+  width: 46rem;
+  height: 46rem;
+  top: -15rem;
+  right: -13rem;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0) 68%);
+  animation: error-drift-gold 28s ease-in-out infinite;
+}
+
+.error-bg-orb-wine {
+  width: 54rem;
+  height: 54rem;
+  bottom: -22rem;
+  left: -18rem;
+  background: radial-gradient(circle, rgba(122, 31, 43, 0.32) 0%, rgba(122, 31, 43, 0) 68%);
+  animation: error-drift-wine 34s ease-in-out infinite;
+}
+
+.error-bg-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3C/g%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.error-bg-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(125% 95% at 50% 42%, rgba(17, 17, 17, 0.30) 0%, rgba(17, 17, 17, 0.85) 100%),
+    linear-gradient(180deg, rgba(17, 17, 17, 0.45) 0%, rgba(17, 17, 17, 0.45) 100%);
+}
+
+@keyframes error-drift-gold {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-3.5rem, 2.75rem, 0) scale(1.09);
+  }
+}
+
+@keyframes error-drift-wine {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  50% {
+    transform: translate3d(3.75rem, -2.25rem, 0) scale(1);
+  }
+}
+
+/* --- 404 content ------------------------------------------------ */
+.error-section {
+  position: relative;
+  z-index: 1;
+}
+
+.error-panel {
+  max-width: 34rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.error-logo {
+  display: inline-block;
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.error-logo img {
+  height: clamp(2.75rem, 8vw, 4rem);
+  width: auto;
+}
+
+/* Solid gold, deliberately NOT a background-clipped gradient. Clipping a
+   gradient into glyphs also means making the text itself transparent, so the
+   numeral's entire visibility rests on that one background painting correctly -
+   lose it and there is nothing left to read. A real colour plus a static glow
+   keeps the same depth, cannot fail that way, stays selectable, and clears AA
+   against the backdrop. The glow is static text-shadow, so it costs one paint
+   rather than one per frame. */
+.error-code {
+  font-family: var(--font-heading);
+  font-size: clamp(5.5rem, 18vw, 11rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-shadow: 0 0 clamp(1.25rem, 3.5vw, 2.75rem) rgba(201, 162, 39, 0.28);
+  margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+/* Characters are split by script so each can rise on its own; inline-block
+   is what gives them a transform box to animate inside. */
+.error-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* No background-clip gradient on the numeral, and no transparent text either.
+   Clipping a gradient into glyphs requires making the text itself transparent,
+   so the numeral's whole visibility rests on that one background painting. A
+   solid gold fill plus a static glow reads just as rich and cannot fail that
+   way. */
+
+.error-rule {
+  display: block;
+  width: 4.5rem;
+  height: 1px;
+  margin: 0 auto clamp(1.25rem, 3vw, 1.75rem);
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0) 0%, var(--gold) 50%, rgba(201, 162, 39, 0) 100%);
+}
+
+.error-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 0.75rem;
+}
+
+.error-text {
+  color: #e5ded0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.875rem;
+}
+
+/* --- Button micro-interactions -----------------------------------
+   Hover transform is owned by GSAP, so CSS deliberately animates only the
+   sheen, the shadow and the border - never transform, which the two
+   systems would otherwise fight over. */
+.error-btn {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.error-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.error-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(105deg,
+      rgba(247, 241, 227, 0) 32%,
+      rgba(247, 241, 227, 0.32) 50%,
+      rgba(247, 241, 227, 0) 68%);
+  transform: translateX(-130%);
+  transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.error-btn:hover::after,
+.error-btn:focus-visible::after {
+  transform: translateX(130%);
+}
+
+.error-btn:hover,
+.error-btn:focus-visible {
+  box-shadow: 0 18px 40px -22px rgba(201, 162, 39, 0.75);
+  border-color: rgba(201, 162, 39, 0.65);
+}
+
+/* The stylesheet never hides the entrance-animation targets. They are only
+   ever faded out by script, immediately before GSAP is asked to fade them back
+   in, and script hands them straight back to these rules afterwards. If the
+   CDN is blocked, the tab is backgrounded so requestAnimationFrame never fires,
+   or GSAP throws mid-timeline, the result is a page with no animation - never
+   a blank one. */
+@media (prefers-reduced-motion: reduce) {
+  .error-bg-orb {
+    animation: none;
+  }
+
+  .error-char {
+    will-change: auto;
+  }
+
+  .error-btn,
+  .error-btn::after {
+    transition: none;
+  }
+
+  .error-btn::after {
+    display: none;
+  }
+}
+
+/* --- CTA band -------------------------------------------------- */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  background: linear-gradient(135deg, var(--burgundy-deep) 0%, var(--burgundy) 45%, var(--burgundy-mid) 100%);
+  border-top: 1px solid rgba(201, 162, 39, 0.35);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.cta-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/hero-bg.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.cta-band .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band .btn-outline-light {
+  border-color: rgba(247, 241, 227, 0.6);
+  color: var(--cream);
+}
+
+/* --- Timeline --------------------------------------------------- */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 0.5rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(201, 162, 39, 0) 0%, rgba(201, 162, 39, 0.6) 12%, rgba(201, 162, 39, 0.6) 88%, rgba(201, 162, 39, 0) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.75rem;
+  padding-bottom: 2.25rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: var(--charcoal);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 5px rgba(201, 162, 39, 0.14);
+}
+
+.section-alt .timeline-dot {
+  background: var(--cream);
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-text);
+  margin-bottom: 0.25rem;
+}
+
+/* --- Accordion (FAQ / policies) --------------------------------- */
+.accordion-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.accordion-item + .accordion-item {
+  margin-top: 0.85rem;
+}
+
+.accordion-button {
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  padding: 1.15rem 1.4rem;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--surface);
+  color: var(--accent-text);
+  box-shadow: none !important;
+}
+
+/* Replace Bootstrap's chevron SVG with a token-coloured glyph */
+.accordion-button::after {
+  background-image: none;
+  content: "+";
+  width: auto;
+  height: auto;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--accent-text);
+  text-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  content: "\2212";
+}
+
+.accordion-body {
+  color: var(--text-secondary);
+  padding: 0 1.4rem 1.4rem;
+}
+
+/* --- Info cards -------------------------------------------------- */
+.info-card {
+  height: 100%;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+}
+
+.info-card-icon {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  background: rgba(122, 31, 43, 0.2);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.section-alt .info-card-icon {
+  color: var(--burgundy);
+  background: rgba(122, 31, 43, 0.08);
+}
+
+/* Card / item title — used wherever a heading sits under a section h2.
+   Always paired with a Bootstrap size utility (fs-4/fs-5/fs-6) so the
+   rendered size matches the level it replaced. */
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.info-card a {
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+
+/* Hairline divider that follows the surface tokens, so it stays visible on
+   both the charcoal panels and the cream sections. */
+.hairline {
+  border-top: 1px solid var(--border-color);
+  opacity: 1;
+}
+
+/* --- Meta list (hours, service times) ---------------------------- */
+.meta-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meta-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.75rem;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.95rem;
+}
+
+.meta-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* --- Pills ------------------------------------------------------- */
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* --- Stat band typography ---------------------------------------- */
+.stat-card {
+  height: 100%;
+  padding: clamp(1.5rem, 2.5vw, 2rem) 1.25rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+  color: var(--gold-light);
+}
+
+.stat-label {
+  margin-top: 0.65rem;
+  font-family: var(--font-alt);
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(247, 241, 227, 0.72);
+}
+
+/* --- Media frame -------------------------------------------------- */
+.media-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(201, 162, 39, 0.24);
+}
+
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.section-alt .media-frame {
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(122, 31, 43, 0.18);
+}
+
+/* The map embed fills the frame the way a photo does. An explicit aspect
+   ratio is required here — a bare height:100% against an auto-height parent
+   falls back to the iframe's 150px default. */
+.media-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 20rem;
+  border: 0;
+}
+
+/* --- Pull quote ---------------------------------------------------- */
+.pull-quote {
+  border-left: 2px solid var(--gold);
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+/* --- Section spacing helpers --------------------------------------- */
+.section-heading-tight {
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.divider-rule {
+  width: 4.5rem;
+  height: 2px;
+  margin: 1.25rem 0 0;
+  background: linear-gradient(90deg, var(--burgundy) 0%, var(--gold) 100%);
+}
+
+.text-start .divider-rule {
+  margin-inline: 0 auto;
+}
+
+/* --- Responsive polish ---------------------------------------------- */
+@media (max-width: 991.98px) {
+  .page-hero {
+    min-height: clamp(21rem, 52vh, 26rem);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .image-overlay {
+    width: clamp(120px, 38vw, 180px);
+    border-width: 6px;
+  }
+
+  .filter-buttons {
+    width: 100%;
+  }
+
+  .filter-buttons .btn-filter {
+    flex: 1 1 auto;
+    padding-inline: 0.85rem;
+  }
+
+  .cta-band .btn {
+    width: 100%;
+  }
+
+  .accordion-button {
+    font-size: 1rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .accordion-body {
+    padding: 0 1.1rem 1.1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .menu-card-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .timeline-item {
+    padding-left: 2.25rem;
+  }
+
+  .meta-list li {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+
+/* ============================================================
+   Contact page specialized components
+   ============================================================ */
+
+/* --- Live indicator & Status banner --- */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(46, 125, 50, 0.18);
+  border: 1px solid rgba(76, 175, 80, 0.38);
+  color: #9be0b0;
+}
+
+.live-indicator-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  box-shadow: 0 0 10px #4caf50;
+  animation: livePulse 2s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+    box-shadow: 0 0 4px rgba(76, 175, 80, 0.3);
+  }
+}
+
+.status-banner {
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(26, 25, 24, 0.96), rgba(17, 17, 17, 0.98));
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+}
+
+.status-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.status-callout-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+}
+
+/* --- Department Directory --- */
+.dept-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease;
+}
+
+.dept-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-hover-border);
+}
+
+.dept-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.dept-sla {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+/* --- Etiquette Cards --- */
+.etiquette-card {
+  height: 100%;
+  padding: clamp(1.5rem, 2.5vw, 2.2rem);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.etiquette-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(122, 31, 43, 0.35);
+  box-shadow: 0 20px 40px rgba(122, 31, 43, 0.08);
+}
+
+.etiquette-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--burgundy);
+  background: rgba(122, 31, 43, 0.08);
+  border: 1px solid rgba(122, 31, 43, 0.2);
+}
+
+/* --- Quick Jump Navigation Bar --- */
+.page-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.page-subnav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-family: var(--font-alt);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: rgba(14, 13, 12, 0.7);
+  border: 1.5px solid rgba(247, 241, 227, 0.38);
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.page-subnav-link i {
+  color: #f7d77c;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.page-subnav-link:hover {
+  color: #111111;
+  background: #f7d77c;
+  border-color: #f7d77c;
+  text-shadow: none;
+  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+  transform: translateY(-2px);
+}
+
+.page-subnav-link:hover i {
+  color: #111111;
+  transform: translateX(2px);
+}
+
+/* =============================================================
+   Card outline — a slow conic "sheen" that travels around the
+   perimeter of every card. The gradient is masked down to a hairline
+   ring (content-box XOR border-box) so it reads as an outline rather
+   than a fill, and it sits inside the card box so cards with
+   overflow:hidden clip it to their own rounded shape. Animating a
+   registered <angle> keeps the sweep perfectly smooth.
+   ============================================================= */
+@property --card-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.feature-card,
+.stat-card,
+.special-card,
+.menu-card,
+.chef-card,
+.brigade-card,
+.dish-card,
+.guest-card,
+.tile-card,
+.testimonial-card,
+.newsletter-card,
+.info-card,
+.dept-card,
+.etiquette-card,
+.auth-card,
+.auth-branding-card,
+.role-card-label,
+.dash-card,
+.dash-review-card,
+.favorite-dish-card,
+.dash-menu-card {
+  position: relative;
+}
+
+.feature-card::after,
+.stat-card::after,
+.special-card::after,
+.menu-card::after,
+.chef-card::after,
+.brigade-card::after,
+.dish-card::after,
+.guest-card::after,
+.tile-card::after,
+.testimonial-card::after,
+.newsletter-card::after,
+.info-card::after,
+.dept-card::after,
+.etiquette-card::after,
+.auth-card::after,
+.auth-branding-card::after,
+.role-card-label::after,
+.dash-card::after,
+.dash-review-card::after,
+.favorite-dish-card::after,
+.dash-menu-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  /* Static fallback for engines without @property (var() resolves to
+     nothing, the declaration is dropped, this earlier one stays). */
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      transparent 210deg,
+      rgba(201, 162, 39, 0.15) 270deg,
+      rgba(201, 162, 39, 0.55) 310deg,
+      var(--gold-light, #e3c766) 335deg,
+      rgba(247, 241, 227, 0.95) 348deg,
+      var(--gold, #c9a227) 355deg,
+      transparent 360deg);
+  background: conic-gradient(from var(--card-angle),
+      transparent 0deg,
+      transparent 210deg,
+      rgba(201, 162, 39, 0.15) 270deg,
+      rgba(201, 162, 39, 0.55) 310deg,
+      var(--gold-light, #e3c766) 335deg,
+      rgba(247, 241, 227, 0.95) 348deg,
+      var(--gold, #c9a227) 355deg,
+      transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: card-outline-rotate 7s linear infinite;
+}
+
+@keyframes card-outline-rotate {
+  from {
+    --card-angle: 0deg;
+  }
+
+  to {
+    --card-angle: 360deg;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-bg {
+    transform: none !important;
+  }
+
+  .reveal,
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .wheel {
+    animation: none !important;
+  }
+}
